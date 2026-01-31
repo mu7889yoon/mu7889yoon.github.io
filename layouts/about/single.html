@@ -1,0 +1,38 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</article>
+
+<div id="nfc-scan-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-align: center; font-size: 0.9rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); z-index: 9999;">
+  <span id="nfc-scan-text"></span>
+  <button onclick="this.parentElement.style.display='none'" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; padding: 4px 8px;">×</button>
+</div>
+
+<script>
+(function() {
+  if (sessionStorage.getItem('from_nfc') !== 'true') return;
+  sessionStorage.removeItem('from_nfc');
+  
+  const STORAGE_KEY = 'scan_history';
+  const bannerEl = document.getElementById('nfc-scan-banner');
+  const textEl = document.getElementById('nfc-scan-text');
+  
+  const data = localStorage.getItem(STORAGE_KEY);
+  if (!data) return;
+  
+  const history = JSON.parse(data);
+  if (history.count <= 1) return;
+  
+  const date = new Date(history.lastScan);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  
+  textEl.textContent = `📱 ${year}年${month}月${day}日 ${hours}:${minutes} にスキャン済みです（累計: ${history.count}回）`;
+  bannerEl.style.display = 'block';
+})();
+</script>
+{{ end }}

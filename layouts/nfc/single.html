@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting...</title>
+  <script>
+    (function() {
+      const STORAGE_KEY = 'scan_history';
+      const now = new Date().toISOString();
+      const data = localStorage.getItem(STORAGE_KEY);
+      const history = data ? JSON.parse(data) : { firstScan: now, lastScan: now, count: 0 };
+      
+      history.lastScan = now;
+      history.count += 1;
+      
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+      sessionStorage.setItem('from_nfc', 'true');
+      window.location.replace('/about/');
+    })();
+  </script>
+</head>
+<body>
+  <p>リダイレクト中...</p>
+</body>
+</html>
