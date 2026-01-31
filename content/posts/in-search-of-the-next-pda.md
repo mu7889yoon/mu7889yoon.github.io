@@ -1,5 +1,5 @@
 +++
-date = '2026-01-31T16:52:05+09:00'
+date = '2026-01-30T16:52:05+09:00'
 draft = false
 tags = ['tech', 'poem', 'gtd', 'omnifocus', 'obsidian',]
 description = 'OmniFocusからObsidianへの移行を経て、著者が見つけた信頼できるシステム構築の旅と、その選択に至った経緯について書きます'
