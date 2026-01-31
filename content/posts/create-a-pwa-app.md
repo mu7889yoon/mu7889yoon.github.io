@@ -1,7 +1,7 @@
 +++
 date = '2026-01-25T02:37:15+09:00'
 draft = false
-tags = ['tech', 'htmx', 'pwa', 'cdk']
+tags = ['tech', 'htmx', 'pwa', 'cdk','catch-up-2025-2026-vacation']
 description = 'PWAとは何か、そして開発事例と課題を交えながら、イベントでの活用を目指すプロセスを解説します'
 title = 'お手軽にPWAでアプリを作る'
 +++
