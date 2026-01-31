@@ -20,7 +20,7 @@ JAWS-UGなどのハンズオンで何度かこのLaunch Stackボタンにお世�
 
 | Launch Stackボタン | Region |
 | :-: | :-: |
-|[![Cloudformation Launch Stack button](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://ap-northeast-3.console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/quickcreate?stackName=SampleStack&templateURL=https://publicbucketa6745c15-n3bqc2binchm.s3.ap-northeast-1.amazonaws.com/LambdaSample.json) | ap-northeast-3(大阪) | 
+|[![Cloudformation Launch Stack button](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://ap-northeast-3.console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/quickcreate?stackName=SampleStack&templateURL=https://publicbucketa6745c15-n3bqc2binchm.s3.ap-northeast-1.amazonaws.com/LambdaSample.json) | ap-northeast-3(大阪) |
 |[![Cloudformation Launch Stack button](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://ap-northeast-1.console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/quickcreate?stackName=SampleStack&templateURL=https://publicbucketa6745c15-n3bqc2binchm.s3.ap-northeast-1.amazonaws.com/LambdaSample.json) | ap-northeast-1(東京) |
 |[![Cloudformation Launch Stack button](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?stackName=SampleStack&templateURL=https://publicbucketa6745c15-n3bqc2binchm.s3.ap-northeast-1.amazonaws.com/LambdaSample.json) | us-east-1(バージニア北部) |
 
@@ -38,4 +38,3 @@ echo "https://${AWS_REGION}.console.aws.amazon.com/cloudformation/home?region=${
 
 [buildkite
 cloudformation-launch-stack-button-svg](https://github.com/buildkite/cloudformation-launch-stack-button-svg)
-

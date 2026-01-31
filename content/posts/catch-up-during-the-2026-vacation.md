@@ -14,15 +14,16 @@ title = 'キャッチアップしていきたい技術たち(2025→2026年末�
 アウトプットしていったものは、リンクを載せていきます。
 
 # 年末年始で触ってみたい技術など
+
 - htmx
   - [htmxとServer Sent Eventsを使ってカウンターを作る](/posts/creating-a-counter-with-htmx-and-server-sent-events/)
 - Bedrock Reinforcement Fine-tuning
   - [Amazon Bedrock Reinforcement Fine-tuningを試してみた](https://www.seeds-std.co.jp/blog/creators/try-reinforcement-fine-tuning/)
 - Aurora DSQL
-    - TiDBとの比較もしたい
+  - TiDBとの比較もしたい
 - wasm
-    - edge系の世界に触れたい
-      - [ブラウザだけで完結する自作ツール5つの紹介](/posts/created-5-tools-that-run-only-browser/)
+  - edge系の世界に触れたい
+    - [ブラウザだけで完結する自作ツール5つの紹介](/posts/created-5-tools-that-run-only-browser/)
 - hono
   - [Honoでカウンターのバックエンドを作る](/posts/creating-the-backend-of-the-counter-with-hono)
 - ご家庭FaaS
@@ -30,7 +31,7 @@ title = 'キャッチアップしていきたい技術たち(2025→2026年末�
 - stlite
   - 5個機能作る
     - [ブラウザだけで完結する自作ツール5つの紹介](/posts/created-5-tools-that-run-only-browser/)
-- kintone 
+- kintone
 - pwa
   - github pagesで作りたい
     - [お手軽にPWAでアプリを作る](/posts/create-a-pwa-app/)

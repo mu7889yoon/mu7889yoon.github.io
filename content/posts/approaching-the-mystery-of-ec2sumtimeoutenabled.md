@@ -7,7 +7,6 @@ title = 'ec2SumTImeoutEnabledの謎に迫る'
 +++
 よ〜んです。
 
-
 > 本記事の内容は、[JAWS-UG大阪2025 忘年勉強会 FSF](https://jawsugosaka.connpass.com/event/374553/)で発表した[AWSあるある](https://speakerdeck.com/mu7889yoon/jaws-ugda-ban-wang-nian-mian-qiang-hui-fsf-awsaruaru)にて10個発表したうちの8個目について掘り下げていきます。
 
 現在(2026/01/23)、aws-cdkには、642個のバージョンがあります。
@@ -15,7 +14,6 @@ title = 'ec2SumTImeoutEnabledの謎に迫る'
 ![](/images/019beadd-122d-7d66-9aaa-cc01a9855e3c.png)
 
 [aws-cdk - npm](https://www.npmjs.com/package/aws-cdk/v/0.8.0?activeTab=versions)
-
 
 ## 今回やること
 
@@ -59,6 +57,7 @@ npx aws-cdk@0.8.0 init -l typescript
 では、`cdk.json`を見てみましょう
 
 #### cdk.json
+
 ```json
 {
     "app": "node bin/v0.8.0.js"
@@ -76,6 +75,7 @@ npx aws-cdk@2.1102.0 init -l ts
 ```
 
 #### cdk.json
+
 ```json
     "@aws-cdk/aws-ecs:reduceEc2FargateCloudWatchPermissions": true,
     "@aws-cdk/aws-dynamodb:resourcePolicyPerReplica": true,
@@ -89,11 +89,13 @@ npx aws-cdk@2.1102.0 init -l ts
 では、320番目のバージョンを見てみます。
 
 ### 2.0.0-rc.21 - 3回目の試行
+
 ```sh
 npx aws-cdk@2.0.0-rc.21 init -l typescript
 ```
 
 #### cdk.json
+
 ```json
 {
   "app": "npx ts-node --prefer-ts-exts bin/v2.0.0-rc.21.ts",
@@ -106,6 +108,7 @@ npx aws-cdk@2.0.0-rc.21 init -l typescript
   }
 }
 ```
+
 `ec2SumTImeoutEnabled`はありませんが、`context`に設定されている値がまだまだ少ないですね
 
 では480番目のやつを見ます。
@@ -117,6 +120,7 @@ npx aws-cdk@2.108.0 init -l typescript
 ```
 
 #### cdk.json
+
 `ec2SumTImeoutEnabled`はありませんでしたが、`context`で設定されている値は結構増えました。
 
 では、560番目を見てみます
@@ -128,6 +132,7 @@ npx aws-cdk@2.167.0 init -l typescript
 ```
 
 #### cdk.json
+
 ```json
     "@aws-cdk/aws-ecs:reduceEc2FargateCloudWatchPermissions": true,
     "@aws-cdk/aws-dynamodb:resourcePolicyPerReplica": true,
@@ -135,6 +140,7 @@ npx aws-cdk@2.167.0 init -l typescript
     "@aws-cdk/aws-appsync:appSyncGraphQLAPIScopeLambdaPermission": true,
     "@aws-cdk/aws-rds:setCorrectValueForDatabaseInstanceReadReplicaInstanceResourceId": true,
 ```
+
 `ec2SumTImeoutEnabled`がありました！次は少し戻って520番目を確認してみます！
 
 ### 2.140.0 -　 6回目の試行
@@ -144,6 +150,7 @@ npx aws-cdk@2.140.0 init -l typescript
 ```
 
 ### cdk.json
+
 `ec2SumTImeoutEnabled`はありませんでした、次は中間地点の540番目を確認します。
 
 ### 2.153.0 -　7回目の試行
@@ -153,6 +160,7 @@ npx aws-cdk@2.153.0 init -l typescript
 ```
 
 #### cdk.json
+
 `ec2SumTImeoutEnabled`はありませんでした。次は550番目を見ます。
 
 ### 2.161.0 - 8回目の試行
@@ -162,6 +170,7 @@ npx aws-cdk@2.161.0 init -l typescript
 ```
 
 #### cdk.json
+
 ```json
     "@aws-cdk/aws-s3:keepNotificationInImportedBucket": false,
     "@aws-cdk/aws-ecs:reduceEc2FargateCloudWatchPermissions": true,
@@ -179,6 +188,7 @@ npx aws-cdk@2.157.0 init -l typescript
 ```
 
 #### cdk.json
+
 `ec2SumTImeoutEnabled`は無かったですが、かなり絞られてきました。547番目を見ます。
 
 ### 2.159.0 - 10回目の試行
@@ -188,6 +198,7 @@ npx aws-cdk@2.159.0 init -l typescript
 ```
 
 #### cdk.json
+
 `ec2SumTImeoutEnabled`はありません。548番目を見ます。
 
 ### 2.159.1 - 11回目の試行
@@ -197,6 +208,7 @@ npx aws-cdk@2.159.1 init -l typescript
 ```
 
 #### cdk.json
+
 `ec2SumTImeoutEnabled`ありません。549番目にいきます。
 
 ### 2.160.0 - 12回目の試行
@@ -206,6 +218,7 @@ npx aws-cdk@2.160.0 init -l typescript
 ```
 
 #### cdk.json
+
 ```json
     "@aws-cdk/aws-s3:keepNotificationInImportedBucket": false,
     "@aws-cdk/aws-ecs:reduceEc2FargateCloudWatchPermissions": true,

@@ -90,6 +90,7 @@ Terraformのコードが生成されましたが、ところどころ解決で�
 どうやらCloudFormationの組み込み関数[Fn\:\:GetAZs](https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-getavailabilityzones.html)をいい感じに処理できないようです。
 
 他にも
+
 - `AWS::ElasticLoadBalancingV2::LoadBalancer` → `aws_elasticsearch_domain_policy`
 - `AWS::EC2::VPCGatewayAttachment` → `aws_vpn_gateway_attachment`
 

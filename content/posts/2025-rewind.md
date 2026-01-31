@@ -34,7 +34,7 @@ title = '2025年の振り返り'
 ## 2025年1月
 
 - re:Invent 振り返り&LT大会 at AWS大阪オフィス
-  - 2025年初登壇    
+  - 2025年初登壇
 - [JAWS-UG大阪 re:Invent re:Cap LT大会 サンバが始まったら強制終了](https://jawsugosaka.connpass.com/event/338500/)に参加
   - タイトルに惹かれて参加してみた
     - re:Inventに行ったのに全然アウトプットできてないことを反省
@@ -80,17 +80,18 @@ title = '2025年の振り返り'
     - [AWS Inferentiaに入門して 徳得を積む](https://speakerdeck.com/mu7889yoon/aws-inferentianiru-men-site-de-de-woji-mu)
   - 懇親会で燃える
 - [AWS CDK Conference Japan 2025](https://jawsug-cdk.connpass.com/event/356357/)に参加
-  - CDK Vibe Coding Fesで入賞するが、入賞したことを品川通り過ぎたぐらいに知る    
+  - CDK Vibe Coding Fesで入賞するが、入賞したことを品川通り過ぎたぐらいに知る
     - <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">え！？！？！？<br><br>次の予定のため出たことをめちゃくちゃ後悔………<a href="https://twitter.com/hashtag/cdkvibecodingfes?src=hash&amp;ref_src=twsrc%5Etfw">#cdkvibecodingfes</a> <a href="https://twitter.com/hashtag/cdkconf2025?src=hash&amp;ref_src=twsrc%5Etfw">#cdkconf2025</a> <a href="https://t.co/WxS2rxg7rf">pic.twitter.com/WxS2rxg7rf</a></p>&mdash; よ〜ん (@Tesla_yoon) <a href="https://twitter.com/Tesla_yoon/status/1944036821437960563?ref_src=twsrc%5Etfw">July 12, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 - [PHPカンファレンス関西](https://2025.kphpug.jp/)に参加
 - 関西ジュニチャンと初会合
   - 関西でジュニチャンの活動したくね？で**中之島会**の立ち上げを開始
 
 ## 2025年8月
+
 - [AWS Community Builders Kansai 目指せ！Amazon Q & KIRO マスターへの道](https://kansai-cbs.connpass.com/event/362381/)に参加 & バイブ登壇
   - ここで一気に知り合いが増えた。
     - <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">続いてのLTはJr.Championの<a href="https://twitter.com/mu7889yoon?ref_src=twsrc%5Etfw">@mu7889yoon</a> さんです！<br>スマホ広告やテレビでよく見るゲームを作ってみたとのことです笑<br><br>ゲーム〜真面目なアプリ実装をしてくれる最高の相棒ですね！<br>これからもQと㌔の統合を追っていってほしいです！<a href="https://twitter.com/hashtag/AWS?src=hash&amp;ref_src=twsrc%5Etfw">#AWS</a> <a href="https://twitter.com/hashtag/AWSCommunityBuilders?src=hash&amp;ref_src=twsrc%5Etfw">#AWSCommunityBuilders</a> <a href="https://t.co/X395dVUCBo">pic.twitter.com/X395dVUCBo</a></p>&mdash; 🍎Yuki Ogawa🍎 (@_YukiOgawa) <a href="https://twitter.com/_YukiOgawa/status/1953420330888024250?ref_src=twsrc%5Etfw">August 7, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-- [SoundRampage 5周年](https://soundrampage.com/) 
+- [SoundRampage 5周年](https://soundrampage.com/)
   - 2025年4月から2026年6月の間お休みしていますが、周年ということで参加してきました
     - 久しぶりの参加なのに暖かく迎え入れてくれるクルーに感謝
     - <blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/%E9%9F%B3%E6%9A%B4?src=hash&amp;ref_src=twsrc%5Etfw">#音暴</a><br>5周年おめでとう㊗️ <a href="https://t.co/tELlYPEkR2">pic.twitter.com/tELlYPEkR2</a></p>&mdash; moja (@moja017) <a href="https://twitter.com/moja017/status/1956949460233117829?ref_src=twsrc%5Etfw">August 17, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -101,7 +102,6 @@ title = '2025年の振り返り'
   - LT枠は一瞬で埋まり、参加者は40人ほどとなった。
     - <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">わいわい<a href="https://twitter.com/hashtag/aws_meetup_kansai?src=hash&amp;ref_src=twsrc%5Etfw">#aws_meetup_kansai</a> <a href="https://twitter.com/hashtag/aws_jr_champions?src=hash&amp;ref_src=twsrc%5Etfw">#aws_jr_champions</a> <a href="https://t.co/eD2s6ytB8V">pic.twitter.com/eD2s6ytB8V</a></p>&mdash; 🍎Yuki Ogawa🍎 (@_YukiOgawa) <a href="https://twitter.com/_YukiOgawa/status/1958833885657063769?ref_src=twsrc%5Etfw">August 22, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   
-
 ## 2025年9月
 
 - [JAWS-UG CDK支部 大阪でもCDKしたいねん](https://jawsug-cdk.connpass.com/event/365121/)で登壇
@@ -120,10 +120,10 @@ title = '2025年の振り返り'
 - 会社ブログを執筆した
   - [ECS Managed Instancesで同一インスタンスにGPUを利用するタスクを複数デプロイできるか検証 （結論 できない）](https://www.seeds-std.co.jp/blog/creators/ecs-managed-instance-gpu-task/)
 - 中之島会 第2回を開催
-  - 大阪ラストゆっきーとなった。    
+  - 大阪ラストゆっきーとなった。
 - [JAWS FESTA 2025](https://jawsfesta2025.jaws-ug.jp/)に参加
 - [KyotoLT 第33回 (テーマはスキマAI)](https://kyotolt.connpass.com/event/368877/)を開催
-  - 中之島会で出会った熱い人が登壇してくれた    
+  - 中之島会で出会った熱い人が登壇してくれた
 
 ## 2025年11月
 

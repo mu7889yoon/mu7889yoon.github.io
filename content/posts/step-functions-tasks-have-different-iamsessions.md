@@ -51,7 +51,6 @@ aws iam get-service-last-accessed-details --job-id $JOB_ID
 
 ### CloudTrailを見る
 
-
 ## まとめ
 
 Step Functionsの仕様を知りつつ、`GenerateServiceLastAccessedDetails`のハマりどころって感じでした。

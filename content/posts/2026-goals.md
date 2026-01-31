@@ -11,6 +11,7 @@ title = '2026年の抱負'
 短・中期の目標はコロコロ変わると思われますが、大体の方針としては以下
 
 ## 技術系のアウトプット活動
+
 - blog 50本(会社・個人比率問わず)
 - oss コントリビュート 10件
 - 登壇 12回
@@ -21,21 +22,26 @@ title = '2026年の抱負'
   - [JAWS DAYS 2026](https://jawsdays2026.jaws-ug.jp/staff/committee/#:~:text=Yuta%20Nakamura%20(yoon))
 
 ## 技術以外のアウトプット活動
+
 - 映像屋さんもゆっくり復帰していきたい
 - 浅いDJもやりたい
 
 ## 資格
+
 - AWS Certified DevOps Engineer - Professional取得
 
 ## 身体
+
 - 1日 10000歩 or 有酸素
 - 体重 65kgをキープする
 
 ## 技術
+
 - DB設計
 - エッジコンピューティング分野
 
 ## 個人
+
 - 家買いたい
 - 山形の芋煮会に行きたい
 - 英語(AWS re:Invent 2026に向けて)

@@ -11,7 +11,9 @@ title = '手動で作ったリソースをCloudFormationのスキャンやCDK im
 手動で作成したリソースをCloudFormationやAWS CDKで取り込むことをした事がなかったため、練習と検証を兼ねてやってみます。
 
 ## 構成図
+
 今回手動で作成した構成はこんな感じです。
+
 ```mermaid
 
 architecture-beta
@@ -22,11 +24,12 @@ architecture-beta
   waf:R -- L:cf
   cf:R -- L:s3
 ```
+
 OACが自動生成されていたり、CloudFrontのFreePlanのおかげでAWS WAFがついていたりします。
 
 ## 手順
 
-1. CloudFormation のIaCジェネレーターのスキャンを実施    
+1. CloudFormation のIaCジェネレーターのスキャンを実施
 1. `cdk migration`を実行
 1. `cdk import` を実行
 1. `cdk drift`を実行
@@ -57,7 +60,7 @@ CloudFormationのテンプレートが表示されていますね
 
 警告が出ていますが、ぱっと見問題なさそうです。
 
-###  `cdk migration`を実行
+### `cdk migration`を実行
 
 ```sh
 cdk migrate --stack-name sample-dev --from-path ./sample-dev.yaml --language typescript
@@ -72,8 +75,8 @@ SampleDevStack could not be generated because None is not implemented for Resour
 AIと気合いで直していきます。
 
 ```diff
---- development/invalid-sample-dev.yaml	2026-01-18 18:42:15
-+++ development/sample-dev.yaml	2026-01-18 20:10:05
+--- development/invalid-sample-dev.yaml 2026-01-18 18:42:15
++++ development/sample-dev.yaml 2026-01-18 20:10:05
 @@ -34,7 +34,6 @@
            Id: "xxxxxxx.s3.us-east-1.amazonaws.com"
          ViewerCertificate:

@@ -18,9 +18,8 @@ title = 'Terraformに入門する'
 1. terraform管理下へ移動
     1. terraform validate
     1. terraform import
-    1. terraform plan    
+    1. terraform plan
 1. terraformでapply(デプロイ)
-
 
 ## AWS CDKでデプロイ
 
@@ -191,7 +190,6 @@ validateが完了しました。**(ここまで1時間)**
 
 ここから[import block](https://developer.hashicorp.com/terraform/language/block/import)を使ってインポートしていきます。
 
-
 ```sh
 Plan: 13 to add, 0 to change, 0 to destroy.
 ```
@@ -203,16 +201,19 @@ Plan: 13 to add, 0 to change, 0 to destroy.
 基本的にはCloudFormationのリソースタブの物理IDを入力すばよかったのですが、違うパターンも多かったので以下に載せておきます。
 
 #### API Gateway Stage
+
 ```sh
 Error: Unexpected format of ID ("prod"), expected REST-API-ID/STAGE-NAME
 ```
 
 #### API Gateway resource
+
 ```sh
 Error: Unexpected format of ID ("messages"), expected REST-API-ID/RESOURCE-ID
 ```
 
 #### API Gateway method
+
 ```sh
 Error: Unexpected format of ID ("${rest_api_id}|${resource_id}|POST"), expected REST-API-ID/RESOURCE-ID/HTTP-METHOD
 ```
@@ -295,7 +296,6 @@ resource "aws_iam_role_policy_attachment" "processor_lambda_basic_execution" {
 ```
 
 マネージドポリシーには、[aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment)を使用するそうです。
-
 
 次に、`CF Property`を削除していきます。
 
@@ -396,7 +396,6 @@ resource "aws_api_gateway_method_response" "response_200" {
 Plan: 15 to import, 1 to add, 0 to change, 0 to destroy.
 ```
 
-
 ## terraform applyする
 
 ```sh
@@ -408,7 +407,6 @@ Do you want to perform these actions?
 ```
 
 `terraform apply`できました。
-
 
 `npx cdk drift`してみます。
 
