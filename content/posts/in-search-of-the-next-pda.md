@@ -10,6 +10,10 @@ title = 'Next PDAを求めて'
 
 最近、タスクやメモなどのPDA的な役割をOmniFocusからObisidianへ移行しています。
 
+Obsidianに至るまでの経緯と、過去を振り返っていきます。
+
+PDAを何にするか迷ってるあなたに届けば幸いです。
+
 ## OmniFocus
 iOS、macOS向けのタスク管理ツール。
 デビット・アレンが提唱する「Getting Things Done」の考え方に合わせて設計されたアプリケーション、iOSとmacOS向けで別の買い切りライセンスとなっている。
