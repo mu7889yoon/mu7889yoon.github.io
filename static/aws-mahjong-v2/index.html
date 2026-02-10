@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWS麻雀 v2.0.0-beta</title>
+</head>
+
+<body>
+    <h1>AWS麻雀 v2.0.0-beta</h1>
+    <div>
+        <h2>AWS牌一覧</h2>
+        <h3>萬子</h3>
+        <p>コンピューティングとサーバレス</p>
+        <div id="manzu"></div>
+        <h3>筒子</h3>
+        <p>ネットワークとDevTools</p>
+        <div id="pinzu"></div>
+        <h3>索子</h3>
+        <p>ストレージとAI/MLとデータベース</p>
+        <div id="souzu"></div>
+        <h3>字牌</h3>
+        <p>リージョンなど</p>
+        <div id="jihai"></div>
+    </div>
+    <div>
+        <h2>役一覧</h2>
+        <div>
+            <h3>1翻役</h3>
+            <h4>静的サイトホスティング(CDP)</h4>
+            面前のみ
+            <div id="static-site-hosting"></div>
+            <h4>サーバレスAPI</h4>
+            面前のみ
+            <div id="serverless-api"></div>
+            <h4>イベントドリブンアーキテクチャ</h4>
+            面前のみ
+            <div id="event-driven-architecture"></div>
+            <h4>Webアプリケーション(CDP)</h4>
+            EC2、ECSどちらでも良い<br>
+            面前のみ
+            <div id="web-application1"></div>
+            <div id="web-application2"></div>
+            <h4>インメモリーキャッシュ(CDP)</h4>
+            EC2、ECSどちらでも良い<br>
+            面前のみ
+            <div id="in-memory-cache1"></div>
+            <div id="in-memory-cache2"></div>
+            <h4>バッチ</h4>
+            面前のみ
+            <div id="batch"></div>
+            <h4>マイグレーション(CDP)</h4>
+            面前のみ
+            <div id="migration"></div>
+        </div>
+        <div>
+            <h3>2翻役</h3>
+            <h4>CI/CDパイプライン</h4>
+            他のAWS役があることで成立する特殊役<br>
+            鳴く(チー)と1翻
+            <div id="cicd-pipeline"></div>
+            <h4>RAGエージェント</h4>
+            鳴く(チー)と1翻
+            <div id="rag-agent"></div>
+            <h4>マスター・レプリカ構成</h4>
+            鳴く(ポン)と1翻
+            <div id="master-replica"></div>
+            <h4>ジョブオブザーバー(CDP)</h4>
+            面前のみ
+            <div id="job-observer"></div>
+        </div>
+        <div>
+            <h3>3翻役</h3>
+            <h4>CI/CDカン</h4>
+            他のAWS役があることで成立する特殊役<br>
+            明カンの場合2翻
+            <div id="cicd-pipeline-kan"></div>
+            <h4>Webアプリケーションカン</h4>
+            明カンの場合2翻
+            <div id="web-application-kan1"></div>
+            <div id="web-application-kan2"></div>
+            <h4>ブルー・グリーンデプロイカン</h4>
+            明カンの場合2翻
+            <div id="blue-green-deploy-kan"></div>
+            <h4>AWS一盃口(冗長化)</h4>
+            同じAWS役が2つ揃った時に成立、通常の一盃口とは複合しない<br>
+            鳴きナシ<br>
+            以下の場合は<b>Webアプリケーション(CDP)</b>が2つとAWS一盃口で5翻となる</b>
+            <div id="redundancy"></div>
+            <h4>AWS三暗刻(3AZ構成)</h4>
+            同じAWS役が3つ揃った時に成立、通常の三暗刻とは複合しない<br>
+            鳴きナシ<br>
+            以下の場合は<b>Webアプリケーション(CDP)</b>が3つとAWS三暗刻で6翻となる</b>
+            上がる際はどちらの形状で牌を晒して良い。
+            <div id="aws-three-concealed-triples1"></div>
+            <div id="aws-three-concealed-triples2"></div>
+        </div>
+        <div>
+            <h3>役満</h3>
+            <h4>DRアーキテクチャ(役満)</h4>
+            七対子の亜種<br>
+            面前のみ、複合なし
+            <div id="dr-architecture1"></div>
+            <div id="dr-architecture2"></div>
+            <h4>AWS緑一色</h4>
+            鳴きあり、複合なし<br>
+            以下の牌で作られた3面子1雀頭であればOK
+            <div id="aws-all-green-tiles"></div>
+            <div id="aws-all-green"></div>
+        </div>
+    </div>
+    <div>
+        <h2>麻雀役一覧</h2>
+        https://mj-king.net/yaku/
+        <div>
+            <h3>1翻役</h3>
+        </div>
+        <div>
+            <h3>2翻役</h3>
+        </div>
+        <div>
+            <h3>3翻役</h3>
+        </div>
+        <div>
+            <h3>6翻役</h3>
+        </div>
+        <div>
+            <h3>役満</h3>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script type="module">
+        import { merjongAPI } from "./customizable-merjong/packages/merjong-js/dist/merjong.js";
+
+        const customTheme = {
+            baseUrl: "./output/",
+            tileDesigns: {
+                "0m": "5m.svg",
+                "1m": "1m.svg",
+                "2m": "2m.svg",
+                "3m": "3m.svg",
+                "4m": "4m.svg",
+                "5m": "5m.svg",
+                "6m": "6m.svg",
+                "7m": "7m.svg",
+                "8m": "8m.svg",
+                "9m": "9m.svg",
+                "0p": "5p.svg",
+                "1p": "1p.svg",
+                "2p": "2p.svg",
+                "3p": "3p.svg",
+                "4p": "4p.svg",
+                "5p": "5p.svg",
+                "6p": "6p.svg",
+                "7p": "7p.svg",
+                "8p": "8p.svg",
+                "9p": "9p.svg",
+                "0s": "5s.svg",
+                "1s": "1s.svg",
+                "2s": "2s.svg",
+                "3s": "3s.svg",
+                "4s": "4s.svg",
+                "5s": "5s.svg",
+                "6s": "6s.svg",
+                "7s": "7s.svg",
+                "8s": "8s.svg",
+                "9s": "9s.svg",
+                "1z": "1z.svg",
+                "2z": "2z.svg",
+                "3z": "3z.svg",
+                "4z": "4z.svg",
+                "5z": "5z.svg",
+                "6z": "6z.svg",
+                "7z": "7z.svg"
+            }
+        };
+
+        const renderInto = (id, mpsz) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.innerHTML = merjongAPI.render(mpsz, customTheme);
+        };
+
+        // 牌一覧
+        renderInto("manzu", "123456789m");
+        renderInto("pinzu", "123456789p");
+        renderInto("souzu", "123456789s");
+        renderInto("jihai", "1234567z");
+
+        // 役一覧
+        const yakuSamples = [
+            { id: "static-site-hosting", mpsz: "45p3s" },
+            { id: "serverless-api", mpsz: "2p1m8s" },
+            { id: "event-driven-architecture", mpsz: "8m1m2p" },
+            { id: "cicd-pipeline", mpsz: "789p-qqq" },
+            { id: "cicd-pipeline-kan", mpsz: "6789p-qqq" },
+            { id: "dr-architecture1", mpsz: "55p-11z-22z-33p-22m-77s-33s" },
+            { id: "dr-architecture2", mpsz: "55p-33z-44z-33p-33m-77s-22s" },
+            { id: "web-application1", mpsz: "3p2m7s" },
+            { id: "web-application2", mpsz: "3p3m7s" },
+            { id: "web-application-kan1", mpsz: "3p2m7s9s" },
+            { id: "web-application-kan2", mpsz: "3p3m7s9s" },
+            { id: "in-memory-cache1", mpsz: "2m7s9s" },
+            { id: "in-memory-cache2", mpsz: "3m7s9s" },
+            { id: "rag-agent", mpsz: "345s" },
+            { id: "master-replica", mpsz: "888s" },
+            { id: "job-observer", mpsz: "9m4m2m" },
+            { id: "blue-green-deploy-kan", mpsz: "5p46m7s" },
+            { id: "redundancy", mpsz: "3p2m7s-3p2m7s" },
+            { id: "batch", mpsz: "865m" },
+            { id: "migration", mpsz: "1p7s2m" },
+            { id: "aws-three-concealed-triples1", mpsz: "3p2m7s-3p2m7s-3p2m7s" },
+            { id: "aws-three-concealed-triples2", mpsz: "333p-222m-777s" },
+            { id: "aws-all-green", mpsz: "123s-123s-444s-666s-66s" },
+            { id: "aws-all-green-tiles", mpsz: "1s-2s-3s-4s-5s-6s-6z" },
+        ];
+
+        yakuSamples.forEach(({ id, mpsz }) => renderInto(id, mpsz));
+    </script>
+</body>
+
+</html>
