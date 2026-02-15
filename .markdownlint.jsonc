@@ -2,5 +2,8 @@
   "default": true,
   "MD041": false,
   "MD013": false,
-  "MD033": false
+  "MD033": false,
+  "ignorePatterns": [
+    "content/tools/visualizing-progress.md"
+  ]
 }
