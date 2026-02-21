@@ -1,10 +1,10 @@
-+++
-date = '2026-01-23T20:47:02+09:00'
-draft = false
-tags = ['tips', 'tech', 'aws','cdk' ]
-description = 'AWS CDKのバージョン履歴を人力で調査し、`ec2SumTImeoutEnabled`がいつから`ec2SumTImeoutEnabled`なのかを調査します。'
-title = 'ec2SumTImeoutEnabledの謎に迫る'
-+++
+---
+date: '2026-01-23T20:47:02+09:00'
+draft: false
+tags: ['tips', 'tech', 'aws', 'cdk']
+description: 'AWS CDKのバージョン履歴を人力で調査し、`ec2SumTImeoutEnabled`がいつから`ec2SumTImeoutEnabled`なのかを調査します。'
+title: 'ec2SumTImeoutEnabledの謎に迫る'
+---
 よ〜んです。
 
 > 本記事の内容は、[JAWS-UG大阪2025 忘年勉強会 FSF](https://jawsugosaka.connpass.com/event/374553/)で発表した[AWSあるある](https://speakerdeck.com/mu7889yoon/jaws-ugda-ban-wang-nian-mian-qiang-hui-fsf-awsaruaru)にて10個発表したうちの8個目について掘り下げていきます。

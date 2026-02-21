@@ -1,10 +1,10 @@
-+++
-date = '2025-12-30T17:55:30+09:00'
-draft = false
-tags = ['tech', 'aws', 'parquet', 'agentCore', 'duckdb','catch-up-2025-2026-vacation']
-description = '家計簿（クレカ取引履歴）のCSVをGlueでParquet化してS3に保存し、DuckDB＋AIエージェントでクエリ・分析して無駄な支出を炙り出してみた。'
-title = 'ParquetとAIエージェントで無駄な出費を特定してみる'
-+++
+---
+date: '2025-12-30T17:55:30+09:00'
+draft: false
+tags: ['tech', 'aws', 'parquet', 'agentCore', 'duckdb', 'catch-up-2025-2026-vacation']
+description: '家計簿（クレカ取引履歴）のCSVをGlueでParquet化してS3に保存し、DuckDB＋AIエージェントでクエリ・分析して無駄な支出を炙り出してみた。'
+title: 'ParquetとAIエージェントで無駄な出費を特定してみる'
+---
 
 よ〜んです。
 

@@ -1,4 +1,4 @@
-+++
-title = 'NFC Redirect'
-layout = 'nfc-redirect'
-+++
+---
+title: 'NFC Redirect'
+layout: 'nfc-redirect'
+---

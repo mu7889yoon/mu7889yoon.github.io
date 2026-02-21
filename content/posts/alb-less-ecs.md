@@ -1,10 +1,10 @@
-+++
-date = '2026-01-04T20:55:32+09:00'
-draft = false
-tags = ['tech', 'aws', 'ecs', 'fargate', 'apigateway', 'cloudmap', 'cdk']
-description = 'ALBの固定費を避けて、API Gateway HTTP API + VPC Link + AWS Cloud Map でECS(Fargate)をなんちゃってLBする構成をCDKで作る。'
-title = 'ECSをALBなしでお得に使いたいやん？'
-+++
+---
+date: '2026-01-04T20:55:32+09:00'
+draft: false
+tags: ['tech', 'aws', 'ecs', 'fargate', 'apigateway', 'cloudmap', 'cdk']
+description: 'ALBの固定費を避けて、API Gateway HTTP API + VPC Link + AWS Cloud Map でECS(Fargate)をなんちゃってLBする構成をCDKで作る。'
+title: 'ECSをALBなしでお得に使いたいやん？'
+---
 
 よ〜んです。
 

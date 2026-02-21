@@ -1,10 +1,10 @@
-+++
-date = '2025-12-31T18:24:50+09:00'
-draft = false
-tags = ['tech', 'prompt-api', 'hono', 'htmx', 'catch-up-2025-2026-vacation']
-description = 'ChromeのPrompt APIやIndexedDBなどを使用して、Chromeだけで画像を検索できるアプリケーションを作ってみました。'
-title = 'ChromeのPrompt APIを使い尽くす'
-+++
+---
+date: '2025-12-31T18:24:50+09:00'
+draft: false
+tags: ['tech', 'prompt-api', 'hono', 'htmx', 'catch-up-2025-2026-vacation']
+description: 'ChromeのPrompt APIやIndexedDBなどを使用して、Chromeだけで画像を検索できるアプリケーションを作ってみました。'
+title: 'ChromeのPrompt APIを使い尽くす'
+---
 
 よ〜んです。
 

@@ -1,10 +1,10 @@
-+++
-date = '2025-12-29T10:13:53+09:00'
-draft = false
-tags = ['tips', 'tech', 'hono', 'catch-up-2025-2026-vacation']
-description = 'Honoを使用してLambdalithの構成でバックエンドを記述してみます。'
-title = 'Honoでカウンターのバックエンドを作る'
-+++
+---
+date: '2025-12-29T10:13:53+09:00'
+draft: false
+tags: ['tips', 'tech', 'hono', 'catch-up-2025-2026-vacation']
+description: 'Honoを使用してLambdalithの構成でバックエンドを記述してみます。'
+title: 'Honoでカウンターのバックエンドを作る'
+---
 
 [Serverless Days 2025](https://tokyo.serverlessdays.io/)ぐらいからエッジコンピューティングにお熱なよ〜んです。
 

@@ -1,10 +1,10 @@
-+++
-date = '2026-01-11T14:00:15+09:00'
-draft = false
-tags = ['tips', 'raspberrypi', 'docker', 'hono', 'catch-up-2025-2026-vacation']
-description = 'Raspberry PiでFaaS基盤構築の試行錯誤から、フルスクラッチでプラットフォームを開発した過程を詳細に解説します。'
-title = 'ご家庭FaaSを作ろう、そしてLambda、GASのありがたみを知ろう。'
-+++
+---
+date: '2026-01-11T14:00:15+09:00'
+draft: false
+tags: ['tips', 'raspberrypi', 'docker', 'hono', 'catch-up-2025-2026-vacation']
+description: 'Raspberry PiでFaaS基盤構築の試行錯誤から、フルスクラッチでプラットフォームを開発した過程を詳細に解説します。'
+title: 'ご家庭FaaSを作ろう、そしてLambda、GASのありがたみを知ろう。'
+---
 
 よ〜んです。
 

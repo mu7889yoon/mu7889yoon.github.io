@@ -1,10 +1,10 @@
-+++
-date = '2025-12-25T22:06:37+09:00'
-draft = false
-tags = ['tips', 'tech', 'htmx', 'catch-up-2025-2026-vacation']
-description = 'htmxとServer Sent Eventsを使って、簡単なWebアプリケーションを作ります。htmxを使うことで簡単にフロントエンドの処理をかけることがわかりました。'
-title = 'htmxとServer Sent Eventsを使ってカウンターを作る'
-+++
+---
+date: '2025-12-25T22:06:37+09:00'
+draft: false
+tags: ['tips', 'tech', 'htmx', 'catch-up-2025-2026-vacation']
+description: 'htmxとServer Sent Eventsを使って、簡単なWebアプリケーションを作ります。htmxを使うことで簡単にフロントエンドの処理をかけることがわかりました。'
+title: 'htmxとServer Sent Eventsを使ってカウンターを作る'
+---
 
 よ〜んです。
 

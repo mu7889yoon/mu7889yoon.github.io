@@ -1,7 +1,7 @@
-+++
-title = 'mu7889yoon / tesla / Yuta Nakamura'
-layout = 'about'
-+++
+---
+title: 'mu7889yoon / tesla / Yuta Nakamura'
+layout: 'about'
+---
 
 Live in Kyoto(Japan)
 

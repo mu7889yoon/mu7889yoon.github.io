@@ -1,10 +1,10 @@
-+++
-date = '2025-12-13T00:00:00+09:00'
-draft = false
-tags = ['tech', 'tips', 'aws', 'step-functions']
-description = 'Step Functionsはタスク毎にIAMのセッションが変わるため、AWS APIによってはうまく動かないことがあります。解決方法は思い浮かびませんが、調査結果をシェアします。'
-title = 'Step Functionsはタスク毎にIAMのセッションが変わる'
-+++
+---
+date: '2025-12-13T00:00:00+09:00'
+draft: false
+tags: ['tech', 'tips', 'aws', 'step-functions']
+description: 'Step Functionsはタスク毎にIAMのセッションが変わるため、AWS APIによってはうまく動かないことがあります。解決方法は思い浮かびませんが、調査結果をシェアします。'
+title: 'Step Functionsはタスク毎にIAMのセッションが変わる'
+---
 
 よ〜んです。
 
