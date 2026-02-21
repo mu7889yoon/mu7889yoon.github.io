@@ -62,7 +62,7 @@ function progressVisualizer() {
   const START_YEAR = 2024;
   const CURRENT_YEAR = new Date().getFullYear();
 
-  const toDateStr = d => d.toISOString().split['T'](0);
+  const toDateStr = d => d.toISOString().substring(0, 10);
 
   const getCellStyle = types => {
     if (!types.length) return 'background:#ebedf0;';
@@ -121,7 +121,7 @@ function progressVisualizer() {
       return text.trim().split('\n').map(line => {
         try {
           const obj = JSON.parse(line);
-          return obj.date && obj.type ? { date: obj.date.split['T'](0), type: obj.type } : null;
+          return obj.date && obj.type ? { date: obj.date.substring(0, 10), type: obj.type } : null;
         } catch { return null; }
       }).filter(Boolean);
     },

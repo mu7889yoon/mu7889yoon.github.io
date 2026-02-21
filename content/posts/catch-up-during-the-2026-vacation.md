@@ -31,7 +31,6 @@ title = 'キャッチアップしていきたい技術たち(2025→2026年末�
 - stlite
   - 5個機能作る
     - [ブラウザだけで完結する自作ツール5つの紹介](/posts/created-5-tools-that-run-only-browser/)
-- kintone
 - pwa
   - github pagesで作りたい
     - [お手軽にPWAでアプリを作る](/posts/create-a-pwa-app/)
