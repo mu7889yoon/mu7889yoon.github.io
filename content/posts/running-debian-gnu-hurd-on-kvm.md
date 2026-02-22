@@ -1,5 +1,5 @@
 ---
-date: '2026-02-23T00:51:02+09:00'
+date: '2026-02-23T00:05:02+09:00'
 draft: false
 tags: ['tech', 'aws','ec2','kvm','debian','hurd']
 description: 'EC2上のKVMでDebian GNU/Hurdを起動し、GNU/MachとGNU Emacsの動作を確認した記録です。'
