@@ -60,9 +60,10 @@ function progressVisualizer() {
   const TYPE_LABELS = { blog: '個人ブログ', 'seeds-blog': '会社ブログ', lt: 'LT/登壇', organizer: 'コミュニティ運営', other: 'その他' };
   const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
   const START_YEAR = 2024;
-  const CURRENT_YEAR = new Date().getFullYear();
+  const JST_DATE_FORMATTER = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' });
+  const CURRENT_YEAR = parseInt(JST_DATE_FORMATTER.format(new Date()).substring(0, 4), 10);
 
-  const toDateStr = d => d.toISOString().substring(0, 10);
+  const toDateStr = d => JST_DATE_FORMATTER.format(d);
 
   const getCellStyle = types => {
     if (!types.length) return 'background:#ebedf0;';
