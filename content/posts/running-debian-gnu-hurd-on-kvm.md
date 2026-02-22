@@ -33,6 +33,7 @@ GNU/Hurdは後者寄りの思想で、GNU/Machの上にHurdサーバを載せる
 - [Debian GNU/Hurd](https://www.debian.org/ports/hurd/)
 
 手元にx86_64マシンがなくて触れなかったのですが、前回のEC2 + KVM環境ができたので試せました。
+
 ## 起動準備
 
 Debian GNU/Hurd用イメージは[こちらから](https://www.debian.org/ports/hurd/hurd-cd.ja.html)取得できます。
