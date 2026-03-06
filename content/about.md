@@ -9,6 +9,8 @@ Osaka Electro-Communication University
 
 Bachelor of Science in Information Technology
 
-2025 Japan AWS Jr. Champions
+2025 Japan AWS Jr. Champion
 
-土日はお休みしたい。
+AWS Community Builder (Dev Tools)
+
+土日はお休みしたいし、来世はねこ。
