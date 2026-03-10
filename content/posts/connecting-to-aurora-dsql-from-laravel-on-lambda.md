@@ -73,6 +73,7 @@ graph TB
     'occ_max_retries' => env('DSQL_OCC_MAX_RETRIES', 3),
 ],
 ```
+
 ポイントは`password`は固定値ではなく、次ので動的に差し込みます。
 
 #### IAM 認証トークンを Laravel 側で動的生成する
