@@ -9,17 +9,23 @@ title: 'ワイ、脳にInflectorがインストールされてた...'
 よ〜んです。
 
 いきなりですが、Laravel の `artisan make:model` に以下のようなオプションを付けると、migration のコードも一気に作れます。
+
 ```bash
 php artisan make:model Address -m
 ```
+
 Model ができるのは理解できます。引数で `Address` を渡していますし
+
 ```bash
 INFO  Model [app/Models/Address.php] created successfully.
 ```
+
 でも migration はこうなります。
+
 ```bash
 INFO  Migration [database/migrations/xxxx_xx_xx_xxxxxx_create_addresses_table.php] created successfully.
 ```
+
 `addresses` になってる！？  
 ありがたいけど、どうやて変換しているのでしょうか？
 
@@ -27,7 +33,7 @@ INFO  Migration [database/migrations/xxxx_xx_xx_xxxxxx_create_addresses_table.ph
 
 ## 検証（いじわる）してみる
 
-もし Laravel が末尾にただ `s` を付けているだけなら、不規則変化や単複同形で崩れるはずです。 
+もし Laravel が末尾にただ `s` を付けているだけなら、不規則変化や単複同形で崩れるはずです。
 なので、いじわるな単語を何個か試してみました。
 
 ### 規則的（`+ves`）
@@ -111,7 +117,8 @@ INFO  Migration [database/migrations/xxxx_xx_xx_xxxxxx_create_fish_table.php] cr
 `Address -> addresses` ぐらいならまだしも、`Knife -> Knives` や `Mouse -> Mice` まで変換してくれるとは思っていませんでしたね。
 
 ---
-## 俺、Inflectorがインストールされてる脳だった...
+
+## 俺、Inflectorがインストールされてる脳だった
 
 Laravel の複数形変換を見ていて昔の記憶が蘇りました。
 
@@ -120,6 +127,7 @@ Laravel の複数形変換を見ていて昔の記憶が蘇りました。
 なので、まさに`doctrine inflector`のような処理フローを作っていましたね。
 
 今思うと、英語の勉強というよりルールエンジンの設計でした。
+
 ## まとめ
 
 `artisan make:model -m` で migration 名が複数形になるのは、ただ末尾に `s` を足しているからではありませんでした。
@@ -132,10 +140,12 @@ Laravel の複数形変換を見ていて昔の記憶が蘇りました。
 こういうところまでちゃんと吸収してくれているライブラリやフレームワークの開発者の皆さんには感謝です。
 
 あと、今回ドキュメントを読んでいて `urlize` も見つけました。  
-今まで 
+今まで
+
 ```bash
 hugo new content/posts/???.md
 ```
+
 を叩く時、空白を消して `-` に置き換えて、みたいなことを手でやっていたんですが、使えそうだな〜とか思いました。
 
 お
