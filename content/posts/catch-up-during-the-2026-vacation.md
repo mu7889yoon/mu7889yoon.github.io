@@ -19,6 +19,8 @@ title: 'キャッチアップしていきたい技術たち(2025→2026年末年
   - [htmxとServer Sent Eventsを使ってカウンターを作る](/posts/creating-a-counter-with-htmx-and-server-sent-events/)
 - Bedrock Reinforcement Fine-tuning
   - [Amazon Bedrock Reinforcement Fine-tuningを試してみた](https://www.seeds-std.co.jp/blog/creators/try-reinforcement-fine-tuning/)
+- Aurora DSQL
+  - [Aurora DSQLをLaravelから使うためのTips](/posts/connecting-to-aurora-dsql-from-laravel-on-lambda/)
 - wasm
   - edge系の世界に触れたい
     - [ブラウザだけで完結する自作ツール5つの紹介](/posts/created-5-tools-that-run-only-browser/)
