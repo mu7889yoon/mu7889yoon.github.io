@@ -7,6 +7,7 @@ title: "AWS麻雀 v2.0.0-beta"
 ## AWS麻雀ルール
 
 ## AWS麻雀牌
+
 ### 萬子
 
 コンピューティングとサーバレス
@@ -184,19 +185,17 @@ EC2、ECSどちらでも良い
 <div id="aws-all-green"></div>
 
 ## 通常役
+
 ### 1翻役
+
 #### 風
-
-
-
-
-
 
 ## 麻雀役一覧
 
-https://mj-king.net/yaku/
+<https://mj-king.net/yaku/>
 
 ### 1翻役
+
 #### 平和（ピンフ）
 
 #### 断么九(タンヤオチュウ)
@@ -212,6 +211,7 @@ https://mj-king.net/yaku/
 #### 一盃口(イーペイコー)
 
 ### 2翻役
+
 #### 対々和（トイトイホー）
 
 #### 混老頭
@@ -241,20 +241,30 @@ https://mj-king.net/yaku/
 #### 二盃口
 
 ### 6翻役
+
 #### 清一色
 
 ### 役満
-#### 天和
-#### 地和
-#### 大三元
-#### 四喜和
-#### 字一色
-#### 清老頭
-#### 四暗刻
-#### 国士無双
-#### 九蓮宝燈
-#### 四槓子
 
+#### 天和
+
+#### 地和
+
+#### 大三元
+
+#### 四喜和
+
+#### 字一色
+
+#### 清老頭
+
+#### 四暗刻
+
+#### 国士無双
+
+#### 九蓮宝燈
+
+#### 四槓子
 
 <script type="module">
     import { merjongAPI } from "/aws-mahjong-v2/customizable-merjong/packages/merjong-js/dist/merjong.js";
@@ -311,7 +321,7 @@ https://mj-king.net/yaku/
         { id: "aws-three-concealed-triples2", mpsz: "333p-222m-777s" },
         { id: "serverless-espresso", mpsz: "2p7m1m8m7m1m"},
         { id: "aws-all-green", mpsz: "123s-123s-444s-666s-66s" },
-        { id: "aws-all-green-tiles", mpsz: "1s-2s-3s-4s-5s-6s-6z" },        
+        { id: "aws-all-green-tiles", mpsz: "1s-2s-3s-4s-5s-6s-6z" },
     ];
 
     yakuSamples.forEach(({ id, mpsz }) => renderInto(id, mpsz));

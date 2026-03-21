@@ -15,8 +15,8 @@ title: 'Amazon Linux 2023 だいぶディープ(Dive Deep)'
 ## Amazon Linux 2023だいぶディープでやりたいこと
 
 - systemd timer
-    - `cron`を雑に触ってきたので、`systemd timer`にしっかり乗り換えていきたい。
-    - [systemd timer　が結構いい](/posts/systemd-timer-is-pretty-good/)
+  - `cron`を雑に触ってきたので、`systemd timer`にしっかり乗り換えていきたい。
+  - [systemd timer　が結構いい](/posts/systemd-timer-is-pretty-good/)
 - EC2の冪等性
 - DCV
 - Amazon LinuxのGUI
