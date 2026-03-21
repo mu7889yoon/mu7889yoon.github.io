@@ -15,8 +15,8 @@ title: 'Amazon Linux 2023 だいぶディープ(Dive Deep)'
 ## Amazon Linux 2023だいぶディープでやりたいこと
 
 - systemd timer
-  - `cron`感覚で雑に触ってきたので、`systemd service`との関係から整理したい
-  - EC2上で定期実行を置くときに、どこまで素直に書けるのか見たい
+    - `cron`を雑に触ってきたので、`systemd timer`にしっかり乗り換えていきたい。
+    - [systemd timer　が結構いい](/posts/systemd-timer-is-pretty-good/)
 - EC2の冪等性
 - DCV
 - Amazon LinuxのGUI
