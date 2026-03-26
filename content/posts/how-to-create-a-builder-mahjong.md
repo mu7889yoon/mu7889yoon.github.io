@@ -16,6 +16,7 @@ JAWS DAYS 2026にて、builder 麻雀（AWS麻雀v2）をリリースしまし�
 [AWS麻雀牌の作り方 - カタヤマンがプログラマチックに今日もコードアシスト](https://c9katayama.hatenablog.com/entry/2014/12/15/002712)
 
 ## 必要なもの
+
 ### 低コスト
 
 |         |          | 商品URL                                                                           |
@@ -48,10 +49,12 @@ JAWS DAYS 2026にて、builder 麻雀（AWS麻雀v2）をリリースしまし�
 | 合計      | 19,558円から |                                                                                   |
 
 ## 工程
+
 1. シールの印刷
 2. 牌への貼り付け
 
 ### シールの印刷
+
 まずは[こちら](/aws-mahjong/download/)からデータをダウンロードしてください。
 
 こちらのデータは[EDT-PS16](https://amzn.asia/d/09HtUEzY)用に合わせて配置しています。
@@ -72,6 +75,7 @@ JAWS DAYS 2026にて、builder 麻雀（AWS麻雀v2）をリリースしまし�
 ![](/images/019d2aa6-01db-7aea-8af5-eccca8123101.png)
 
 ### 牌への貼り付け
+
 気合いです。慣れれば1時間、最初は1時間半かかりました。
 >萬子
 
@@ -90,6 +94,7 @@ JAWS DAYS 2026にて、builder 麻雀（AWS麻雀v2）をリリースしまし�
 ![](/images/019d2aa6-42e5-7793-832c-2926a1fcaf75.jpg)
 
 ## まとめ
+
 ここまで読んでいただきありがとうございました、勉強会でちょっと使うために作るのはな〜という方はお気軽に[よ〜ん](https://x.com/Tesla_yoon)のDM、[jawsugのslack](https://make-jawsug.slack.com/team/U09ABCZSAKT)などでお知らせください。
 
 [Webアプリ版](https://builder-mahjong.click)もあるよ！
