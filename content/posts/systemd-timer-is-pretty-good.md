@@ -1,5 +1,5 @@
 ---
-date: '2026-03-13T20:00:46+09:00'
+date: '2026-03-17T20:00:46+09:00'
 draft: false
 tags: ['tips', 'tech', 'linux', 'systemd', 'amazon-linux', 'al2023-dive-deep']
 description: 'Amazon Linux 2023では、cronよりもsystemd timerが定時実行の推奨環境となり、ログ記録、ステート管理、リトライ機能が標準搭載されています、それらについて調査しました。'
