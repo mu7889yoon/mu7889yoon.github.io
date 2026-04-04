@@ -111,9 +111,6 @@ Input 70 Token, Output 93 Tokenで8.57 neuronとなりました。
 
 14.1 Output Token = 1 neuron
 
-
-
-
 ### IO.netの上限はどれぐらい？
 
 同じく、JSQuADのデータを使って検証します。
