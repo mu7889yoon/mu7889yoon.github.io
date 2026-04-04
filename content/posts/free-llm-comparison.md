@@ -126,6 +126,8 @@ Input 70 Token, Output 93 Tokenで8.57 neuronとなりました。
 
 後から請求が来ても怖いので、ここら辺でやめておきます。。。
 
+> めっちゃ請求来たらまた報告します。
+
 ![](/images/019d57f1-25ea-7d9e-bcbd-ac2b40c672df.png)
 
 ## まとめ
