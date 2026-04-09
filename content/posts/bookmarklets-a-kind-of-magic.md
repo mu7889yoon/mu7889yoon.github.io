@@ -27,9 +27,9 @@ cloudshellなどからecs execするために、以下のようなコマンド�
 
 ```sh
 aws ecs execute-command --cluster ${CLUSTER_NAME} \
-	--task ${TASK_ID} \
-	--container ${CONTAINER_NAME}
-	--interactive --command '/bin/sh'
+ --task ${TASK_ID} \
+ --container ${CONTAINER_NAME}
+ --interactive --command '/bin/sh'
 ```
 
 ECSのタスク詳細ページで実行すると、URL からクラスター名・タスクID・コンテナ名を抜き出して `aws ecs execute-command` のコマンドを組み立てて、クリップボードにコピーしてくれます。あとは CloudShell に貼るだけ。
