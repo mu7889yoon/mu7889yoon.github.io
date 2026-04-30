@@ -37,3 +37,5 @@
 {"date":"2026-04-17","type":"lt", "note": "Jr Champions Last Meetup"}
 {"date":"2026-04-25","type":"lt","url": "https://jawsug-okinawa.connpass.com/event/386616/", "note": "JAWS-UG 沖縄 Cloud on the BEACH 2026 AgentCore ハンズオン祭り"}
 {"date":"2026-04-27","type":"lt","url": "https://nakanoshima-dev.connpass.com/event/389208/", "note": "【初心者・玄人歓迎】今年度で攻める技術(抱負) nakanoshima.dev #45"}
+{"date":"2026-04-28","type":"seeds-blog","url":"https://www.seeds-std.co.jp/blog/creators/2026-04-28-350726ec-d8cd-80fe-9793-cf26376f2562/", "note":"JAWS-UG 沖縄で「API Gateway Lambda AgentCore を再考する」というLTをしました"}
+{"date":"2026-04-30","type":"seeds-blog","url":"https://www.seeds-std.co.jp/blog/creators/2026-04-30-350726ec-d8cd-80ea-a9d8-d0c3576a8111/", "note":"AWS Transform Custom + Kiroで PHP 5.3 → 8.5 にモダナイズしてみた"}
