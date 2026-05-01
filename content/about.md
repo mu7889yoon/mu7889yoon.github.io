@@ -3,14 +3,31 @@ title: 'mu7889yoon / tesla / Yuta Nakamura'
 layout: 'about'
 ---
 
-Live in Kyoto(Japan)
+よ〜んです。京都に住んでいます。
 
-Osaka Electro-Communication University
+大阪電気通信大学 情報学科卒。来世はねこになりたい。
 
-Bachelor of Science in Information Technology
+## 好きなもの
 
-2025 Japan AWS Jr. Champion
+- IaC
+- Serverless
+- FinOps
+- ねこ
 
-AWS Community Builder (Dev Tools)
+## コミュニティ活動
 
-土日はお休みしたいし、来世はねこ。
+- 2025 Japan AWS Jr. Champion
+- AWS Community Builder (Dev Tools)
+- JAWS DAYS 2026 実行委員（お祭り）
+- JAWS SONIC 2026 実行委員
+
+## 好きな言葉 / モットー
+
+- just start（とにかく着手）
+- 来世は猫
+
+## このブログについて
+
+AWS やインフラ、開発ツールまわりの技術ネタと、日常のゆるい雑記を書いています。
+
+土日はお休みしたい。
