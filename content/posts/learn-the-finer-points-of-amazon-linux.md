@@ -20,6 +20,7 @@ title: 'Amazon Linux 2023 だいぶディープ(Dive Deep)'
 - EC2の冪等性
 - DCV
 - Amazon LinuxのGUI
+  - [Amazon DCV と Wayland の相性問題](/posts/amazon-dcv-wayland-issue/)
 
 ---
 
