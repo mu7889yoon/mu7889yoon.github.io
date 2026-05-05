@@ -58,7 +58,6 @@ $ cat /etc/gdm/custom.conf
 アプリケーションが X protocol を使って表示先の X server に描画や入力イベントの処理を依頼する設計。この通信はネットワーク越しにも転送できるため、SSH の X11 forwarding（`ssh -X`）でリモートアプリを手元の画面に表示できます。
 XQuartz などで Mac から Linux GUI を使った経験がある人もいると思います。
 
-
 ```mermaid
 flowchart LR
     subgraph X11
