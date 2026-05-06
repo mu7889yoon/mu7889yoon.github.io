@@ -52,7 +52,6 @@ flowchart TB
     end
 ```
 
-
 ## Bref vs FrankenPHP
 
 | 観点 | Bref | FrankenPHP |
