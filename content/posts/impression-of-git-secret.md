@@ -21,6 +21,7 @@ GitHub のリポジトリに AWS アクセスキーや API キーなどのシー
 ```bash
 git secrets --register-aws
 ```
+
 ## インストール
 
 macOS なら Homebrew でサクッとインストール可能です：
