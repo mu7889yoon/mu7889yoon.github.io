@@ -12,7 +12,7 @@ title: '2025 Japan AWS Jr. Championsとしての活動を振り返る'
 
 久しぶりの記事ですが、ポエミーな感じになります。
 
-> 大前提として、この記事では業務の話はしません（が、頑張りました。）
+> 大前提として、この記事では業務の話はしません（頑張りました。）
 
 任期の最終週は、関西のコミュニティの登壇とか主催で埋まっていました。私らしい終わり方ができて良かったなと思っています。（らぶ関西卍）
 
@@ -167,3 +167,7 @@ JCになる前から、平日は仕事をして、空いた時間でブログを
 あ、でも6月はインプットの期間にしまーす。
 
 ではでは〜
+
+## 追記
+
+<blockquote class="twitter-tweet" data-media-max-width="560"><p lang="ja" dir="ltr">七転八起☆至上主義！の3:21〜みたいなマインドで生きてる</p>&mdash; よ〜ん (@Tesla_yoon) <a href="https://x.com/Tesla_yoon/status/2061855457367781860?ref_src=twsrc%5Etfw">June 2, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
