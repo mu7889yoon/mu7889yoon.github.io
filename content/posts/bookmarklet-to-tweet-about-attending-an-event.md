@@ -24,12 +24,11 @@ Twitter(X)の仕様変更でconnpassでイベントに参加表明した際に�
 
 ![](/images/019ececb-1785-7edf-9fb1-39c08dd87134.png)
 
-2. ブックマークを編集する
+1. ブックマークを編集する
 
 ![](/images/019ececb-52d2-7389-8b0c-f1cadc9f5cf2.png)
 
-
-3. このコードをURLに貼り付ける
+1. このコードをURLに貼り付ける
 
 ```js
 javascript:(()=>{const d=document;const title=(d.querySelector('meta[property="og:title"]')?.content||d.querySelector(%27h1%27)?.innerText||d.title).replace(/\s*-\s*connpass\s*$/,%27%27).trim();const baseUrl=(d.querySelector(%27meta[property="og:url"]%27)?.content||d.querySelector(%27link[rel="canonical"]%27)?.href||location.href).split(%27?%27)[0];const url=baseUrl+%27?utm_campaign=event_participate_to_follower&utm_source=notifications&utm_medium=twitter%27;const text=`${title} に参加を申し込みました！ ${url} #wakate_aws%60;open(%60https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}%60,'_blank');})();
@@ -45,13 +44,13 @@ javascript:(()=>{const d=document;const title=(d.querySelector('meta[property="o
 
 ![](/images/019ececd-80cd-7089-97a8-b2eb03e1201b.png)
 
-2. イベントページに戻る
+1. イベントページに戻る
 
 ![](/images/019ececb-944e-7e75-8d3b-94466e551d61.png)
 
-3. 先ほど作成したブックマークを押す
+1. 先ほど作成したブックマークを押す
 
-4. ポストする
+2. ポストする
 
 ![](/images/019ececb-ad6d-7257-ae30-9ac746e380e8.png)
 
