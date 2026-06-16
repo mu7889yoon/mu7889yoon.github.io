@@ -31,7 +31,7 @@ Twitter(X)の仕様変更でconnpassでイベントに参加表明した際に�
 1. このコードをURLに貼り付ける
 
 ```js
-javascript:(()=>{const d=document;const title=(d.querySelector('meta[property="og:title"]')?.content||d.querySelector(%27h1%27)?.innerText||d.title).replace(/\s*-\s*connpass\s*$/,%27%27).trim();const baseUrl=(d.querySelector(%27meta[property="og:url"]%27)?.content||d.querySelector(%27link[rel="canonical"]%27)?.href||location.href).split(%27?%27)[0];const url=baseUrl+%27?utm_campaign=event_participate_to_follower&utm_source=notifications&utm_medium=twitter%27;const text=`${title} に参加を申し込みました！ ${url} #wakate_aws%60;open(%60https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}%60,'_blank');})();
+javascript:(()=>{const d=document;const title=(d.querySelector('meta[property="og:title"]')?.content||d.querySelector('h1')?.innerText||d.title).replace(/\s*-\s*connpass\s*$/,'').trim();const baseUrl=(d.querySelector('meta[property="og:url"]')?.content||d.querySelector('link[rel="canonical"]')?.href||location.href).split('?')[0];const url=baseUrl+'?utm_campaign=event_participate_to_follower&utm_source=notifications&utm_medium=twitter';const texts=[d.body.innerText,...[...d.querySelectorAll('meta')].map(m=>m.content||''),...[...d.querySelectorAll('a[href*="twitter.com/intent/tweet"],a[href*="x.com/intent/tweet"]')].map(a=>decodeURIComponent(a.href))].join(' ');const hashtags=[...new Set((texts.match(/#[\wぁ-んァ-ヶ一-龠ー]+/g)||[]).filter(t=>!/^#\d+$/.test(t)))];const text=`${title} に参加を申し込みました！ ${url}${hashtags.length?' '+hashtags.join(' '):''}`;open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`,'_blank');})();
 ```
 
 ![](/images/019ececb-77aa-7f48-944d-8f9dde0905e5.png)
