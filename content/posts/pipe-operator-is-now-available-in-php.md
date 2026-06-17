@@ -13,9 +13,9 @@ title: 'PHPでパイプ演算子が使えるらしいので、深掘りしてみ
 ```elixir
 title = " PHP 8.5 Released "
 slug = title
-	|> String.trim()
-	|> String.downcase()
-	|> String.replace(" ", "-")
+ |> String.trim()
+ |> String.downcase()
+ |> String.replace(" ", "-")
 IO.puts(slug)
 ```
 
@@ -110,7 +110,9 @@ flowchart TD
 ### オペコードを見てみる
 
 後述する理由でパイプのパターンはクロージャーを使用しているので当該部分を削除して比較します。
+
 #### nested-wo-str_replace.php
+
 ```php
 <?php
 $title = ' PHP 8.5 Released ';
@@ -133,13 +135,15 @@ $_main:
 0007 RETURN int(1)
 php 8.5 released%   
 ```
+
 #### pipe-wo-str_replace.php
+
 ```php
 <?php
 $title = ' PHP 8.5 Released ';
 $slug = $title
-	|> trim(...)
-	|> strtolower(...);
+ |> trim(...)
+ |> strtolower(...);
 echo($slug);
 ```
 
@@ -163,6 +167,7 @@ php 8.5 released%
 ```
 
 #### diff
+
 パイプを使用すると、`$title` を `QM_ASSIGN` でtmpに入れてから `trim` に渡していますね(緑文字)
 
 一方で 従来のネストでは、`$title` をそのまま `trim` に渡しています(赤文字)
@@ -190,9 +195,9 @@ Elixir のパイプは、左側の値を次の関数呼び出しの第一引数�
 ```elixir
 title = " PHP 8.5 Released "
 slug = title
-	|> String.trim()
-	|> String.downcase()
-	|> String.replace(" ", "-")
+ |> String.trim()
+ |> String.downcase()
+ |> String.replace(" ", "-")
 IO.puts(slug)
 ```
 
@@ -223,9 +228,9 @@ $title
 
 ```php
 $names = collect($users)
-		->map(fn ($user) => $user->name)
-	    ->filter()
-	    ->values();
+  ->map(fn ($user) => $user->name)
+     ->filter()
+     ->values();
 ```
 
 Laravel の Collection は、もともと体験がかなり完成されてると思っています。
@@ -250,27 +255,27 @@ Resource / Response
 ```php
 public function store(StoreRequest $request, StoreAction $action)
 {
-	$validated = $request->validated();
-	$article = $action(
-		$validated['title'],
-		$validated['body'],
-		$request->user(),
-	);
-	return new ArticleResource($article);
+ $validated = $request->validated();
+ $article = $action(
+  $validated['title'],
+  $validated['body'],
+  $request->user(),
+ );
+ return new ArticleResource($article);
 }
 ```
 
 ```php
 public function store(StoreRequest $request, StoreAction $action)
 {
-	return $request
-			|> (fn (StoreRequest $request) => $request->validated())
-			|> (fn (array $validated) => $action(
-					$validated['title'],
-					$validated['body'],
-					$request->user(),
-				))
-			|> (fn (Article $article) => new ArticleResource($article));
+ return $request
+   |> (fn (StoreRequest $request) => $request->validated())
+   |> (fn (array $validated) => $action(
+     $validated['title'],
+     $validated['body'],
+     $request->user(),
+    ))
+   |> (fn (Article $article) => new ArticleResource($article));
 }
 ```
 
