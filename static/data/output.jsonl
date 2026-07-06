@@ -49,3 +49,5 @@
 {"date":"2026-06-03","type":"seeds-blog","url":"https://www.seeds-std.co.jp/blog/creators/2026-06-02-373726ec-d8cd-8051-abcb-c294cf16660f/", "note":"AWS Serverless Application Repository を使ってサーバレスアプリケーションをデプロイしてみた"}
 {"date":"2026-06-08","type":"other", "url": "https://x.com/manaty_prod/status/2064000576204222656?s=20", "note": "AWS麻雀 @ GAWS"}
 {"date":"2026-06-18","type":"lt", "note": "ECCコンピュータ専門学校 登壇"}
+{"date":"2026-06-30","type":"lt", "url":"https://kinto-technologies.connpass.com/event/395816/", "note": "たぶん日本一早いかも！？AWS Summit Japan 2026 振返り会"}
+{"date":"2026-07-04","type":"lt", "url":"https://jawsug-fukui.connpass.com/event/391807/", "note":"JAWS-UG 福井 #3 AWS Summit のおみやげ話LT大会"}
