@@ -58,12 +58,12 @@ flowchart TB
 | - | - | - |
 | 実行基盤 | AWS Lambda | Docker コンテナ（CF Containers / ECS / K8s） |
 | コールドスタート | あり | なし（プロセス常駐） |
-| スケーリング | 自動（同時実行数ベース）| 自動（コンテナオーケストレーター依存）|
+| スケーリング | 自動（同時実行数ベース） | 自動（コンテナオーケストレーター依存） |
 | 最大実行時間 | 15 分 | 制限なし（実行環境依存） |
 | リクエストサイズ上限 | ~6MB（API Gateway）/ ~1MB（Function URL） | 実質無制限 |
 | ファイルシステム | 読み取り専用（`/tmp` のみ書き込み可） | 読み書き可能 |
 | PHP 拡張 | Lambda Layer に含まれるもの or カスタムレイヤー | Dockerfile で自由に追加 |
-| デプロイ先 | AWS のみ | どこでも（Cloudflare / AWS ）|
+| デプロイ先 | AWS のみ | どこでも（Cloudflare / AWS ） |
 | 課金モデル | リクエスト数 + 実行時間 | コンテナ稼働時間 |
 | ローカル開発 | Docker | `frankenphp php-server` / Docker |
 

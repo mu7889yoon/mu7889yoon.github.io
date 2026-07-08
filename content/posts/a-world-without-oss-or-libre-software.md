@@ -41,11 +41,11 @@ IIS は Windows Server に含まれているので、HTTP サーバー単体の�
 
 | 項目 | 想定 | 費用感 | 参考 |
 | - | - | - | - |
-| OS| Windows Server Standard| 約 1,176 USD | https://www.microsoft.com/en-us/windows-server/pricing |
-| HTTP サーバー | IIS| 追加費用なし | |
-| DB| SQL Server Standard| 約 989 USD + CAL | https://www.microsoft.com/en-us/sql-server/sql-server-2022-pricing |
-| 開発環境| Visual Studio Professional | 約 540 USD / 年 / 人 | https://visualstudio.microsoft.com/vs/pricing/ |
-| 合計|| 約 2,705 USD + CAL | |
+| OS | Windows Server Standard | 約 1,176 USD | <https://www.microsoft.com/en-us/windows-server/pricing> |
+| HTTP サーバー | IIS | 追加費用なし | |
+| DB | SQL Server Standard | 約 989 USD + CAL | <https://www.microsoft.com/en-us/sql-server/sql-server-2022-pricing> |
+| 開発環境 | Visual Studio Professional | 約 540 USD / 年 / 人 | <https://visualstudio.microsoft.com/vs/pricing/> |
+| 合計 | | 約 2,705 USD + CAL | |
 
 もちろん、これはかなり小さく見積もった場合です。
 

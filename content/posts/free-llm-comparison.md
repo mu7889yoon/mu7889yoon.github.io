@@ -60,17 +60,17 @@ IO.netと同じ感じでオープンウェイトなモデルを呼び出せる�
 
 全部書くと大変なので主要なモデル(主観)の対応表を載せておきます。
 
-| モデル名                  | さくらのAI                 | Cloudflare            | Google AI Studio   | IO.net | OpenRouter             |
+| モデル名 | さくらのAI | Cloudflare | Google AI Studio | IO.net | OpenRouter |
 | --------------------- | ---------------------- | --------------------- | ------------------ | ------ | ---------------------- |
-| gpt-oss-120b          | 3000 request/month(※1) | 10,000 neuron/day(※2) | -                  | ⚪︎     | 50 request/day(※2, ※3) |
-| Qwen3-Coder-480B-A35B | 3000 request/month(※1) | -                     | -                  | ⚪︎     | 50 request/day(※2, ※3) |
-| kimi-k2.5             | -                      | 10,000 neuron/day(※2) | -                  | ⚪︎     | -                      |
-| kimi-k2-thinking      | -                      | -                     | -                  | ⚪︎     | -                      |
-| glm-4.7-flash         | -                      | 10,000 neuron/day(※2) | -                  | ⚪︎     | -                      |
-| glm-4.7               | -                      | -                     | -                  | ⚪︎     | -                      |
-| Gemini 2.5 Flash      | -                      | -                     | 10,000 request/day | -      | -                      |
-| Gemini 2.5 Pro        | -                      |                       | 1,000request/day   | -      | -                      |
-| Gemma 4 31B           | -                      | -                     | 14,400request/day  | -      | -                      |
+| gpt-oss-120b | 3000 request/month(※1) | 10,000 neuron/day(※2) | - | ⚪︎ | 50 request/day(※2, ※3) |
+| Qwen3-Coder-480B-A35B | 3000 request/month(※1) | - | - | ⚪︎ | 50 request/day(※2, ※3) |
+| kimi-k2.5 | - | 10,000 neuron/day(※2) | - | ⚪︎ | - |
+| kimi-k2-thinking | - | - | - | ⚪︎ | - |
+| glm-4.7-flash | - | 10,000 neuron/day(※2) | - | ⚪︎ | - |
+| glm-4.7 | - | - | - | ⚪︎ | - |
+| Gemini 2.5 Flash | - | - | 10,000 request/day | - | - |
+| Gemini 2.5 Pro | - | | 1,000request/day | - | - |
+| Gemma 4 31B | - | - | 14,400request/day | - | - |
 
 ※1 モデルごとの上限なのか、アカウントごとの条件なのか不明（国弱）
 

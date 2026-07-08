@@ -89,7 +89,7 @@ IPアドレスが異なっています、ロードバランシングされてい
 | Service | Cost per month |
 | - | - |
 | Fargate (0.25 vCPU, 0.5 GB, Arm) | 8.99 USD |
-| ECR  | 1.08 USD |
+| ECR | 1.08 USD |
 | API Gateway | ≒ 0 USD |
 | Cloud Map | ≒ 0 USD |
 | Route 53 Private Hosted Zone | 0.50 USD |
