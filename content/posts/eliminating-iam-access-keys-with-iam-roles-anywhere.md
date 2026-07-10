@@ -82,7 +82,7 @@ IAM Roles Anywhereのドキュメントを見ると、AWS Private CAを利用し
 ## 認証局の作成
 
 ```bash
-$ openssl genrsa -out ca.key 4096
+openssl genrsa -out ca.key 4096
 ```
 
 続いてCA証明書を作成します。
@@ -133,7 +133,7 @@ Basic Constraints
 ## Lightsail用の証明書の作成
 
 ```bash
-$ openssl genrsa -out lightsail.key 2048
+openssl genrsa -out lightsail.key 2048
 ```
 
 [CSR](https://knowledge.digicert.com/jp/tutorials/how-to-create-csr)を作成し、
@@ -184,7 +184,6 @@ lightsail.crt: OK
 ## IAM Roles Anywhereの設定
 
 今から、Trust Anchor, IAM Role, Profileの三つを作成していきます。
-
 
 ### Trust Anchor
 
@@ -256,11 +255,9 @@ $ aws_signing_helper credential-process \
 }
 ```
 
-
 ### AWS CLIの設定
 
 `~/.aws/config`を以下みたいな感じで設定します。
-
 
 ```ini
 [default]
