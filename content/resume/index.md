@@ -14,10 +14,10 @@ outputs: ["HTML", "Markdown"]
 |-|-|
 |ハンドルネーム|よ〜ん / mu7889yoon|
 |最終学歴|大阪電気通信大学 情報通信工学部 情報工学科卒|
-|GitHub|[![](https://img.shields.io/badge/%40mu7889yoon-black?style=for-the-badge&amp;logo=github)](https://github.com/mu7889yoon)|
+|GitHub|[![](https://img.shields.io/badge/%40mu7889yoon-black?style=flat&amp;logo=github)](https://github.com/mu7889yoon)|
 |技術ブログ|[よ〜んの雑記](https://mu7889yoon.github.io/)|
-|X|[![](https://img.shields.io/badge/%40tesla_yoon-blue?style=for-the-badge&amp;logo=X)](https://x.com/tesla_yoon)|
-|Speaker Deck|[![](https://img.shields.io/badge/mu7889yoon-blue?style=for-the-badge&amp;logo=speakerdeck)](https://speakerdeck.com/mu7889yoon)|
+|X|[![](https://img.shields.io/badge/%40tesla_yoon-blue?style=flat&amp;logo=X)](https://x.com/tesla_yoon)|
+|Speaker Deck|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=speakerdeck)](https://speakerdeck.com/mu7889yoon)|
 |LinkedIn|TODO|
 
 ## 職務概要
