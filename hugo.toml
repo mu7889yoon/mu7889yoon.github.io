@@ -6,6 +6,17 @@ enableRobotsTXT = false
 [markup.goldmark.renderer]
   unsafe = true
 
+[mediaTypes]
+  [mediaTypes.'text/markdown']
+    suffixes = ['md']
+
+[outputFormats]
+  [outputFormats.Markdown]
+    mediaType = 'text/markdown'
+    baseName = 'index'
+    isPlainText = true
+    notAlternative = true
+
 [services]
   [services.googleAnalytics]
     id = 'G-9NZ6DBN19T'

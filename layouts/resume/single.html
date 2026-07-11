@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "ja-jp" }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    {{ with resources.Get "css/resume.css" }}
+      {{ $style := . | resources.Minify | resources.Fingerprint }}
+      <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+    {{ end }}
+  </head>
+  <body class="resume-page">
+    <header class="resume-header">
+      <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+      <nav class="resume-actions" aria-label="職務経歴書の出力">
+        <button type="button" onclick="window.print()">PDF</button>
+        {{ with .OutputFormats.Get "Markdown" }}
+          <a href="{{ .RelPermalink }}" download>Markdown</a>
+        {{ end }}
+      </nav>
+    </header>
+
+    <main class="resume-container">
+      <article class="resume-content">
+        {{ .Content }}
+      </article>
+    </main>
+  </body>
+</html>
