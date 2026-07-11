@@ -1,0 +1,26 @@
+{{- $pages := where site.RegularPages "Section" "posts" -}}
+{{- $items := slice -}}
+{{- range $pages.ByDate.Reverse -}}
+  {{- if not .Draft -}}
+    {{- $description := "" -}}
+    {{- if .Params.description -}}
+      {{- $description = .Params.description -}}
+    {{- else if .Description -}}
+      {{- $description = .Description -}}
+    {{- else -}}
+      {{- $description = .Summary -}}
+    {{- end -}}
+    {{- $items = $items | append (dict
+      "id" .File.UniqueID
+      "title" .Title
+      "url" .RelPermalink
+      "date" (.PublishDate.Format "2006-01-02")
+      "readingTime" .ReadingTime
+      "description" ($description | plainify | chomp)
+      "summary" (.Summary | plainify | chomp)
+      "body" (.Content | plainify | chomp)
+      "tags" (.Params.tags | default slice)
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $items | jsonify (dict "indent" "  ") -}}

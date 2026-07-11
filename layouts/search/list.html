@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <article class="search-page">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content -}}<div class="post-content">{{- . -}}</div>{{- end }}
+
+    <noscript>
+      <p>検索を使うには JavaScript を有効にしてください。</p>
+    </noscript>
+
+    <div class="search-form" data-search-form>
+      <label class="search-label" for="site-search">記事を検索</label>
+      <input
+        id="site-search"
+        class="search-input"
+        type="search"
+        name="q"
+        autocomplete="off"
+        spellcheck="false"
+        data-search-input
+      />
+      <p class="search-status" data-search-status>検索インデックスを読み込んでいます...</p>
+    </div>
+
+    <ol class="search-results" data-search-results aria-live="polite"></ol>
+  </article>
+
+  <link rel="stylesheet" href="{{ "search/search.css" | relURL }}" />
+  <script type="module" src="{{ "search/search.js" | relURL }}"></script>
+{{ end }}

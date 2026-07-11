@@ -64,6 +64,11 @@ enableRobotsTXT = false
     name = 'Tools'
     url = '/tools/'
     weight = 5
+  [[menu.main]]
+    identifier = 'search'
+    name = 'Search'
+    url = '/search/'
+    weight = 6
     
 [params]
   author = 'mu7889yoon / yuta nakamura'

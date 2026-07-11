@@ -1,0 +1,89 @@
+.search-form {
+  margin: 2rem 0;
+}
+
+.search-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.search-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.08);
+  font: inherit;
+}
+
+.search-input:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.search-input:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.search-status {
+  min-height: 1.5rem;
+  margin: 0.75rem 0 0;
+  opacity: 0.78;
+}
+
+.search-results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-result {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.search-result-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.search-result-meta {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  opacity: 0.72;
+}
+
+.search-result-description {
+  margin: 0.55rem 0 0;
+}
+
+.search-result-excerpt {
+  margin: 0.45rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 3px solid rgba(217, 145, 36, 0.5);
+  font-size: 0.92rem;
+  opacity: 0.86;
+}
+
+.search-result-excerpt-label {
+  font-weight: 700;
+  opacity: 0.78;
+}
+
+.search-result mark {
+  padding: 0 0.12em;
+  border-radius: 2px;
+  color: inherit;
+  background: rgba(217, 145, 36, 0.45);
+}
+
+.search-result-tags {
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+  opacity: 0.72;
+}
