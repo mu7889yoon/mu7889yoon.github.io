@@ -72,8 +72,6 @@ Slack、Backlog、GitHub Projectsなどのチャットツール・タスク管�
 
 自然言語処理、AST解析、アノテーションツール開発、データ分析、研究用システム開発の経験があり、技術調査や検証設計に活かしています。
 
----
-
 ## 技術スキル
 
 実業務で使用した技術を中心に記載しています。
@@ -114,8 +112,6 @@ Slack、Backlog、GitHub Projectsなどのチャットツール・タスク管�
 
 `OBS` `Resolume Arena`
 
----
-
 ## 保有称号・資格
 
 ### AWS関連
@@ -129,8 +125,6 @@ AWSに関する技術発信、コミュニティ活動、学習・登壇活動�
 [AWS Community Builders](https://builder.aws.com/community/@mu7889yoon)のDevToolsカテゴリに選出。
 
 AWS CDK、CI/CD、開発者体験、DevTools領域を中心に、技術発信・コミュニティ活動を行っています。
-
----
 
 ## 職務経歴
 
@@ -289,8 +283,6 @@ PMとして要件整理・進行管理を行いながら、1名体制で設計�
 
 </details>
 
----
-
 ### 大阪電気通信大学 自然言語処理研究室
 
 |項目|内容|
@@ -317,8 +309,6 @@ PMとして要件整理・進行管理を行いながら、1名体制で設計�
 - [「教科書のフレーム知識化に基づくプログラミング助言システム」](https://www.jstage.jst.go.jp/article/fss/39/0/39_164/_pdf/-char/en)：共著者として研究に参画
 
 </details>
-
----
 
 ### TryHard tech株式会社
 
