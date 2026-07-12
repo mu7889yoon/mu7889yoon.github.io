@@ -1,222 +1,46 @@
-import * as duckdb from "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm";
-
-const KUROMOJI_VERSION = "0.1.2";
-const KUROMOJI_SCRIPT = `https://cdn.jsdelivr.net/npm/kuromoji@${KUROMOJI_VERSION}/build/kuromoji.js`;
-const KUROMOJI_DICT = `https://cdn.jsdelivr.net/npm/kuromoji@${KUROMOJI_VERSION}/dict/`;
-const SEARCH_INDEX_URL = "/search/index.json";
-const MAX_RESULTS = 30;
 const DEBOUNCE_MS = 180;
-const RESULT_COLUMNS = ["title", "url", "date", "reading_time", "description", "tags", "raw_text"];
+const WORKER_URL = "/search/search-worker.js?v=duckdb-index";
 
 const input = document.querySelector("[data-search-input]");
 const statusEl = document.querySelector("[data-search-status]");
 const resultsEl = document.querySelector("[data-search-results]");
+const worker = new Worker(WORKER_URL, { type: "module" });
 
-let db;
-let conn;
-let tokenizer;
-let ftsReady = false;
+let ready = false;
 let searchTimer = 0;
+let requestId = 0;
+const pendingRequests = new Map();
+
+worker.onmessage = (event) => {
+  const { id, type, message } = event.data;
+  const request = pendingRequests.get(id);
+  if (!request) return;
+
+  pendingRequests.delete(id);
+  if (type === "error") request.reject(new Error(message));
+  else request.resolve(event.data);
+};
 
 main().catch((error) => {
   console.error(error);
+  statusEl.dataset.searchError = error.message || String(error);
   setStatus("検索の初期化に失敗しました。時間をおいて再読み込みしてください。");
-  if (input) input.disabled = true;
+  setInputBusy(true);
 });
 
 async function main() {
   if (!input || !statusEl || !resultsEl) return;
 
   setInputBusy(true);
-  [tokenizer, db] = await Promise.all([initTokenizer(), initDuckDB()]);
-  conn = await db.connect();
-
-  const posts = await fetchPosts();
-  const searchablePosts = posts.map((post) => buildSearchDocument(post, tokenizer));
-  await loadPosts(searchablePosts);
-  ftsReady = await initFts();
-
+  const { count } = await postWorker("init");
+  ready = true;
   setInputBusy(false);
   input.addEventListener("input", scheduleSearch);
 
   const initialQuery = new URLSearchParams(window.location.search).get("q") || "";
   input.value = initialQuery;
-  if (initialQuery.trim()) {
-    await runSearch(initialQuery);
-  } else {
-    setStatus(`${posts.length}件の記事を検索できます。`);
-  }
-}
-
-async function initDuckDB() {
-  const bundle = await duckdb.selectBundle(duckdb.getJsDelivrBundles());
-  const workerSource = `importScripts("${bundle.mainWorker}");`;
-  const workerUrl = URL.createObjectURL(new Blob([workerSource], { type: "text/javascript" }));
-  const worker = new Worker(workerUrl);
-  const logger = new duckdb.ConsoleLogger(duckdb.LogLevel.WARNING);
-  const db = new duckdb.AsyncDuckDB(logger, worker);
-  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
-  URL.revokeObjectURL(workerUrl);
-  return db;
-}
-
-async function initTokenizer() {
-  await loadScript(KUROMOJI_SCRIPT);
-  return new Promise((resolve, reject) => {
-    window.kuromoji.builder({ dicPath: KUROMOJI_DICT }).build((error, tokenizer) => {
-      if (error) reject(error);
-      else resolve(tokenizer);
-    });
-  });
-}
-
-function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = src;
-    script.async = true;
-    script.onload = resolve;
-    script.onerror = () => reject(new Error(`Failed to load ${src}`));
-    document.head.appendChild(script);
-  });
-}
-
-async function fetchPosts() {
-  const response = await fetch(SEARCH_INDEX_URL, { headers: { Accept: "application/json" } });
-  if (!response.ok) {
-    throw new Error(`Failed to fetch search index: ${response.status}`);
-  }
-  return response.json();
-}
-
-function buildSearchDocument(post, tokenizer) {
-  const titleTokens = tokenize(post.title, tokenizer);
-  const descriptionTokens = tokenize(`${post.description || ""} ${post.summary || ""}`, tokenizer);
-  const bodyTokens = tokenize(post.body || "", tokenizer);
-  const allTokens = unique([...titleTokens, ...descriptionTokens, ...bodyTokens]);
-  const rawText = normalizeText([
-    post.title,
-    post.description,
-    post.summary,
-    post.body,
-    ...(post.tags || []),
-  ].join(" "));
-
-  return {
-    id: post.id,
-    title: post.title,
-    url: post.url,
-    date: post.date,
-    readingTime: post.readingTime,
-    description: post.description || post.summary || "",
-    tags: post.tags || [],
-    raw_text: rawText,
-    title_tokens: titleTokens.join(" "),
-    description_tokens: descriptionTokens.join(" "),
-    search_tokens: allTokens.join(" "),
-    token_blob: ` ${allTokens.join(" ")} `,
-  };
-}
-
-function tokenize(text, tokenizer) {
-  const normalized = normalizeText(text);
-  const tokenSet = new Set();
-
-  for (const token of tokenizer.tokenize(normalized)) {
-    for (const candidate of tokenCandidates(token)) {
-      if (isUsefulToken(candidate)) tokenSet.add(candidate);
-    }
-  }
-
-  for (const candidate of normalized.match(/[a-z0-9][a-z0-9._+#:-]*/g) || []) {
-    if (isUsefulToken(candidate)) tokenSet.add(candidate);
-  }
-
-  return [...tokenSet];
-}
-
-function tokenCandidates(token) {
-  const values = [token.surface_form, token.basic_form].filter(Boolean);
-  return values
-    .filter((value) => value !== "*")
-    .map(normalizeText)
-    .flatMap((value) => value.split(/\s+/))
-    .filter(Boolean);
-}
-
-function isUsefulToken(token) {
-  if (!token || token.length > 64) return false;
-  if (/^[\p{P}\p{S}]+$/u.test(token)) return false;
-  if (/^[ぁ-んー]$/u.test(token)) return false;
-  return true;
-}
-
-function normalizeText(text) {
-  return String(text || "")
-    .normalize("NFKC")
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function unique(values) {
-  return [...new Set(values.filter(Boolean))];
-}
-
-async function loadPosts(posts) {
-  await conn.query("DROP TABLE IF EXISTS posts");
-  await conn.query("DROP TABLE IF EXISTS posts_raw");
-  await conn.query("DROP SEQUENCE IF EXISTS serial");
-  await conn.query("CREATE SEQUENCE serial START 1");
-  await db.registerFileText("posts.json", JSON.stringify(posts));
-  await conn.insertJSONFromPath("posts.json", {
-    name: "posts_raw",
-    schema: "main",
-  });
-  await conn.query(`
-    CREATE TABLE posts AS
-    SELECT
-      nextval('serial')::INTEGER AS row_id,
-      id::VARCHAR AS id,
-      title::VARCHAR AS title,
-      url::VARCHAR AS url,
-      date::VARCHAR AS date,
-      readingTime::INTEGER AS reading_time,
-      description::VARCHAR AS description,
-      tags AS tags,
-      raw_text::VARCHAR AS raw_text,
-      title_tokens::VARCHAR AS title_tokens,
-      description_tokens::VARCHAR AS description_tokens,
-      search_tokens::VARCHAR AS search_tokens,
-      token_blob::VARCHAR AS token_blob
-    FROM posts_raw
-  `);
-}
-
-async function initFts() {
-  try {
-    await conn.query("INSTALL fts");
-    await conn.query("LOAD fts");
-    await conn.query(`
-      PRAGMA create_fts_index(
-        'posts',
-        'row_id',
-        'title_tokens',
-        'description_tokens',
-        'search_tokens',
-        stemmer = 'none',
-        stopwords = 'none',
-        ignore = '\\s+',
-        strip_accents = 0,
-        lower = 0,
-        overwrite = 1
-      )
-    `);
-    return true;
-  } catch (error) {
-    console.warn("DuckDB FTS is unavailable; falling back to SQL matching.", error);
-    return false;
-  }
+  if (initialQuery.trim()) await runSearch(initialQuery);
+  else setStatus(`${count}件の記事を検索できます。`);
 }
 
 function scheduleSearch() {
@@ -239,87 +63,31 @@ async function runSearch(query) {
     return;
   }
 
-  const queryTokens = tokenize(rawQuery, tokenizer);
-  if (!queryTokens.length) {
-    setStatus("検索できる語句を入力してください。");
+  if (!ready) {
+    setStatus("検索インデックスを読み込んでいます...");
     return;
   }
 
   setStatus("検索しています...");
-  const results = await searchPosts(rawQuery, queryTokens);
-  renderResults(results, rawQuery, queryTokens);
+  const { results } = await postWorker("search", { query: rawQuery });
+  renderResults(results.rows, rawQuery, results.queryTokens);
 }
 
-async function searchPosts(rawQuery, queryTokens) {
-  const query = buildSearchQuery(rawQuery, queryTokens);
-  const bm25Sql = ftsReady
-    ? `fts_main_posts.match_bm25(row_id, ${query.tokenQuery})`
-    : "NULL";
-  const rows = await conn.query(`
-    WITH ranked AS (
-      SELECT ${searchSelectSql(query, `${bm25Sql} AS bm25`)}
-      FROM posts
-    )
-    SELECT *
-    FROM ranked
-    WHERE bm25 IS NOT NULL
-      OR phrase_match = 1
-      OR token_matches > 0
-    ORDER BY
-      (token_matches = ${queryTokens.length}) DESC,
-      phrase_match DESC,
-      bm25 DESC NULLS LAST,
-      token_matches DESC,
-      date DESC
-    LIMIT ${MAX_RESULTS}
-  `);
-  return rows.toArray();
-}
-
-function buildSearchQuery(rawQuery, queryTokens) {
-  return {
-    phrase: sqlString(normalizeText(rawQuery)),
-    tokenQuery: sqlString(queryTokens.join(" ")),
-    tokenScore: tokenScoreSql(queryTokens),
-    tokenWhere: tokenWhereSql(queryTokens),
-  };
-}
-
-function searchSelectSql(query, bm25Sql) {
-  return [
-    ...RESULT_COLUMNS,
-    `${query.tokenScore} AS token_matches`,
-    `CASE WHEN raw_text LIKE '%' || ${query.phrase} || '%' THEN 1 ELSE 0 END AS phrase_match`,
-    bm25Sql,
-  ].join(",\n        ");
-}
-
-function tokenScoreSql(tokens) {
-  return tokens
-    .map((token) => `CASE WHEN token_blob LIKE '% ${escapeLike(token)} %' ESCAPE '\\' THEN 1 ELSE 0 END`)
-    .join(" + ");
-}
-
-function tokenWhereSql(tokens) {
-  return tokens
-    .map((token) => `token_blob LIKE '% ${escapeLike(token)} %' ESCAPE '\\'`)
-    .join(" OR ");
-}
-
-function escapeLike(value) {
-  return String(value)
-    .replace(/\\/g, "\\\\")
-    .replace(/'/g, "''")
-    .replace(/%/g, "\\%")
-    .replace(/_/g, "\\_");
-}
-
-function sqlString(value) {
-  return `'${String(value).replace(/'/g, "''")}'`;
+function postWorker(type, payload = {}) {
+  const id = ++requestId;
+  worker.postMessage({ id, type, ...payload });
+  return new Promise((resolve, reject) => {
+    pendingRequests.set(id, { resolve, reject });
+  });
 }
 
 function renderResults(results, rawQuery, queryTokens) {
   clearResults();
+
+  if (!queryTokens.length) {
+    setStatus("検索できる語句を入力してください。");
+    return;
+  }
 
   if (!results.length) {
     setStatus(`「${rawQuery}」に一致する記事はありません。`);
@@ -358,31 +126,16 @@ function renderResult(result, highlightTerms) {
   ]);
   if (excerpt) {
     const excerptEl = createElement("p", "search-result-excerpt");
-    const label = createElement("span", "search-result-excerpt-label", "本文: ");
-    excerptEl.appendChild(label);
+    excerptEl.appendChild(createElement("span", "search-result-excerpt-label", "本文: "));
     appendHighlightedText(excerptEl, excerpt, highlightTerms);
     item.appendChild(excerptEl);
   }
 
-  const tags = normalizeTags(result.tags);
-  if (tags.length) {
-    item.appendChild(createElement("div", "search-result-tags", tags.map((tag) => `#${tag}`).join(" ")));
+  if (result.tags.length) {
+    item.appendChild(createElement("div", "search-result-tags", result.tags.map((tag) => `#${tag}`).join(" ")));
   }
 
   return item;
-}
-
-function createElement(tagName, className, text) {
-  const element = document.createElement(tagName);
-  element.className = className;
-  if (text != null) element.textContent = text;
-  return element;
-}
-
-function normalizeTags(tags) {
-  if (Array.isArray(tags)) return tags;
-  if (tags && typeof tags.toArray === "function") return tags.toArray();
-  return [];
 }
 
 function createMatchedExcerpt(text, highlightTerms, alreadyVisibleTexts = []) {
@@ -396,9 +149,7 @@ function createMatchedExcerpt(text, highlightTerms, alreadyVisibleTexts = []) {
 
   const start = Math.max(0, matchIndex - 42);
   const end = Math.min(normalized.length, matchIndex + 110);
-  const prefix = start > 0 ? "..." : "";
-  const suffix = end < normalized.length ? "..." : "";
-  return `${prefix}${normalized.slice(start, end)}${suffix}`;
+  return `${start > 0 ? "..." : ""}${normalized.slice(start, end)}${end < normalized.length ? "..." : ""}`;
 }
 
 function buildHighlightTerms(rawQuery, queryTokens) {
@@ -437,8 +188,11 @@ function highlightRegex(terms) {
   return escaped.length ? new RegExp(escaped.join("|"), "giu") : null;
 }
 
-function escapeRegExp(value) {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+function createElement(tagName, className, text) {
+  const element = document.createElement(tagName);
+  element.className = className;
+  if (text != null) element.textContent = text;
+  return element;
 }
 
 function findFirstMatchIndex(text, terms) {
@@ -468,6 +222,22 @@ function formatDate(value) {
     month: "short",
     day: "numeric",
   }).format(date);
+}
+
+function normalizeText(text) {
+  return String(text || "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function unique(values) {
+  return [...new Set(values.filter(Boolean))];
 }
 
 function clearResults() {

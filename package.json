@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "build:search-index": "node scripts/build-search-index.mjs"
+  },
+  "dependencies": {
+    "kuromoji": "0.1.2"
+  }
+}
