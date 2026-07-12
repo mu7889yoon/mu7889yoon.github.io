@@ -1,3 +1,5 @@
+import { escapeRegExp, normalizeText, unique } from "./search-utils.js";
+
 const DEBOUNCE_MS = 180;
 const WORKER_URL = "/search/search-worker.js?v=duckdb-index";
 
@@ -6,7 +8,6 @@ const statusEl = document.querySelector("[data-search-status]");
 const resultsEl = document.querySelector("[data-search-results]");
 const worker = new Worker(WORKER_URL, { type: "module" });
 
-let ready = false;
 let searchTimer = 0;
 let requestId = 0;
 const pendingRequests = new Map();
@@ -23,7 +24,6 @@ worker.onmessage = (event) => {
 
 main().catch((error) => {
   console.error(error);
-  statusEl.dataset.searchError = error.message || String(error);
   setStatus("検索の初期化に失敗しました。時間をおいて再読み込みしてください。");
   setInputBusy(true);
 });
@@ -33,7 +33,6 @@ async function main() {
 
   setInputBusy(true);
   const { count } = await postWorker("init");
-  ready = true;
   setInputBusy(false);
   input.addEventListener("input", scheduleSearch);
 
@@ -63,11 +62,6 @@ async function runSearch(query) {
     return;
   }
 
-  if (!ready) {
-    setStatus("検索インデックスを読み込んでいます...");
-    return;
-  }
-
   setStatus("検索しています...");
   const { results } = await postWorker("search", { query: rawQuery });
   renderResults(results.rows, rawQuery, results.queryTokens);
@@ -82,8 +76,6 @@ function postWorker(type, payload = {}) {
 }
 
 function renderResults(results, rawQuery, queryTokens) {
-  clearResults();
-
   if (!queryTokens.length) {
     setStatus("検索できる語句を入力してください。");
     return;
@@ -222,22 +214,6 @@ function formatDate(value) {
     month: "short",
     day: "numeric",
   }).format(date);
-}
-
-function normalizeText(text) {
-  return String(text || "")
-    .normalize("NFKC")
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function escapeRegExp(value) {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function unique(values) {
-  return [...new Set(values.filter(Boolean))];
 }
 
 function clearResults() {

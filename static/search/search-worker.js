@@ -1,4 +1,5 @@
 import * as duckdb from "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm";
+import { escapeLike, isUsefulToken, normalizeText, sqlString, unique } from "./search-utils.js";
 
 const SEARCH_DB_URL = "/search/index.duckdb";
 const SEARCH_DB_NAME = "search.duckdb";
@@ -154,35 +155,4 @@ function tokenScoreSql(tokens) {
   return tokens
     .map((token) => `CASE WHEN token_blob LIKE '% ${escapeLike(token)} %' ESCAPE '\\' THEN 1 ELSE 0 END`)
     .join(" + ");
-}
-
-function escapeLike(value) {
-  return String(value)
-    .replace(/\\/g, "\\\\")
-    .replace(/'/g, "''")
-    .replace(/%/g, "\\%")
-    .replace(/_/g, "\\_");
-}
-
-function sqlString(value) {
-  return `'${String(value).replace(/'/g, "''")}'`;
-}
-
-function normalizeText(text) {
-  return String(text || "")
-    .normalize("NFKC")
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function isUsefulToken(token) {
-  if (!token || token.length > 64) return false;
-  if (/^[\p{P}\p{S}]+$/u.test(token)) return false;
-  if (/^[ぁ-んー]$/u.test(token)) return false;
-  return true;
-}
-
-function unique(values) {
-  return [...new Set(values.filter(Boolean))];
 }

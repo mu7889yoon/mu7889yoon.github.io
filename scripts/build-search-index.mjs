@@ -3,6 +3,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import kuromoji from "kuromoji";
+import { isUsefulToken, normalizeText, sqlString, unique } from "../static/search/search-utils.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -107,25 +108,6 @@ function tokenCandidates(token) {
     .filter(Boolean);
 }
 
-function isUsefulToken(token) {
-  if (!token || token.length > 64) return false;
-  if (/^[\p{P}\p{S}]+$/u.test(token)) return false;
-  if (/^[ぁ-んー]$/u.test(token)) return false;
-  return true;
-}
-
-function normalizeText(text) {
-  return String(text || "")
-    .normalize("NFKC")
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function unique(values) {
-  return [...new Set(values.filter(Boolean))];
-}
-
 function buildDuckDbSql(jsonPath, extensionDir) {
   const source = sqlString(jsonPath);
   const extensions = sqlString(path.join(extensionDir, "extensions"));
@@ -167,8 +149,4 @@ PRAGMA create_fts_index(
 
 CHECKPOINT;
 `.trimStart();
-}
-
-function sqlString(value) {
-  return `'${String(value).replace(/'/g, "''")}'`;
 }

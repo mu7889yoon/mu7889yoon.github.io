@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "build:search-index": "node scripts/build-search-index.mjs"
   },
