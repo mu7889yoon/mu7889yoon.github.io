@@ -3,6 +3,10 @@ import { escapeLike, isUsefulToken, normalizeText, sqlString, unique } from "./s
 
 const SEARCH_DB_URL = "/search/index.duckdb";
 const SEARCH_DB_NAME = "search.duckdb";
+const SEARCH_DB_CACHE_DB = "search-db-cache";
+const SEARCH_DB_CACHE_STORE = "files";
+const SEARCH_DB_CACHE_VERSION = 1;
+const SEARCH_DB_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const MAX_RESULTS = 30;
 const RESULT_COLUMNS = ["title", "url", "date", "reading_time", "description", "tags", "raw_text"];
 const querySegmenter = "Segmenter" in Intl
@@ -54,15 +58,133 @@ async function initDuckDB() {
 
 async function openSearchDatabase(instance) {
   const databaseUrl = new URL(SEARCH_DB_URL, self.location.origin).href;
-  await instance.registerFileURL(
-    SEARCH_DB_NAME,
-    databaseUrl,
-    duckdb.DuckDBDataProtocol.HTTP,
-    true,
-  );
+  const databaseBuffer = await loadSearchDatabase(databaseUrl);
+  await instance.registerFileBuffer(SEARCH_DB_NAME, new Uint8Array(databaseBuffer));
   await instance.open({
     path: SEARCH_DB_NAME,
     accessMode: duckdb.DuckDBAccessMode.READ_ONLY,
+  });
+}
+
+async function loadSearchDatabase(databaseUrl) {
+  const cached = await readCachedDatabase(databaseUrl);
+  if (cached && isUsableCachedDatabase(cached) && !isExpiredCachedDatabase(cached)) {
+    return cached.buffer;
+  }
+
+  const metadata = await fetchDatabaseMetadata(databaseUrl);
+
+  if (cached && isFreshCachedDatabase(cached, metadata)) {
+    return cached.buffer;
+  }
+
+  try {
+    return await fetchAndCacheDatabase(databaseUrl, metadata);
+  } catch (error) {
+    if (cached) return cached.buffer;
+    throw error;
+  }
+}
+
+async function fetchDatabaseMetadata(databaseUrl) {
+  try {
+    const response = await fetch(databaseUrl, { method: "HEAD", cache: "no-cache" });
+    if (!response.ok) return null;
+    return responseMetadata(response);
+  } catch {
+    return null;
+  }
+}
+
+async function fetchAndCacheDatabase(databaseUrl, metadata) {
+  const response = await fetch(databaseUrl, { cache: "no-cache" });
+  if (!response.ok) {
+    throw new Error(`Failed to fetch search database: ${response.status} ${response.statusText}`);
+  }
+
+  const buffer = await response.arrayBuffer();
+  const record = {
+    key: databaseUrl,
+    version: SEARCH_DB_CACHE_VERSION,
+    cachedAt: Date.now(),
+    buffer,
+    ...metadata,
+    ...responseMetadata(response),
+  };
+  await writeCachedDatabase(record);
+  return buffer;
+}
+
+function responseMetadata(response) {
+  return {
+    etag: response.headers.get("etag") || "",
+    lastModified: response.headers.get("last-modified") || "",
+    contentLength: response.headers.get("content-length") || "",
+  };
+}
+
+function isFreshCachedDatabase(record, metadata) {
+  if (!isUsableCachedDatabase(record)) return false;
+  if (!metadata) return true;
+  if (metadata.etag && record.etag) return metadata.etag === record.etag;
+  if (metadata.lastModified && record.lastModified) return metadata.lastModified === record.lastModified;
+  if (metadata.contentLength && record.contentLength) return metadata.contentLength === record.contentLength;
+  return true;
+}
+
+function isUsableCachedDatabase(record) {
+  return record.version === SEARCH_DB_CACHE_VERSION && record.buffer instanceof ArrayBuffer;
+}
+
+function isExpiredCachedDatabase(record) {
+  return Date.now() - Number(record.cachedAt || 0) > SEARCH_DB_CACHE_TTL_MS;
+}
+
+async function readCachedDatabase(databaseUrl) {
+  try {
+    const cache = await openCacheDatabase();
+    const record = await requestToPromise(
+      cache.transaction(SEARCH_DB_CACHE_STORE, "readonly").objectStore(SEARCH_DB_CACHE_STORE).get(databaseUrl),
+    );
+    cache.close();
+    return record || null;
+  } catch {
+    return null;
+  }
+}
+
+async function writeCachedDatabase(record) {
+  try {
+    const cache = await openCacheDatabase();
+    const transaction = cache.transaction(SEARCH_DB_CACHE_STORE, "readwrite");
+    transaction.objectStore(SEARCH_DB_CACHE_STORE).put(record);
+    await transactionToPromise(transaction);
+    cache.close();
+  } catch {
+    // IndexedDB is only an optimization. Search still works with the fetched buffer.
+  }
+}
+
+function openCacheDatabase() {
+  const request = indexedDB.open(SEARCH_DB_CACHE_DB, 1);
+  request.onupgradeneeded = () => {
+    request.result.createObjectStore(SEARCH_DB_CACHE_STORE, { keyPath: "key" });
+  };
+  return requestToPromise(request);
+}
+
+function requestToPromise(request) {
+  return new Promise((resolve, reject) => {
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+function transactionToPromise(transaction) {
+  return new Promise((resolve, reject) => {
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = () => reject(transaction.error);
+    transaction.onabort = () => reject(transaction.error);
   });
 }
 
