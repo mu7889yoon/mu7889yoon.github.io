@@ -111,7 +111,8 @@
     {{- end }}
 
   </head>
-  <body>
+  <body class="{{ block "body-class" . }}{{ end }}">
+    {{ block "site-header" . }}
     <header class="app-header">
       <a href="{{ "" | relURL }}"><img class="app-header-avatar" src="{{ .Site.Params.avatar | default "avatar.jpg" | relURL }}" alt="{{ .Site.Params.author | default "John Doe" }}" /></a>
       <span class="app-header-title">{{ .Site.Title }}</span>
@@ -136,6 +137,7 @@
       </div>
       {{- end }}
     </header>
+    {{ end }}
     <main class="app-container">
       {{ block "main" . }}
         {{ .Content }}
