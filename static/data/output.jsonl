@@ -51,3 +51,5 @@
 {"date":"2026-06-18","type":"lt", "note": "ECCコンピュータ専門学校 登壇"}
 {"date":"2026-06-30","type":"lt", "url":"https://kinto-technologies.connpass.com/event/395816/", "note": "たぶん日本一早いかも！？AWS Summit Japan 2026 振返り会"}
 {"date":"2026-07-04","type":"lt", "url":"https://jawsug-fukui.connpass.com/event/391807/", "note":"JAWS-UG 福井 #3 AWS Summit のおみやげ話LT大会"}
+{"date":"2026-07-15","type":"other", "url": "https://collabostyle.connpass.com/event/399915/", "note": "噂の「AWS麻雀」 がコラボスタイルにやってきた！みんなで遊んで学びませんか？"}
+{"date":"2026-07-18","type":"lt", "url":"https://jawsug-cdk.connpass.com/event/393595/", "note": "AWS CDK Conference Japan 2026"}
