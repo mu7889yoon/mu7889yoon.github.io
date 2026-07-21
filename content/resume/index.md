@@ -19,7 +19,7 @@ outputs: ["HTML", "Markdown"]
 |技術ブログ|[よ〜んの雑記](https://mu7889yoon.github.io/)|
 |X|[![](https://img.shields.io/badge/%40tesla_yoon-blue?style=flat&amp;logo=X)](https://x.com/tesla_yoon)|
 |Speaker Deck|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=speakerdeck)](https://speakerdeck.com/mu7889yoon)|
-|LinkedIn|TODO|
+|LinkedIn|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=linkedin)](www.linkedin.com/in/mu7889yoon)|
 
 ## 職務概要
 
