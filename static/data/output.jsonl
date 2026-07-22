@@ -51,5 +51,8 @@
 {"date":"2026-06-18","type":"lt", "note": "ECCコンピュータ専門学校 登壇"}
 {"date":"2026-06-30","type":"lt", "url":"https://kinto-technologies.connpass.com/event/395816/", "note": "たぶん日本一早いかも！？AWS Summit Japan 2026 振返り会"}
 {"date":"2026-07-04","type":"lt", "url":"https://jawsug-fukui.connpass.com/event/391807/", "note":"JAWS-UG 福井 #3 AWS Summit のおみやげ話LT大会"}
+{"date":"2026-07-14","type":"seeds-blog","url":"https://www.seeds-std.co.jp/blog/creators/2026-07-14-396726ec-d8cd-80f6-ba57-fce17630a52f/", "note":"AWS Summit 2026の参加を経て、フィジカルAIを再考する"}
 {"date":"2026-07-15","type":"other", "url": "https://collabostyle.connpass.com/event/399915/", "note": "噂の「AWS麻雀」 がコラボスタイルにやってきた！みんなで遊んで学びませんか？"}
-{"date":"2026-07-18","type":"lt", "url":"https://jawsug-cdk.connpass.com/event/393595/", "note": "AWS CDK Conference Japan 2026"}
+{"date":"2026-07-18","type":"lt", "url":"https://jawsug-cdk.connpass.com/event/393595/", "note": "AWS CDK Conference Japan 2026"}"
+{"date":"2026-07-22","type":"seeds-blog","url":"https://www.seeds-std.co.jp/blog/creators/2026-07-22-3a5726ec-d8cd-800d-b22f-fc21eb4a05dd/", "note":"AWS CDK Conference Japan 2026で「Terraform標準の組織でAWS CDKをどう使うか」というタイトルで登壇しました"}
+"}
