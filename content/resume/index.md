@@ -69,39 +69,75 @@ AWSインフラだけでなく、アプリケーション側の実装も担当�
 
 ### AWS
 
-`Amazon ECS` `Amazon EC2` `Amazon ECR` `AWS CodeBuild` `AWS Lambda` `Amazon API Gateway` `AWS Step Functions` `Amazon DynamoDB` `Amazon S3` `Amazon CloudFront` `Amazon Route 53` `Amazon SES` `Amazon Connect` `Amazon RDS` `Amazon Bedrock AgentCore`
+- Amazon ECS
+- Amazon EC2
+- Amazon ECR
+- AWS CodeBuild
+- AWS Lambda
+- Amazon API Gateway
+- AWS Step Functions
+- Amazon DynamoDB
+- Amazon S3
+- Amazon CloudFront
+- Amazon Route 53
+- Amazon SES
+- Amazon Connect
+- Amazon RDS
+- Amazon Bedrock AgentCore
 
 ### Programming Language
 
-`TypeScript` `Go` `PHP` `Python` `Node.js` `C` `CUDA` `Elixir`
+- TypeScript
+- Go
+- PHP
+- Python
+- Node.js
+- C
+- CUDA
+- Elixir
 
 ### AI / LLM
 
-`PyTorch` `vLLM` `Strands Agents`
+- PyTorch
+- vLLM
+- Strands Agents
 
 ### IaC
 
-`AWS CDK` `Terraform`
+- AWS CDK
+- Terraform
 
 ### Web Framework
 
-`React` `Next.js` `Laravel`
+- React
+- Next.js
+- Laravel
 
 ### DevOps / Container
 
-`Docker` `AWS CodeBuild` `Amazon ECR` `Amazon ECS` `minikube`
+- Docker
+- AWS CodeBuild
+- Amazon ECR
+- Amazon ECS
+- minikube
 
 ### Communication / Project Management
 
-`Slack` `Discord` `Backlog` `GitHub Projects`
+- Slack
+- Discord
+- Backlog
+- GitHub Projects
 
 ### Research / Analysis
 
-`自然言語処理` `コード分析` `アノテーションツール開発`
+- 自然言語処理
+- コード分析
+- アノテーションツール開発
 
 ### その他
 
-`OBS` `Resolume Arena`
+- OBS
+- Resolume Arena
 
 ## 保有称号・資格
 
