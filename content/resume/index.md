@@ -18,7 +18,7 @@ outputs: ["HTML", "Markdown"]
 |GitHub|[![](https://img.shields.io/badge/%40mu7889yoon-black?style=flat&amp;logo=github)](https://github.com/mu7889yoon)|
 |技術ブログ|[よ〜んの雑記](https://mu7889yoon.github.io/)|
 |X|[![](https://img.shields.io/badge/%40tesla_yoon-blue?style=flat&amp;logo=X)](https://x.com/tesla_yoon)|
-|Speaker Deck|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=speakerdeck)](https://speakerdeck.com/mu7889yoon)| |
+|Speaker Deck|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=speakerdeck)](https://speakerdeck.com/mu7889yoon)||
 |LinkedIn|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=linkedin)](https://linkedin.com/in/mu7889yoon)|
 
 ## 職務概要
@@ -73,7 +73,7 @@ AWSインフラだけでなく、アプリケーション側の実装も担当�
 
 ### Programming Language
 
-`TypeScript` `Go` `PHP` `Python` `Node.js` `C` `CUDA` `Elixir` 
+`TypeScript` `Go` `PHP` `Python` `Node.js` `C` `CUDA` `Elixir`
 
 ### AI / LLM
 
