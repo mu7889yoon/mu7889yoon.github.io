@@ -23,7 +23,7 @@ outputs: ["HTML", "Markdown"]
 
 ## 職務概要
 
-AWSインフラ設計・構築、サーバーレスアーキテクチャの設計・実装、AI / LLM関連システムのホスティング・実装支援に従事しています。
+AWSインフラ設計・構築、サーバーレスアーキテクチャの設計・実装、AI / LLM関連システムのホスティング・内製化支援に従事していました。
 
 LLM推論基盤のリアーキテクチャ、AI Agentの本番導入など、AWSを用いたシステム改善・新規機能実装を担当してきました。
 
@@ -53,7 +53,7 @@ AWSインフラだけでなく、アプリケーション側の実装も担当�
 
 ### プロジェクト推進
 
-実装者としての開発・構築に加え、案件によってはPM、テクニカルリード、顧客折衝、技術調査、提案資料作成を担当しています。
+案件によってはPM、テクニカルリード、顧客折衝、技術調査、提案資料作成を担当しています。
 
 顧客要件を技術構成に落とし込み、提案・設計・実装・納品まで一貫して推進することを得意としています。
 
@@ -83,6 +83,7 @@ AWSインフラだけでなく、アプリケーション側の実装も担当�
 - Amazon SES
 - Amazon Connect
 - Amazon RDS
+- Amazon Bedrock
 - Amazon Bedrock AgentCore
 
 ### Programming Language
@@ -96,7 +97,7 @@ AWSインフラだけでなく、アプリケーション側の実装も担当�
 - CUDA
 - Elixir
 
-### AI / LLM
+### AI / LLM Framework
 
 - PyTorch
 - vLLM
@@ -110,7 +111,8 @@ AWSインフラだけでなく、アプリケーション側の実装も担当�
 ### Web Framework
 
 - React
-- Next.js
+- Hono
+- Tailwind CSS
 - Laravel
 
 ### DevOps / Container
@@ -130,28 +132,13 @@ AWSインフラだけでなく、アプリケーション側の実装も担当�
 
 ### Research / Analysis
 
-- 自然言語処理
-- コード分析
+- Natural Language Processing
 - アノテーションツール開発
 
 ### その他
 
-- OBS
+- OBS Studio
 - Resolume Arena
-
-## 保有称号・資格
-
-### AWS関連
-
-#### 2025 Japan AWS Jr. Champions
-
-AWSに関する技術発信、コミュニティ活動、学習・登壇活動などを通じて、[2025 Japan AWS Jr. Champions](https://aws.amazon.com/jp/blogs/psa/2025-japan-aws-jr-champions/)に選出。
-
-#### AWS Community Builder - DevTools
-
-[AWS Community Builders](https://builder.aws.com/community/@mu7889yoon)のDevToolsカテゴリに選出。
-
-AWS CDK、CI/CD、開発者体験、DevTools領域を中心に、技術発信・コミュニティ活動を行っています。
 
 ## 職務経歴
 
@@ -175,14 +162,14 @@ AWSエンジニアとして、AWSインフラ設計・構築、サーバーレ�
 </details>
 
 <details open>
-<summary>キャラクターAIサービスにおけるLLM推論基盤のリアーキテクチャ</summary>
+<summary>LLM推論基盤のリアーキテクチャ</summary>
 
 |項目|内容|
 |-|-|
 |期間|約1年|
 |役割|テクニカルリード / 実装|
 |チーム規模|2名|
-|使用技術|Amazon ECS on EC2、Amazon EC2（GPU）、Amazon ECR、AWS CodeBuild、Docker、PyTorch、vLLM|
+|使用技術|Amazon ECS on EC2, Amazon EC2, Amazon ECR, AWS CodeBuild, PyTorch、vLLM|
 
 エンタメ系キャラクターAIサービスにおいて、LLM推論APIおよび管理画面のAWSホスティング基盤について、既存構成の課題分析からリアーキテクチャ、実装、運用改善までを担当しました。
 
@@ -209,15 +196,16 @@ GPUワークロードの要件を維持しながら、アプリケーション�
 </details>
 
 <details open>
-<summary>個人情報を扱う基幹システムのリプレース開発</summary>
+<summary>基幹システムのリプレース開発</summary>
 
 |項目|内容|
 |-|-|
-|状況|開発・データ移行準備中 / 本番切り替え前|
-|役割|仕様解析 / 設計 / 実装 / データ移行|
-|使用技術|PHP、Laravel、AWS|
+|期間|約2年|
+|役割|実装 / 設計|
+|チーム規模|5名|
+|使用技術|PHP、Laravel、AWS CDK|
 
-個人情報を扱う基幹システムのリプレース開発を担当しています。
+基幹システムのリプレース開発を担当しています。
 
 過去に開発途中で頓挫したシステムのソースコード、データベース、画面実装などの残存資産を調査し、十分な仕様書がない状態から既存機能とデータ構造を読み解きました。
 
@@ -232,14 +220,14 @@ GPUワークロードの要件を維持しながら、アプリケーション�
 </details>
 
 <details open>
-<summary>AI Agentを活用した学習状況分析ツールの実装</summary>
+<summary>AI Agentを活用した学習状況分析ツールの開発</summary>
 
 |項目|内容|
 |-|-|
 |期間|約6ヶ月|
 |役割|PM / 実装 / 顧客折衝|
 |チーム規模|2名|
-|使用技術|Amazon Bedrock AgentCore、Pinecone、Amazon RDS、Strands Agents|
+|使用技術|Amazon Bedrock AgentCore, Pinecone, Strands Agents|
 
 教育系Webサイトにおいて、生徒の学習状況を把握するためのAI Agent機能の実装を担当しました。
 
@@ -261,7 +249,7 @@ PMとして顧客との要件整理・進行管理を行いながら、実装者
 |期間|約1ヶ月|
 |役割|PM / 実装|
 |使用AWS|Amazon Route 53、Amazon S3、Amazon CloudFront、Amazon API Gateway、AWS Lambda、Amazon SES|
-|使用技術|AWS CDK、静的化済みWebサイトデータ|
+|使用技術|AWS CDK, TypeScript|
 
 企業サイトの静的サイト化、およびお問い合わせフォームのサーバーレス化を担当しました。
 
@@ -300,9 +288,8 @@ PMとして要件整理・進行管理を行いながら、1名体制で設計�
 
 |項目|内容|
 |-|-|
-|期間|約1.5ヶ月|
-|役割|技術調査 / 資料作成|
-|調査対象|AWS Transform、クラウドリフト、クラウドコンサルティングサービス|
+|期間|約2ヶ月|
+|役割|技術調査 / テクニカルリード|
 
 他社で提供されているクラウドコンサルティングサービスの内容を調査し、既存の標準提案書の見直しに向けた技術調査・資料作成を担当しました。
 
@@ -319,9 +306,9 @@ PMとして要件整理・進行管理を行いながら、1名体制で設計�
 
 |項目|内容|
 |-|-|
-|期間|約3ヶ月|
-|役割|リード / ブース対応|
-|成果|約200件のリード獲得|
+|期間|約5ヶ月|
+|役割|PM / ブース対応|
+|チーム規模|4名|
 
 出展に関する社内プロジェクトにおいて、出展準備および当日運営を担当しました。
 
@@ -382,6 +369,20 @@ Live VJ、配信設定、映像配信関連業務、小規模な自動化・運�
 著名アーティスト出演イベントなど、特に正確なオペレーションが求められる現場を継続的に任され、安定した技術運用により現場からの信頼を獲得しました。
 
 </details>
+
+## 保有称号・資格
+
+### AWS関連
+
+#### 2025 Japan AWS Jr. Champions
+
+AWSに関する技術発信、コミュニティ活動、学習・登壇活動などを通じて、[2025 Japan AWS Jr. Champions](https://aws.amazon.com/jp/blogs/psa/2025-japan-aws-jr-champions/)に選出。
+
+#### AWS Community Builder - DevTools
+
+[AWS Community Builders](https://builder.aws.com/community/@mu7889yoon)のDevToolsカテゴリに選出。
+
+AWS CDK、CI/CD、開発者体験、DevTools領域を中心に、技術発信・コミュニティ活動を行っています。
 
 ## 業務外活動
 
