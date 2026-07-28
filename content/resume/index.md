@@ -18,22 +18,16 @@ outputs: ["HTML", "Markdown"]
 |GitHub|[![](https://img.shields.io/badge/%40mu7889yoon-black?style=flat&amp;logo=github)](https://github.com/mu7889yoon)|
 |技術ブログ|[よ〜んの雑記](https://mu7889yoon.github.io/)|
 |X|[![](https://img.shields.io/badge/%40tesla_yoon-blue?style=flat&amp;logo=X)](https://x.com/tesla_yoon)|
-|Speaker Deck|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=speakerdeck)](https://speakerdeck.com/mu7889yoon)|
+|Speaker Deck|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=speakerdeck)](https://speakerdeck.com/mu7889yoon)| |
 |LinkedIn|[![](https://img.shields.io/badge/mu7889yoon-blue?style=flat&amp;logo=linkedin)](https://linkedin.com/in/mu7889yoon)|
 
 ## 職務概要
 
 AWSインフラ設計・構築、サーバーレスアーキテクチャの設計・実装、AI / LLM関連システムのホスティング・実装支援に従事しています。
 
-LLM推論基盤のリアーキテクチャ、仕様書が十分に残っていない個人情報取扱基幹システムのリプレース、AI Agentの本番導入、企業サイトの静的化、問い合わせフォームのサーバーレス化など、AWSを用いたシステム改善・新規機能実装を担当してきました。
+LLM推論基盤のリアーキテクチャ、AI Agentの本番導入など、AWSを用いたシステム改善・新規機能実装を担当してきました。
 
 案件によっては、PM、テクニカルリード、顧客折衝、技術調査、提案資料作成も担当し、要件整理から設計・実装・納品まで一貫して推進しています。
-
-学生時代のアルバイトにて、ライブイベント・配信現場の映像技術運用を担当しました。
-
-また、大阪電気通信大学 自然言語処理研究室では研究補助員として、コード分析・教育支援領域の研究用システム開発やデータ分析に従事しました。
-
-AWS、AI、Webアプリケーションの設計と実装、ライブイベント・配信現場の運用、研究開発の複数領域を横断した経験があります。
 
 ## 業務スキル
 
@@ -51,25 +45,17 @@ AWSインフラの設計・構築の中でも特にサーバーレスアーキ�
 
 GPUワークロードをECSへ移行し、デプロイ、スケーリング、CI/CD、メトリクス設計を見直すことで、検証・リリースサイクルの短縮と運用改善に取り組みました。
 
-### サーバーレス開発
-
-会社サイトの静的サイト化・お問い合わせフォームのサーバーレス化や、緊急連絡受付システムのリプレースなど、コスト削減・運用負荷削減を目的とした構成改善に取り組みました。
-
 ### Webアプリケーション開発
 
 PHP / Laravel、TypeScript、React、Next.jsなどを用いたWebアプリケーション開発経験があります。
 
-AWSインフラだけでなく、アプリケーション側の実装・改修も担当し、インフラとアプリケーションの境界を理解した設計・実装を行っています。
+AWSインフラだけでなく、アプリケーション側の実装も担当し、インフラとアプリケーションの境界を理解した設計・実装を行っています。
 
-仕様書が十分に残っていない既存資産の解析、業務仕様の再構成、Laravelによる再実装、旧システムからのデータ移行にも取り組んでいます。
-
-### プロジェクト推進・顧客折衝
+### プロジェクト推進
 
 実装者としての開発・構築に加え、案件によってはPM、テクニカルリード、顧客折衝、技術調査、提案資料作成を担当しています。
 
 顧客要件を技術構成に落とし込み、提案・設計・実装・納品まで一貫して推進することを得意としています。
-
-Slack、Backlog、GitHub Projectsなどのチャットツール・タスク管理ツールを用いた情報共有、進行管理、課題管理の経験があります。
 
 ### 研究開発・技術検証
 
@@ -85,19 +71,19 @@ Slack、Backlog、GitHub Projectsなどのチャットツール・タスク管�
 
 `Amazon ECS` `Amazon EC2` `Amazon ECR` `AWS CodeBuild` `AWS Lambda` `Amazon API Gateway` `AWS Step Functions` `Amazon DynamoDB` `Amazon S3` `Amazon CloudFront` `Amazon Route 53` `Amazon SES` `Amazon Connect` `Amazon RDS` `Amazon Bedrock AgentCore`
 
+### Programming Language
+
+`TypeScript` `Go` `PHP` `Python` `Node.js` `C` `CUDA` `Elixir` 
+
 ### AI / LLM
 
-`PyTorch` `vLLM` `Strands Agents` `Pinecone` `CUDA`
+`PyTorch` `vLLM` `Strands Agents`
 
 ### IaC
 
 `AWS CDK` `Terraform`
 
-### Programming Language
-
-`TypeScript` `Go` `PHP` `Python` `Node.js` `C` `CUDA`
-
-### Framework / Library
+### Web Framework
 
 `React` `Next.js` `Laravel`
 
