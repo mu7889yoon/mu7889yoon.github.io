@@ -1,0 +1,29 @@
+.resume-content > h3 + ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-content > h3 + ul > li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  background: #f8fafc;
+  color: var(--resume-heading);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  break-inside: avoid;
+}
+
+@media print {
+  .resume-content > h3 + ul > li {
+    background: #ffffff;
+  }
+}

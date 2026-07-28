@@ -9,6 +9,10 @@
       {{ $style := . | resources.Minify | resources.Fingerprint }}
       <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
     {{ end }}
+    {{ with resources.Get "css/resume-tech-stack.css" }}
+      {{ $style := . | resources.Minify | resources.Fingerprint }}
+      <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+    {{ end }}
   </head>
   <body class="resume-page">
     <header class="resume-header">
