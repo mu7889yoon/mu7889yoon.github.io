@@ -132,7 +132,6 @@ metadata: {}
 
 ![](/images/019fc0c3-3b45-73b3-bb10-ddd9c28706c1.png)
 
-
 ### 日本国内の航空券のデータからPPTXを生成君
 
 このエージェントは、ワークショップ資料の[分析レポートエージェント](https://moritalous.github.io/claude-managed-agents-workshop-202607/advanced/01_report/)の手順をベースに作成しています。
@@ -191,7 +190,6 @@ flight_agent = client.beta.agents.create(
 ##### `setup.py` - レポートエージェント
 
 こちらもほぼ[サンプルのコード](https://moritalous.github.io/claude-managed-agents-workshop-202607/advanced/01_report/#2-%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90)そのままです。
-
 
 ```python
 report_agent = client.beta.agents.create(
