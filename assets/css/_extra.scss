@@ -162,3 +162,22 @@
     padding-top: 0.5rem;
   }
 }
+
+.headline-hash {
+  margin-left: 0.35rem;
+  color: $primary-color;
+  opacity: 0;
+  text-decoration: none;
+  transition: opacity 0.15s ease-in-out;
+}
+
+:is(h1, h2, h3, h4, h5, h6):hover > .headline-hash,
+.headline-hash:focus-visible {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .headline-hash {
+    opacity: 0.65;
+  }
+}
