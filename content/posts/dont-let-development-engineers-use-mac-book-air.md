@@ -36,7 +36,7 @@ Mac Book Airは296,800円、Mac Book Proは411,800円になります。
 
 では、ここからが本題、
 
-https://www.apple.com/jp/mac/compare/?modelList=MacBook-Air-M5,MacBook-Pro-14-M5,MacBook-Neo-A18-Pro
+<https://www.apple.com/jp/mac/compare/?modelList=MacBook-Air-M5,MacBook-Pro-14-M5,MacBook-Neo-A18-Pro>
 
 この比較表に出ていない、絶望する事実を伝えましょう
 
