@@ -72,7 +72,7 @@ enableRobotsTXT = false
     
 [params]
   author = 'mu7889yoon / yuta nakamura'
-  description = '　'
+  description = '3分で読める、技術と諸々の雑記'
   avatar = 'mu7889yoon/image.png'
   menu_item_separator = '<br>'
   twitterSite = '@Tesla_yoon'

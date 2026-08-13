@@ -2,6 +2,30 @@
   <article>
     {{ with .Title -}}<h1>{{- . -}}</h1>{{- end }}
     {{ with .Content -}}<div class="post-content">{{- . -}}</div>{{- end }}
+
+    <section class="home-progress" data-progress-heatmap aria-labelledby="home-progress-title">
+      <div class="home-progress-header">
+        <h2 id="home-progress-title">今年の活動</h2>
+        <a href="{{ "tools/visualizing-progress/" | relURL }}">活動見える化くんでみる。</a>
+      </div>
+
+      <p class="home-progress-status" data-progress-status aria-live="polite">読み込み中...</p>
+      <div class="home-progress-chart" data-progress-chart hidden>
+        <div class="home-progress-months" data-progress-months aria-hidden="true"></div>
+        <div class="home-progress-grid-row">
+          <div class="home-progress-days" aria-hidden="true">
+            <span></span><span>月</span><span></span><span>水</span><span></span><span>金</span><span></span>
+          </div>
+          <div class="home-progress-scroll">
+            <div class="home-progress-grid" data-progress-grid role="grid" aria-label="今年の活動草グラフ"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-progress-tooltip" data-progress-tooltip role="tooltip" hidden></div>
+    </section>
+
+    <script defer src="{{ "js/home-progress.js" | relURL }}"></script>
     
     {{ $pages := where .Site.RegularPages "Section" "posts" }}
     {{ $paginator := .Paginate $pages }}
@@ -24,5 +48,3 @@
     {{ partial "pagination.html" $ }}
   </article>
 {{ end }}
-
-

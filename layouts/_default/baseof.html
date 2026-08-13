@@ -116,6 +116,7 @@
     <header class="app-header">
       <a href="{{ "" | relURL }}"><img class="app-header-avatar" src="{{ .Site.Params.avatar | default "avatar.jpg" | relURL }}" alt="{{ .Site.Params.author | default "John Doe" }}" /></a>
       <span class="app-header-title">{{ .Site.Title }}</span>
+      <p class="app-header-subtitle">{{ .Site.Params.description }}</p>
       {{- with .Site.Menus.main }}
       <nav class="app-header-menu">
         {{- range $key, $item := . }}
@@ -126,7 +127,6 @@
         {{- end }}
       </nav>
       {{- end }}
-      <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
       {{- with .Site.Params.social }}
       <div class="app-header-social">
         {{ range . }}

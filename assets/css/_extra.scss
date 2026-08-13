@@ -181,3 +181,138 @@
     opacity: 0.65;
   }
 }
+
+.home-progress {
+  margin-bottom: 2.25rem;
+  overflow: hidden;
+}
+
+.home-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.home-progress-header {
+  margin-bottom: 1rem;
+}
+
+.home-progress-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.home-progress-status {
+  margin: 0.2rem 0 0;
+  color: rgba($light-color, 0.8);
+  font-size: 0.82rem;
+}
+
+.home-progress-header > a {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+}
+
+.home-progress-chart {
+  min-width: 0;
+}
+
+.home-progress-months {
+  display: flex;
+  height: 1.25rem;
+  margin-left: 2rem;
+  color: rgba($light-color, 0.75);
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.home-progress-months span {
+  flex: 0 0 auto;
+}
+
+.home-progress-grid-row {
+  display: flex;
+  min-width: 0;
+}
+
+.home-progress-days,
+.home-progress-week {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+}
+
+.home-progress-days {
+  flex: 0 0 2rem;
+  color: rgba($light-color, 0.75);
+  font-size: 0.7rem;
+}
+
+.home-progress-days span {
+  height: 0.6875rem;
+  line-height: 0.6875rem;
+}
+
+.home-progress-scroll {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-color: rgba($primary-color, 0.55) transparent;
+  scrollbar-width: thin;
+}
+
+.home-progress-grid {
+  display: flex;
+  width: max-content;
+  gap: 0.1875rem;
+  padding-bottom: 0.5rem;
+}
+
+.home-progress-cell {
+  width: 0.6875rem;
+  height: 0.6875rem;
+  border-radius: 0.125rem;
+}
+
+.home-progress-cell {
+  background: rgba($light-color, 0.14);
+}
+
+.home-progress-cell[data-has-activity="true"] {
+  cursor: help;
+}
+
+.home-progress-cell:is(:hover, :focus-visible) {
+  outline: 1px solid $lightest-color;
+  outline-offset: 1px;
+}
+
+.home-progress-tooltip {
+  position: fixed;
+  z-index: 100;
+  max-width: 15rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgba($light-color, 0.25);
+  border-radius: 0.25rem;
+  background: $darkest-color;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+  color: $lightest-color;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .home-progress-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
+.app-header-subtitle {
+  margin: -0.75rem 0 1.25rem;
+  color: $light-color;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
