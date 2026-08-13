@@ -1,6 +1,6 @@
 {{- $target := .Params.redirectTo | default .Params.to | default .Params.url | default "/" -}}
 <!doctype html>
-<html lang="{{ .Site.LanguageCode | default "ja-jp" }}">
+<html lang="{{ .Site.Language.Locale | default "ja-jp" }}">
 <head>
   <meta charset="utf-8" />
   <title>Redirecting...</title>

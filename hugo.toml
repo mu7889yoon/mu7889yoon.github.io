@@ -1,5 +1,5 @@
 baseURL = 'https://mu7889yoon.github.io/'
-languageCode = 'ja-jp'
+locale = 'ja-jp'
 title = 'よ〜んの雑記'
 enableRobotsTXT = false
 
