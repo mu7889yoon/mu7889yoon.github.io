@@ -21,7 +21,47 @@
         }
       }
       
-      m.initialize({ startOnLoad: false });
+      m.initialize({
+        startOnLoad: false,
+        theme: "base",
+        themeVariables: {
+          darkMode: true,
+          background: "#0b132b",
+          primaryColor: "#1c2541",
+          primaryTextColor: "#e8eddf",
+          primaryBorderColor: "#d99124",
+          secondaryColor: "#253252",
+          secondaryTextColor: "#e8eddf",
+          secondaryBorderColor: "#d99124",
+          tertiaryColor: "#111c38",
+          tertiaryTextColor: "#e8eddf",
+          tertiaryBorderColor: "#6f7f9f",
+          lineColor: "#cfdbd5",
+          textColor: "#e8eddf",
+          mainBkg: "#1c2541",
+          nodeBorder: "#d99124",
+          clusterBkg: "#111c38",
+          clusterBorder: "#6f7f9f",
+          titleColor: "#e8eddf",
+          edgeLabelBackground: "#0b132b",
+          actorBkg: "#1c2541",
+          actorBorder: "#d99124",
+          actorTextColor: "#e8eddf",
+          actorLineColor: "#6f7f9f",
+          signalColor: "#cfdbd5",
+          signalTextColor: "#e8eddf",
+          labelBoxBkgColor: "#1c2541",
+          labelBoxBorderColor: "#d99124",
+          labelTextColor: "#e8eddf",
+          loopTextColor: "#e8eddf",
+          noteBkgColor: "#2b3859",
+          noteBorderColor: "#d99124",
+          noteTextColor: "#e8eddf",
+          activationBkgColor: "#2b3859",
+          activationBorderColor: "#d99124",
+          sequenceNumberColor: "#0b132b",
+        },
+      });
       try {
         await m.run({ querySelector: ".mermaid" });
       } catch (e) {
@@ -30,4 +70,3 @@
     });
   </script>
 {{- end -}}
-

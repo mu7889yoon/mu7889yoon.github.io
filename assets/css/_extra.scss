@@ -316,3 +316,29 @@
   font-size: 0.9rem;
   line-height: 1.6;
 }
+
+.post-content > pre.mermaid {
+  padding: 1rem;
+  overflow-x: auto;
+  border-left: 0;
+  border-radius: 0.35rem;
+  background: $darkest-color;
+  color: $lightest-color;
+  text-align: center;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .post-content > pre.mermaid {
+    text-align: left;
+  }
+
+  .mermaid svg {
+    min-width: 40rem;
+    max-width: none;
+  }
+}
