@@ -46,7 +46,6 @@ Collectionを開くと、`Authorization`というタブがあります。
 
 ![](/images/019fffd0-3900-7ba0-bcd0-b5b9939b980a.png)
 
-
 Postmanでは、API Key、Basic Auth、Bearer Token、JWT、OAuth 2.0などを選べます。[公式ドキュメント](https://learning.postman.com/docs/use/send-requests/authorization/authorization-types/)を見ると、認証情報をヘッダーやクエリパラメータへ追加する方式も選択できるようです。
 
 親のCollectionで認証を設定し、子のリクエストから`Inherit auth from parent`で引き継ぐこともできます。複数のリクエストに同じ認証情報を設定する場合に便利そうです。
@@ -62,6 +61,7 @@ Postmanでは、API Key、Basic Auth、Bearer Token、JWT、OAuth 2.0などを�
 `baseUrl`はローカルの環境を指すように設定済みです。
 
 ## テストを実行していく
+
 ### まずは1件ずつ実行する
 
 最初に`01 Health Check`を開き、`Spring Boot Is Running`の`Send`を押します。
@@ -103,7 +103,6 @@ Collection Runnerには、ファンクショナルテストだけではなく、
 これはアプリケーションが急に壊れたわけではなく、今回のCollectionに「タイトルなしは400になる」「存在しないタスクは404になる」といったエラー系の検証も含めていたためです。
 
 ![](/images/019fffe7-4b40-7316-813b-ad88f21c9a58.png)
-
 
 エラー系のリクエストを外してもう一度実行すると、先ほどより結果が見やすくなりました。
 
