@@ -1,9 +1,9 @@
 ---
 date: '2026-08-14T14:05:12+09:00'
-draft: false
+draft: true
 tags: ['tech', 'tips', 'postman', 'spring-boot']
 description: 'Postmanを使って、Spring Bootで作ったTodo APIをCollectionとCollection Runnerからテストしてみた記録です。'
-title: 'PostmanのCollectionからTodo APIをテストしてみる'
+title: 'PostmanからTodo APIをテストしてみる'
 ---
 
 よ〜んです。
@@ -22,19 +22,17 @@ Macなら、Homebrewでインストールできます。[公式のインスト�
 brew install --cask postman
 ```
 
-Postmanを起動したら、アカウントを作成してログインしました。
+Postmanを起動したら、アカウントを作成してログインします。
 
 ## Collectionとは
 
 [Collection](https://learning.postman.com/docs/use/send-requests/create-requests/intro-to-collections/)は、APIへ送るリクエストをまとめて保存しておく単位です。
 
-今回のタスク管理APIでは、次のように分けました。
-
 単発のリクエストを保存するだけではなく、リクエストごとにテストスクリプトも持たせられます。
 
 例えばタスクを登録するリクエストでは、レスポンスが`201 Created`であることを確認し、返ってきたUUIDを`todoId`というCollection変数へ保存しています。
 
-そのため、後続の「取得」「更新」「完了」「削除」では、毎回UUIDをコピーして貼り付ける必要がありません。
+そのため、後続の「取得」「更新」「完了」「削除」では、毎回IDをコピーして貼り付ける必要がありません。
 
 今回作成したCollectionは、[examplesリポジトリのPostmanディレクトリ](https://github.com/mu7889yoon/examples/tree/main/getting-started-with-spring-boot-and-cdkd/app/postman)に置いてあります。
 
@@ -52,7 +50,6 @@ Postmanでは、API Key、Basic Auth、Bearer Token、JWT、OAuth 2.0などを�
 
 ただし、APIキーやトークンをCollectionへそのまま書くのは避けたいところです。Postmanの変数やVaultに保存して、Collectionファイルを共有しても秘密情報が漏れないようにする必要があります。[認証情報の設定方法](https://learning.postman.com/docs/use/send-requests/authorization/specifying-authorization-details/)にも、変数を使って認証情報を再利用する方法が説明されています。
 
-今回は認証なしで進めますが、次にSpring Securityなどで認証を追加したときは、ここでBearer Tokenを設定してテストすることになりそうです。
 
 ## Collectionを読み込む
 
@@ -80,7 +77,7 @@ Postmanでは、API Key、Basic Auth、Bearer Token、JWT、OAuth 2.0などを�
 
 ![](/images/019fffd0-1da8-7637-abd0-471dc0359369.png)
 
-Run typeに`Functional`と`Performance`がありますね
+Run typeに`Functional`と`Performance`がありますね、[後で](/posts/getting-start-with-postman/#パフォーマンステストも試す)触ってみます。
 
 [Collection Runnerの公式ドキュメント](https://learning.postman.com/docs/tests-and-scripts/running-collections/intro-to-collection-runs/)によると、Collection Runnerはリクエストを指定した順番で実行し、各リクエストのテスト結果を記録してくれます。
 
@@ -91,8 +88,6 @@ Run typeに`Functional`と`Performance`がありますね
 エラー系のフォルダーも一緒に実行しているので、正常系だけを確認したい場合は、Collection Runnerで対象フォルダーを分けて実行できます。
 
 ### パフォーマンステストも試す
-
-Collection Runnerには、ファンクショナルテストだけではなく、パフォーマンステストのタブもありました。
 
 [公式ドキュメント](https://learning.postman.com/docs/tests-and-scripts/performance-testing/performance-test-configuration/)では、Collectionのリクエストを複数ユーザーの利用をシミュレーションしながら繰り返し実行する機能として説明されています。
 
@@ -106,9 +101,9 @@ Collection Runnerには、ファンクショナルテストだけではなく、
 
 エラー系のリクエストを外してもう一度実行すると、先ほどより結果が見やすくなりました。
 
-とはいえ、今回はローカルのDockerで動かしているだけなので、この結果を本番環境の性能値として見る意味はありません。あくまで、Collectionをそのまま負荷確認にも使えるんだな、という体験です。
+とはいえ、今回はローカルのDockerで動かしているだけなので、この結果を本番環境の性能値として見る意味はありません。あくまで、Collectionをそのまま負荷確認にも使えるんだな〜という感覚です。
 
-## Mock Serverもあるらしい
+## Mock Serverもあるよ
 
 今回は使っていませんが、PostmanにはMock Serverもあります。
 
@@ -120,10 +115,8 @@ Collection Runnerには、ファンクショナルテストだけではなく、
 
 今回は、PostmanのCollectionにAPIリクエストとテストをまとめ、Todoの登録から削除までを一通り実行してみました。登録時に返ってきたUUIDをCollection変数へ保存しておけば、後続のリクエストへそのまま渡せるので、値を手作業でコピーし続けなくてよいのが便利でした。
 
-Collection Runnerを使えば、この一連の流れを順番どおりにまとめて実行できます。ファンクショナルテストでAPIの動作を確認できるだけでなく、同じCollectionをパフォーマンステストにも使えるので、テストケースを別々に作り直さなくて済みます。今回はローカル環境で試しただけですが、CollectionをJSONファイルとして共有し、将来的には[Postman CLI](https://learning.postman.com/docs/postman-cli/postman-cli-collections/)や[Newman](https://learning.postman.com/docs/reference/newman-cli/installing-running-newman/)からCIで実行できるところも良さそうです。
+今回はローカル環境で試しただけですが、CollectionをJSONファイルとして共有し、将来的には[Postman CLI](https://learning.postman.com/docs/postman-cli/postman-cli-collections/)や[Newman](https://learning.postman.com/docs/reference/newman-cli/installing-running-newman/)からCIで実行できるところも良さそうです。
 
-おもろいですね、Postman。
-
-GUIで手軽に試せる一方で、テストをCollectionとして残せるので、個人での確認からチームでの共有までつなげやすそうです。
+おもろいですね、Postman
 
 次回は、フロントエンドをReactで作成していきます。
