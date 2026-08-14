@@ -118,11 +118,9 @@ Collection Runnerには、ファンクショナルテストだけではなく、
 
 ## まとめ
 
-- PostmanのCollectionは、APIリクエストとテストをまとめて保存できる
-- Collection変数を使うと、前のリクエストの結果を後続のリクエストへ渡せる
-- Collection Runnerで、タスクの登録から削除までをまとめて実行できる
-- 同じCollectionをファンクショナルテストやパフォーマンステストに使える
-- CollectionはJSONファイルとして共有でき、将来的には[Postman CLI](https://learning.postman.com/docs/postman-cli/postman-cli-collections/)や[Newman](https://learning.postman.com/docs/reference/newman-cli/installing-running-newman/)からCIで実行することもできる
+今回は、PostmanのCollectionにAPIリクエストとテストをまとめ、Todoの登録から削除までを一通り実行してみました。登録時に返ってきたUUIDをCollection変数へ保存しておけば、後続のリクエストへそのまま渡せるので、値を手作業でコピーし続けなくてよいのが便利でした。
+
+Collection Runnerを使えば、この一連の流れを順番どおりにまとめて実行できます。ファンクショナルテストでAPIの動作を確認できるだけでなく、同じCollectionをパフォーマンステストにも使えるので、テストケースを別々に作り直さなくて済みます。今回はローカル環境で試しただけですが、CollectionをJSONファイルとして共有し、将来的には[Postman CLI](https://learning.postman.com/docs/postman-cli/postman-cli-collections/)や[Newman](https://learning.postman.com/docs/reference/newman-cli/installing-running-newman/)からCIで実行できるところも良さそうです。
 
 おもろいですね、Postman。
 
