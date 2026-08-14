@@ -306,7 +306,7 @@ Spring BootがHTMLを配信し、そのJavaScriptから自分のAPIを呼ぶと�
 
 参考 [Introduction to the Standard Directory Layout – Maven](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)
 
-### DTOの置き場所どこにすればええねん！
+### DTOの置き場所どこにすればええねん
 
 今回のDTOはHTTPリクエストとレスポンス専用なので、`controller/dto`へ置いてみました。
 
