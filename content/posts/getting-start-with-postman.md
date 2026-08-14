@@ -50,7 +50,6 @@ Postmanでは、API Key、Basic Auth、Bearer Token、JWT、OAuth 2.0などを�
 
 ただし、APIキーやトークンをCollectionへそのまま書くのは避けたいところです。Postmanの変数やVaultに保存して、Collectionファイルを共有しても秘密情報が漏れないようにする必要があります。[認証情報の設定方法](https://learning.postman.com/docs/use/send-requests/authorization/specifying-authorization-details/)にも、変数を使って認証情報を再利用する方法が説明されています。
 
-
 ## Collectionを読み込む
 
 作成したCollectionをPostmanにインポートします。
