@@ -25,4 +25,3 @@ brew install --cask postman
 ```
 
 アカウントを作成し、コレクションをインポートします。
-
