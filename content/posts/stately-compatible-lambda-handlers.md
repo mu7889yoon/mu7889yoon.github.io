@@ -122,7 +122,20 @@ export async function handler(
           "Next": "deleteItem_1"
         }
       ],
-      "Default": "Succeed_1"
+      "Default": "Pass_1"
+    },
+    "deleteItem_1": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:dynamodb:deleteItem",
+      "Arguments": {
+        "TableName": "{% $states.input.TableName %}",
+        "Key": "{% $states.input.Key %}"
+      },
+      "End": true
+    },
+    "Pass_1": {
+      "Type": "Pass",
+      "End": true
     }
   }
 }
