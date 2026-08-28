@@ -264,7 +264,7 @@ await fetch(endpoint, {
 const csvText = await readFromS3();
 
 const lines = csvText
-  .split("\\n")
+  .split("\n")
   .filter((line) => line.trim());
 
 const results = [];
