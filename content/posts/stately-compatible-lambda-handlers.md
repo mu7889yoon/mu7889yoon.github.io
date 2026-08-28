@@ -255,20 +255,11 @@ statelyの紹介だけで終わらず、Lambdaを残すところ、Step Function
 
 ## まとめ
 
-- statelyは、TypeScriptからStep FunctionsのASLを生成するトランスパイラ
-- await、if/else、Promise.all、for...ofをTask、Choice、Parallel、Mapへ変換できる
-- 現在の生成ASLはJSONataを使う仕様になっている
-- AWS API呼び出し中心のオーケストレーション用Lambdaと相性がよい
-- データ加工や複雑なロジックまで、何でも変換できるわけではない
-- Step Functionsへ変換できることと、変換すべきことは別
+statelyは、TypeScriptで書いたLambda Handlerを、何でもかんでもStep Functionsへ変換するツールではありません。AWS SDKやHTTP APIを呼び出し、処理の順番や分岐、並列実行、繰り返しを組み立てているような、オーケストレーション中心のHandlerをStep Functionsとして表現するためのものです。
 
-以前の発表で作ったものが、handler.tsを受け取ってASLを生成し、実際にStep Functionsで動くところまで来ました。
+現在は、生成されるASLにJSONataを利用しています。TypeScriptのコードからTaskやChoiceなどの状態を作り、入力値やTaskの実行結果をJSONataでつなぎ合わせます。以前の発表で紹介したアイデアは、実際にASLを生成し、Step Functions上で動かせるところまで進みました。
 
-まだ変換できる範囲は限定的です。
-
-でも、Lambdaの中に埋もれていた処理の流れを、TypeScriptのまま書き始めて、Step Functionsとして実行できる。
-
-この体験は、なかなか面白いです。
+とはいえ、変換できることと、変換すべきことは別です。データ加工や複雑なドメインロジックまでStep Functionsへ押し込むと、今度はステートマシンの方が扱いにくくなります。AWS APIを呼ぶ流れはStep Functionsへ、計算や加工はLambdaへ。この境界を考えるための道具として、statelyを使っていきたいと思います。
 
 statelyの紹介でした。
 
