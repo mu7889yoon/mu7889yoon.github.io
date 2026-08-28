@@ -118,7 +118,7 @@ export async function handler(
       "Type": "Choice",
       "Choices": [
         {
-          "Condition": "{% $exists($states.input.getItem_1Result.Item.status.S) and $states.input.getItem_1Result.Item.status.S = \"ACTIVE\" %}",
+          "Condition": "{% ($exists($states.input.getItem_1Result.Item.status.S) and $states.input.getItem_1Result.Item.status.S = \"ACTIVE\") %}",
           "Next": "deleteItem_1"
         }
       ],
@@ -131,7 +131,7 @@ export async function handler(
         "TableName": "{% $states.input.TableName %}",
         "Key": "{% $states.input.Key %}"
       },
-      "End": true
+      "Next": "Pass_1"
     },
     "Pass_1": {
       "Type": "Pass",
