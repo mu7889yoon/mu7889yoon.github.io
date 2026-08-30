@@ -1,6 +1,6 @@
 ---
 date: '2026-08-28T09:00:00+09:00'
-draft: true
+draft: false
 tags: ['tech', 'aws', 'step-functions', 'typescript']
 description: '以前の登壇で紹介したTypeScriptからASLへの変換ツールstatelyで、Lambda HandlerをStep Functionsへ変換してみます。'
 title: 'statelyでhandler.tsをStep Functionsに変換してみる。'
