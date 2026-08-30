@@ -16,6 +16,20 @@ title: 'statelyでhandler.tsをStep Functionsに変換してみる。'
 
 今回は、実際に `handler.ts` を用意して、statelyでStep Functionsの定義へ変換してみます。
 
+## Statelyとは
+
+statelyは、TypeScriptでStep Functionsを書くためのDSLではありません。
+
+TypeScriptのコードを別の書き方で包むのではなく、TypeScriptで書かれた `handler.ts` を解析して、Step Functionsの定義であるASLへ変換します。
+
+ここが、statelyの一番大事なところです。
+
+開発者は、まずTypeScriptで処理を書きます。そのコードをstatelyに渡すと、`await` や `if` といった構文を読み取り、Step Functionsの `Task` や `Choice` に変換します。
+
+つまり、statelyが提案しているのは新しいDSLではなく、**TypeScriptを入力にしてASLを生成するアプローチ**です。
+
+もちろん、TypeScriptなら何でも変換できるわけではありません。AWS APIを呼ぶ流れや、処理の順番・分岐を表現しているコードが主な対象です。
+
 ## こんなHandler
 
 今回変換するのは、DynamoDBからアイテムを取得して、状態が `ACTIVE` なら削除するHandlerです。
