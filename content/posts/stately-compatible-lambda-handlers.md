@@ -2,8 +2,8 @@
 date: '2026-08-28T09:00:00+09:00'
 draft: true
 tags: ['tech', 'aws', 'step-functions', 'typescript']
-description: '以前の登壇で紹介したTypeScriptからASLへの変換ツールstatelyが、どこまで進化したのかを実際のhandler.tsと実行結果で紹介します。'
-title: 'TypeScriptからASLを生成するstatelyが、結構進化した'
+description: '以前の登壇で紹介したTypeScriptからASLへの変換ツールstatelyで、Lambda HandlerをStep Functionsへ変換してみます。'
+title: 'statelyでhandler.tsをStep Functionsに変換してみる。'
 ---
 
 よ〜んです。
@@ -12,49 +12,15 @@ title: 'TypeScriptからASLを生成するstatelyが、結構進化した'
 
 そのときに作っていたのが、[stately](https://github.com/mu7889yoon/stately.asl)です。
 
-TypeScriptで書いた処理を、AWS Step Functionsのステートマシン定義へ変換する。
+あれから、結構進化しました。
 
-当時はまだ「AWS SDKの呼び出しをASLに置き換えてみる」くらいの雰囲気でした。
+今回は、実際に `handler.ts` を用意して、statelyでStep Functionsの定義へ変換してみます。
 
-そこから、結構進化しました。
+## こんなHandler
 
-今回は、現在のstatelyでどんなhandler.tsをStep Functionsとして表現できるのか、実際にどう使うのか、そして何でもStep Functionsにしてよいのかを書いていきます。
+今回変換するのは、DynamoDBからアイテムを取得して、状態が `ACTIVE` なら削除するHandlerです。
 
-## いまのstatelyは何をするものか
-
-statelyは、TypeScript一般を変換するトランスパイラではありません。
-
-主な対象は、Lambdaの中に書かれた「AWS APIを呼び出す流れ」です。
-
-TypeScriptの構文を、Step Functionsの状態へマッピングします。
-
-| TypeScript | Step Functions |
-| --- | --- |
-| **await client.send(...)** | **Task** |
-| **if/else** | **Choice** |
-| **Promise.all(...)** | **Parallel** |
-| **for...of** | **Map** |
-| **fetch(...)** | **HTTP Task** |
-
-さらに、現在の生成結果はJSONataを使うASLになっています。
-
-~~~json
-{
-  "QueryLanguage": "JSONata"
-}
-~~~
-
-入力値の参照には $states.input、Taskの実行結果や条件分岐にはJSONataの式を使います。
-
-つまり、単純にAWS SDKのコードを別のJSONへ変換しているわけではありません。
-
-TypeScriptで書かれた処理の流れを読み取り、Step Functionsの状態とJSONataを組み合わせたステートマシンへ変換しています。
-
-## これぐらいのhandler.tsならStep Functionsで表現できる
-
-例えば、DynamoDBからアイテムを取得し、状態がACTIVEなら削除するLambda Handlerを考えます。
-
-~~~typescript
+```typescript
 import {
   DynamoDBClient,
   GetItemCommand,
@@ -68,38 +34,66 @@ export async function handler(
   const client = new DynamoDBClient({});
 
   const result = await client.send(
-    new GetItemCommand({
-      TableName,
-      Key,
-    }),
+    new GetItemCommand({ TableName, Key }),
   );
 
   if (result.Item?.status?.S === "ACTIVE") {
     await client.send(
-      new DeleteItemCommand({
-        TableName,
-        Key,
-      }),
+      new DeleteItemCommand({ TableName, Key }),
     );
   }
 }
-~~~
+```
 
-このHandlerがやっていることは、ざっくり言えば次の3つです。
+普通のLambdaとして見ると、DynamoDBを呼んで、結果を見て、条件に合えばもう一度DynamoDBを呼ぶだけです。
 
-- DynamoDBのGetItemを呼ぶ
-- 取得結果を確認する
-- 条件に合えばDynamoDBのDeleteItemを呼ぶ
+この「AWS APIを呼ぶ流れ」は、Step Functionsの状態に置き換えやすいです。
 
-これなら、Step Functionsの状態として表現できます。
+## 変換する
 
-- GetItemがTask
-- ifがChoice
-- DeleteItemがTask
+まずはstatelyをビルドします。
 
-生成されるASLは、例えば次のような形になります。
+```bash
+git clone https://github.com/mu7889yoon/stately.asl.git
+cd stately.asl
+yarn install
+yarn build
+```
 
-~~~json
+続いて、変換できるコードか確認します。
+
+```bash
+stately analyze handler.ts
+```
+
+今回の結果はこんな感じでした。
+
+```json
+{
+  "ok": true,
+  "diagnostics": [],
+  "metrics": {
+    "promiseAll": 0,
+    "forOf": 0,
+    "tryCatch": 0,
+    "ifElse": 1,
+    "awaitCalls": 2,
+    "sdkCalls": 2
+  }
+}
+```
+
+問題なさそうなので、ASLへ変換します。
+
+```bash
+stately transpile handler.ts --pretty --out workflow.asl.json
+```
+
+## 生成されたASL
+
+生成されたASLは、ざっくりこのような構造になりました。実際に生成されたJSONから、一部だけ抜き出します。
+
+```json
 {
   "QueryLanguage": "JSONata",
   "StartAt": "getItem_1",
@@ -107,18 +101,13 @@ export async function handler(
     "getItem_1": {
       "Type": "Task",
       "Resource": "arn:aws:states:::aws-sdk:dynamodb:getItem",
-      "Arguments": {
-        "TableName": "{% $states.input.TableName %}",
-        "Key": "{% $states.input.Key %}"
-      },
-      "Output": "{% $merge([$states.input, {\"getItem_1Result\": $states.result}]) %}",
       "Next": "Choice_1"
     },
     "Choice_1": {
       "Type": "Choice",
       "Choices": [
         {
-          "Condition": "{% ($exists($states.input.getItem_1Result.Item.status.S) and $states.input.getItem_1Result.Item.status.S = \"ACTIVE\") %}",
+          "Condition": "{% ($exists($states.input.getItem_1Result.Item.status.S) and $states.input.getItem_1Result.Item.status.S = \\\"ACTIVE\\\") %}",
           "Next": "deleteItem_1"
         }
       ],
@@ -127,139 +116,56 @@ export async function handler(
     "deleteItem_1": {
       "Type": "Task",
       "Resource": "arn:aws:states:::aws-sdk:dynamodb:deleteItem",
-      "Arguments": {
-        "TableName": "{% $states.input.TableName %}",
-        "Key": "{% $states.input.Key %}"
-      },
       "Next": "Pass_1"
-    },
-    "Pass_1": {
-      "Type": "Pass",
-      "End": true
     }
   }
 }
-~~~
+```
 
-実際には、Taskの結果を後続の入力へマージしたり、エラー時のRetry設定を付けたりします。
+TypeScriptの `await` は `Task` に、`if` は `Choice` になっています。
 
-それでも、TypeScriptのHandlerを見たときに、
+DynamoDBの呼び出しも、LambdaからではなくStep FunctionsのAWS SDK統合に置き換わっています。生成されるASLはJSONataを使う仕様なので、入力値は `$states.input` から参照します。
 
-「これは処理を実行しているというより、AWS APIを順番に呼んでいるだけだな」
+今回の検証では、`analyze` と `transpile` がどちらも成功し、実際にASLファイルが生成されるところまで確認できました。
 
-というコードであれば、Step Functionsへ移せる可能性があります。
+## 何でも変換しない
 
-## こうやって使います
+ここまで動くと、Lambdaを全部Step Functionsにしたくなります。
 
-まず、リポジトリを取得してビルドします。
+しかし、何でも変換すればよいわけではありません。
 
-~~~bash
-git clone https://github.com/mu7889yoon/stately.asl.git
-cd stately.asl
+statelyが得意なのは、AWS APIを呼ぶ順番や条件を組み立てる処理です。
 
-yarn install
-yarn build
-npm link
-~~~
+逆に、文字列を加工したり、配列を `map()` や `filter()` で処理したり、独自の関数で計算したりする処理は、今のところLambdaに残した方がよいです。
 
-あとは、変換したいhandler.tsに対して、statelyを実行します。
+```typescript
+const rows = text
+  .split("\\n")
+  .filter((line) => line.trim())
+  .map((line) => line.split(","));
+```
 
-~~~bash
-stately transpile handler.ts --pretty --out workflow.asl.json
-~~~
+このあたりまでStep Functionsへ持っていくと、Lambdaを消せた代わりに、ステートマシンの方が読みにくくなります。
 
-変換前に、対応している構文かどうかを確認することもできます。
-
-~~~bash
-stately analyze handler.ts
-~~~
-
-analyzeでは、未対応の構文やStep Functionsへ変換できない可能性のある処理を診断します。
-
-例えば、次のような処理は現在のstatelyが苦手です。
-
-- map()やfilter()を使った複雑なデータ加工
-- 文字列の分割やCSVのパース
-- 通常のforやwhile
-- results.push(...)のようなローカル状態の変更
-- normalize()のようなユーザー定義関数
-- 独自アルゴリズムによる計算
-
-変換に失敗するだけならまだよいのですが、処理を黙って落としたASLが生成されるのは危険です。
-
-そのため、現在は未対応構文を診断し、変換結果を成功扱いにしないようにしています。
-
-## 生成されたASLをStep Functionsで動かす
-
-生成されたworkflow.asl.jsonを、Step Functionsのステートマシン定義として利用します。
-
-AWS SDK統合を使うので、LambdaからDynamoDBを呼び出すのではなく、Step FunctionsからDynamoDBを直接呼び出す構成になります。
-
-TypeScriptのHandlerを書いて、statelyで変換して、生成されたASLをStep Functionsへ登録する。
-
-ここまでやって、実際に動きました。
-
-もちろん、単純なサンプルが動いたからといって、すべてのLambdaを同じように置き換えられるわけではありません。
-
-ただ、以前は「こういうことができたら面白いな」くらいだったものが、実際にAWS上で動くところまで来たのは、かなり大きな進歩だと思っています。
-
-## 何でもかんでもStep Functionsにしていいのか
-
-ここで、少し冷静になる必要があります。
-
-では、Lambdaで書かれた処理を何でもStep Functionsにしてしまってよいのか。
-
-答えはNOです。
-
-Step Functionsへ移したいのは、Lambdaの中にある「オーケストレーション」です。
-
-- どのAWS APIを呼ぶか
-- どの順番で呼ぶか
-- 条件によってどこへ分岐するか
-- 複数の処理を並列に実行するか
-- 配列の各要素に対して処理を繰り返すか
-
-このような処理は、Step Functionsの状態として表現しやすいです。
-
-一方で、次のような処理はLambdaに残した方がよいでしょう。
-
-- 大量のデータを加工する
-- 複雑な文字列処理をする
-- 独自のアルゴリズムを実行する
-- 外部ライブラリを使う
-- ドメインロジックをまとめて処理する
-
-Step Functionsは、処理の流れを見えるようにするのが得意です。
-
-しかし、状態を細かく分けすぎると、今度はステートマシン定義が読みにくくなります。状態遷移が増えれば、料金や実行時間にも影響します。[Step Functionsの料金](https://aws.amazon.com/step-functions/pricing/)も含めて考える必要があります。
-
-「Step Functionsへ変換できる」と「Step Functionsへ変換すべき」は別の話です。
-
-この線引きを間違えると、Lambdaを消せた代わりに、複雑なステートマシンを運用することになります。
-
-## ここから先は、次の発表で
-
-今回紹介したstatelyは、あくまで「TypeScriptで書いたAWS API呼び出し中心の処理を、Step Functionsへ移す」ためのものです。
-
-では、そもそもなぜLambdaを減らしたいのか。
-
-LambdaというRuntimeをなくすと、どんな世界になるのか。
-
-そして、JSONataを使うとStep Functionsでどこまで処理を表現できるのか。
-
-このあたりの話は、[ServerlessDays Tokyo 2026](https://serverless.connpass.com/event/371637/)で続きとして発表する予定です。
-
-発表タイトルは、「JSONataとAWS Step Functionsで目指すRuntime Lessな世界」です。
-
-statelyの紹介だけで終わらず、Lambdaを残すところ、Step Functionsへ移すところ、そしてRuntimeそのものをどう考えるかまで、もう少し広げて考えてみます。
+「変換できる」と「変換すべき」は別の話です。
 
 ## まとめ
 
-statelyは、TypeScriptで書いたLambda Handlerを、何でもかんでもStep Functionsへ変換するツールではありません。AWS SDKやHTTP APIを呼び出し、処理の順番や分岐、並列実行、繰り返しを組み立てているような、オーケストレーション中心のHandlerをStep Functionsとして表現するためのものです。
+statelyを使うと、AWS APIを呼び出すだけのLambda Handlerを、Step FunctionsのTaskやChoiceとして表現できます。今回のHandlerは、実際に `analyze` と `transpile` が成功してASLを生成できました。
 
-現在は、生成されるASLにJSONataを利用しています。TypeScriptのコードからTaskやChoiceなどの状態を作り、入力値やTaskの実行結果をJSONataでつなぎ合わせます。以前の発表で紹介したアイデアは、実際にASLを生成し、Step Functions上で動かせるところまで進みました。
+とはいえ、Lambdaを何でもStep Functionsにすればよいわけではありません。処理の流れはStep Functionsへ、データ加工や複雑なロジックはLambdaへ。この境界を考えるためのツールとして、statelyを育てています。
 
-とはいえ、変換できることと、変換すべきことは別です。データ加工や複雑なドメインロジックまでStep Functionsへ押し込むと、今度はステートマシンの方が扱いにくくなります。AWS APIを呼ぶ流れはStep Functionsへ、計算や加工はLambdaへ。この境界を考えるための道具として、statelyを使っていきたいと思います。
+## 続きは発表で
+
+今回紹介したstatelyは、TypeScriptで書いたLambda Handlerを何でもStep Functionsへ移すツールではありません。
+
+AWS APIを呼び出す流れを、Step Functionsの状態として表現するためのツールです。
+
+では、なぜLambdaを減らしたいのか。
+
+LambdaというRuntimeをなくすと、どんな世界になるのか。
+
+この続きは、[ServerlessDays Tokyo 2026](https://serverless.connpass.com/event/371637/)で発表する予定です。
 
 statelyの紹介でした。
 
