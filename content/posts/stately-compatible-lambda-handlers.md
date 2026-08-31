@@ -3,7 +3,7 @@ date: '2026-08-28T09:00:00+09:00'
 draft: false
 tags: ['tech', 'aws', 'step-functions', 'typescript']
 description: '以前の登壇で紹介したTypeScriptからASLへの変換ツールstatelyで、Lambda HandlerをStep Functionsへ変換してみます。'
-title: 'statelyでhandler.tsをStep Functionsに変換してみる。'
+title: 'TSで書かれたLambdaのグルーコードをStep Functionsに変換してみる'
 ---
 
 よ〜んです。
@@ -12,21 +12,17 @@ title: 'statelyでhandler.tsをStep Functionsに変換してみる。'
 
 そのときに作っていたのが、[stately](https://github.com/mu7889yoon/stately.asl)です。
 
-あれから、結構進化しました。
-
-今回は、実際に `handler.ts` を用意して、statelyでStep Functionsの定義へ変換してみます。
+あれから、結構進化させました。今回は、実際によくありそうなコードを用意して、statelyでStep Functionsの定義へ変換してみます。
 
 ## Statelyとは
 
-statelyは、TypeScriptでStep Functionsを書くためのDSLではありません。
+statelyは、TypeScriptでStep Functions(ASL)を書くためのDSLではありません。
 
-TypeScriptのコードを別の書き方で包むのではなく、TypeScriptで書かれた `handler.ts` を解析して、Step Functionsの定義であるASLへ変換します。
-
-ここが、statelyの一番大事なところです。
+TypeScriptのコードを別の書き方で包むのではなく、TypeScriptで書かれたコードを解析して、Step Functionsの定義であるASLへ変換します。
 
 開発者は、まずTypeScriptで処理を書きます。そのコードをstatelyに渡すと、`await` や `if` といった構文を読み取り、Step Functionsの `Task` や `Choice` に変換します。
 
-つまり、statelyが提案しているのは新しいDSLではなく、**TypeScriptを入力にしてASLを生成するアプローチ**です。
+つまり、statelyが提案しているのは新しいDSLではなく、TypeScriptを入力にしてASLを生成するアプローチです。
 
 もちろん、TypeScriptなら何でも変換できるわけではありません。AWS APIを呼ぶ流れや、処理の順番・分岐を表現しているコードが主な対象です。
 
@@ -58,10 +54,6 @@ export async function handler(
   }
 }
 ```
-
-普通のLambdaとして見ると、DynamoDBを呼んで、結果を見て、条件に合えばもう一度DynamoDBを呼ぶだけです。
-
-この「AWS APIを呼ぶ流れ」は、Step Functionsの状態に置き換えやすいです。
 
 ## 変換する
 
@@ -142,9 +134,9 @@ DynamoDBの呼び出しも、LambdaからではなくStep FunctionsのAWS SDK統
 
 今回の検証では、`analyze` と `transpile` がどちらも成功し、実際にASLファイルが生成されるところまで確認できました。
 
-## 何でも変換しない
+## なんでも変換すればいいのか？
 
-ここまで動くと、Lambdaを全部Step Functionsにしたくなります。
+ここまで動くと、Lambdaを全部Step Functionsにしたくなります、メンテしなくていいですし。
 
 しかし、何でも変換すればよいわけではありません。
 
@@ -161,6 +153,8 @@ const rows = text
 
 このあたりまでStep Functionsへ持っていくと、Lambdaを消せた代わりに、ステートマシンの方が読みにくくなります。
 
+他にもコストが上がる可能性もあります。（Lambdaの無料枠 > Step Functionsの無料枠のため）
+
 「変換できる」と「変換すべき」は別の話です。
 
 ## まとめ
@@ -171,7 +165,7 @@ statelyを使うと、AWS APIを呼び出すだけのLambda Handlerを、Step Fu
 
 ## 続きは発表で
 
-今回紹介したstatelyは、TypeScriptで書いたLambda Handlerを何でもStep Functionsへ移すツールではありません。
+何度も言いますが、今回紹介したstatelyは、TypeScriptで書いたLambdaを何でもStep Functionsへ移すツールではありません。
 
 AWS APIを呼び出す流れを、Step Functionsの状態として表現するためのツールです。
 
