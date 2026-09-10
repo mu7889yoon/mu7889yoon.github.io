@@ -98,3 +98,11 @@ enableRobotsTXT = false
   icon = 'brand-builder-center'
   name = 'builder center'
   url = 'https://builder.aws.com/community/@mu7889yoon'
+[[params.social]]
+  icon = 'brand-linkedin'
+  name = 'LinkedIn'
+  url = 'https://linkedin.com/in/mu7889yoon'
+[[params.social]]
+  icon = 'brand-amazon'
+  name = 'Amazon Wishlist'
+  url = 'https://www.amazon.jp/hz/wishlist/ls/39HWNJEA7B0Z?ref_=wl_share'
