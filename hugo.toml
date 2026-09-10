@@ -91,14 +91,6 @@ enableRobotsTXT = false
   name = 'speakerdeck'
   url ='https://speakerdeck.com/mu7889yoon'
 [[params.social]]
-  icon = 'brand-connpass'
-  name = 'connpass'
-  url = 'https://connpass.com/user/mu7889yoon'
-[[params.social]]
-  icon = 'brand-builder-center'
-  name = 'builder center'
-  url = 'https://builder.aws.com/community/@mu7889yoon'
-[[params.social]]
   icon = 'brand-linkedin'
   name = 'LinkedIn'
   url = 'https://linkedin.com/in/mu7889yoon'
