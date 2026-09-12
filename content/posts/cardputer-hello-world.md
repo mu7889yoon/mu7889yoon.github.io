@@ -34,8 +34,6 @@ M5Stack のCardputerの改良版らしいです。
 
 ということで、Hello Worldするコードです。
 
-"""Display a minimal Hello World on an M5Stack Cardputer running UIFlow2 MicroPython."""
-
 ```python
 import M5
 
