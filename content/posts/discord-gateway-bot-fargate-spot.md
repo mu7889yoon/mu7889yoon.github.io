@@ -60,35 +60,6 @@ NAT Gatewayも置かず、Security Groupはインバウンドなし・外向きT
 
 ただし、Fargate Spotは中断される可能性があります。Botが切断から再接続できること、短い停止を許容できることが前提です。可用性が重要なBotの場合は普通に実行すればいいと思います。
 
-## 今回の構成
-
-お家システムではNode.jsのDiscord BotをECS Spot Serviceとして起動しています。
-
-GitHub ActionsでコンテナイメージをECRへpushし、ECS Serviceへデプロイする感じです。
-
-```mermaid
-architecture-beta
-    group aws(logos:aws)[AWS Cloud]
-
-    service actions(logos:github)[GitHub Actions]
-    service ecr(logos:aws-s3)[ECR] in aws
-    service ecs(logos:aws-ecs)[ECS Service] in aws
-    service task(logos:aws-ecs)[Fargate Spot Task] in aws
-    service secretmgr(logos:aws-secrets-manager)[Secrets Manager] in aws
-    service loggroup(logos:aws-cloudwatch)[CloudWatch Logs] in aws
-    service igw(internet)[Internet Gateway] in aws
-    service discord(internet)[Discord Gateway]
-
-    actions:R --> L:ecr
-    actions:B --> T:ecs
-    ecr:R --> L:task
-    ecs:B --> T:task
-    secretmgr:B --> T:task
-    task:R --> L:loggroup
-    task:B --> T:igw
-    igw:B --> T:discord
-```
-
 ## まとめ
 
 私の理解不足で、Discord Gateway Botを動かすためには、ALBが必要な気がしていて、今までLightsailで動かしていましたが、ECSでも安く小さく動かすことができました。
