@@ -74,11 +74,13 @@ architecture-beta
     service ecr(logos:aws-s3)[ECR] in aws
     service ecs(logos:aws-ecs)[ECS Service] in aws
     service task(logos:aws-ecs)[Fargate Spot Task] in aws
+    service secretmgr(logos:aws-secrets-manager)[Secrets Manager] in aws
     service discord(internet)[Discord Gateway]
 
     actions:R --> L:ecr
     ecr:R --> L:ecs
     ecs:R --> L:task
+    secretmgr:B --> T:task
     task:R --> L:discord
 ```
 
