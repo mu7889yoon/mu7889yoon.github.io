@@ -8,13 +8,15 @@ title: 'Discord Gatewayに常時接続するBotを、Fargate Spotで安く動か
 
 よ〜んです。
 
+以前、[ALBなしでECSを使う構成](https://mu7889yoon.github.io/posts/alb-less-ecs/)を紹介しました。今回はその考え方を、Discord Gatewayへ常時接続するBotに当てはめます。
+
 Discord BotをAWSで動かすとき、一番安い選択肢はおそらくLightsailです。次に、少し使い方に工夫がいるLambda MicroVMs。EC2という選択肢もあります。
 
 そしてECS。コンテナを動かすサービスとしては便利ですが、普通に構成すると周辺リソースが増えて、Botを1つ動かすだけのスコープではオーバースペックになりがちです。
 
 今回は、Discord Gatewayへ常時接続するBotを題材に、ECSをALBなしで小さく動かす構成をご紹介します。
 
-## Discord Botは「常時接続」が必要なタイプもある
+## Gateway Bot
 
 Discord Botには、HTTPで受け取ったInteractionに応答するものや、Gatewayへ接続してイベントを受け取るものがあります。
 
@@ -22,7 +24,7 @@ Discord Botには、HTTPで受け取ったInteractionに応答するものや、
 
 つまり、短い処理を実行して終了するLambda関数のような使い方とは相性がよくありません。常時接続が必要なら、プロセスが動き続ける実行環境を用意する必要があります。
 
-## 選択肢1: Lightsail
+## Lightsail
 
 最も安く、手軽にサーバーを置くならLightsailが有力です。
 
@@ -32,7 +34,7 @@ Discord Botには、HTTPで受け取ったInteractionに応答するものや、
 
 一方で、コンテナを更新するたびにデプロイ手順を用意する必要があります。SSHで入って更新するか、デプロイ用のシェルやCI/CDを整えることになります。Botの機能を頻繁に追加するなら、この運用がだんだん面倒になってくるかもしれません。
 
-## 選択肢2: Lambda MicroVMs
+## Lambda MicroVMs
 
 「必要なときだけBotを起動したい」なら、Lambda MicroVMsも候補になります。
 
@@ -42,13 +44,13 @@ MicroVMは最大8時間まで実行またはサスペンド状態を維持でき
 
 「いつでもBotが反応してほしい」という用途では、その起動導線をどう作るかが設計ポイントになります。
 
-## 選択肢3: EC2
+## EC2
 
 EC2にBotを置いて常時起動する方法もあります。インスタンスを選ぶ自由度は高いですが、OSの更新、Dockerの実行環境、デプロイの仕組みなどを自分で管理します。
 
 Lightsailと同じく、SSHでインスタンスへ入って更新する運用にもできますし、CI/CDを組んでデプロイを自動化することもできます。今回は「コンテナのデプロイは自動化したい。でもBotのために大きな構成は持ちたくない」という観点から、ECSを見ていきます。
 
-## 選択肢4: ECS Fargate SpotをALBなしで使う
+## ECS Fargate Spot
 
 今回採用したのが、ECS Fargate SpotでBotを常時稼働させる構成です。
 
@@ -84,33 +86,26 @@ GitHub ActionsでコンテナイメージをECRへpushし、ECS Serviceへデプ
 
 ```mermaid
 architecture-beta
-    group github(logos:github)[GitHub]
     group aws(logos:aws)[AWS ap-northeast-1]
-    group vpc(logos:aws-ec2)[VPC] in aws
-    group public(cloud)[Public Subnet] in vpc
 
-    service actions(logos:github)[GitHub Actions] in github
-    service ecr(server)[Amazon ECR] in aws
-    service ecs(logos:aws-ecs)[ECS Service] in public
-    service task(logos:aws-fargate)[Fargate Spot Task] in public
-    service sg(logos:aws-ec2)[Security Group] in public
-    service igw(internet)[Internet Gateway] in vpc
+    service actions(logos:github)[GitHub Actions]
+    service ecr(logos:aws-s3)[ECR] in aws
+    service ecs(logos:aws-ecs)[ECS Service] in aws
+    service task(logos:aws-ecs)[Fargate Spot Task] in aws
     service secret(logos:aws-secrets-manager)[Secrets Manager] in aws
     service logs(logos:aws-cloudwatch)[CloudWatch Logs] in aws
+    service igw(internet)[Public Subnet + IGW] in aws
     service discord(internet)[Discord Gateway]
 
     actions:R --> L:ecr
     actions:B --> T:ecs
     ecr:R --> L:task
-    ecs:B --> T:task
-    sg:R -- L:task
-    secret:R --> L:task
-    task:B --> T:igw
+    ecs:R --> L:task
+    secret:B --> T:task
     task:R --> L:logs
-    igw:R --> L:discord
+    task:B --> T:igw
+    igw:B --> T:discord
 ```
-
-構成や実装は[home-systemのDiscord Bot](https://github.com/mu7889yoon/home-system/tree/main/discord-bot)と[Terraform設定](https://github.com/mu7889yoon/home-system/tree/main/infrastructure/discord-bot)に置いています。現状は個人プロジェクトの一部として管理しているコードです。
 
 ## まとめ
 
