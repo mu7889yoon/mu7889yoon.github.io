@@ -68,20 +68,19 @@ GitHub ActionsでコンテナイメージをECRへpushし、ECS Serviceへデプ
 
 ```mermaid
 architecture-beta
-    group github(logos:github)[GitHub]
-    group aws(logos:aws)[AWS ap-northeast-1]
+    group aws(logos:aws)[AWS Cloud]
 
-    service gha(logos:github)[GitHub Actions] in github
+    service actions(logos:github)[GitHub Actions]
     service ecr(logos:aws-s3)[ECR] in aws
     service ecs(logos:aws-ecs)[ECS Service] in aws
-    service task(logos:aws-fargate)[Fargate Spot Task] in aws
+    service task(logos:aws-ecs)[Fargate Spot Task] in aws
     service secret(logos:aws-secrets-manager)[Secrets Manager] in aws
     service logs(logos:aws-cloudwatch)[CloudWatch Logs] in aws
     service igw(internet)[Internet Gateway] in aws
     service discord(internet)[Discord Gateway]
 
-    gha:R --> L:ecr
-    gha:B --> T:ecs
+    actions:R --> L:ecr
+    actions:B --> T:ecs
     ecr:R --> L:task
     ecs:B --> T:task
     secret:B --> T:task
