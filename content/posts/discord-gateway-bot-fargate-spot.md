@@ -75,13 +75,18 @@ architecture-beta
     service ecs(logos:aws-ecs)[ECS Service] in aws
     service task(logos:aws-ecs)[Fargate Spot Task] in aws
     service secretmgr(logos:aws-secrets-manager)[Secrets Manager] in aws
+    service loggroup(logos:aws-cloudwatch)[CloudWatch Logs] in aws
+    service igw(internet)[Internet Gateway] in aws
     service discord(internet)[Discord Gateway]
 
     actions:R --> L:ecr
-    ecr:R --> L:ecs
-    ecs:R --> L:task
+    actions:B --> T:ecs
+    ecr:R --> L:task
+    ecs:B --> T:task
     secretmgr:B --> T:task
-    task:R --> L:discord
+    task:R --> L:loggroup
+    task:B --> T:igw
+    igw:B --> T:discord
 ```
 
 ## まとめ
