@@ -28,6 +28,8 @@ Discord Botには、HTTPで受け取ったInteractionに応答するものや、
 
 安い。IPv6専用なら月額3.50 USD、IPv4付きなら5 USDからです（[料金表](https://aws.amazon.com/lightsail/pricing/)）。
 
+ただし、3.50 USDのIPv6専用プランではDiscord Botを動かせません。Gateway接続先の`gateway.discord.gg`にAAAAレコードがないため、IPv4付きプランが必要です（[Gatewayの接続先](https://discord.com/developers/docs/events/gateway)）。
+
 Dockerで常時稼働できますが、更新はSSHや自前のCI/CDで行います。
 
 ## Lambda MicroVMs
@@ -54,7 +56,7 @@ Lightsailより費用が上がりやすいため、今回は候補から外し�
 
 NAT Gatewayも置かず、Security Groupはインバウンドなし・外向きTCP 443のみです。
 
-### GravitonとFargate Spotを使う
+### GravitonとSpot
 
 タスクはARM64で動かします。Fargate Spotは、通常のFargate料金より割引された料金でタスクを実行できる仕組みです。ECSではARM64とFARGATE_SPOTを組み合わせられます。
 
@@ -64,7 +66,7 @@ NAT Gatewayも置かず、Security Groupはインバウンドなし・外向きT
 
 Botが切断から再接続できること、短い停止を許容できることが前提です。可用性が重要なBotなら、Spotだけでよいかは別途考える必要があります。
 
-### ECSでも、最安とは限らない
+### 料金
 
 ここは誤解しやすいところです。
 
