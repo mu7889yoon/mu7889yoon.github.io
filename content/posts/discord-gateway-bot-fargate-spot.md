@@ -26,39 +26,33 @@ Discord Botには、HTTPで受け取ったInteractionに応答するものや、
 
 ## Lightsail
 
-最も安く、手軽にサーバーを置くならLightsailが有力です。
+安い。IPv6専用なら月額3.50 USD、IPv4付きなら5 USDからです（[料金表](https://aws.amazon.com/lightsail/pricing/)）。
 
-記事執筆時点で、IPv6専用のLinuxインスタンスは月額3.50 USDからあります。IPv4も必要なプランは月額5 USDからです。料金はプランやリージョンで変わるので、使う前に[公式料金表](https://aws.amazon.com/lightsail/pricing/)を確認してください。
-
-インスタンスを1台立ち上げてDockerを動かせば、Botを常時接続できます。実行環境の単純さと料金だけを優先するなら、まず検討したい選択肢です。
-
-一方で、コンテナを更新するたびにデプロイ手順を用意する必要があります。SSHで入って更新するか、デプロイ用のシェルやCI/CDを整えることになります。Botの機能を頻繁に追加するなら、この運用がだんだん面倒になってくるかもしれません。
+Dockerで常時稼働できますが、更新はSSHや自前のCI/CDで行います。
 
 ## Lambda MicroVMs
 
-「必要なときだけBotを起動したい」なら、Lambda MicroVMsも候補になります。
+使うときだけ起動でき、実行時間を抑えられます。
 
-MicroVMは最大8時間まで実行またはサスペンド状態を維持できます。使いたい時間だけ起動し、使い終わったら止める形なら、24時間動かし続けるより実行時間を抑えられます。詳しくは[AWSのMicroVMドキュメント](https://docs.aws.amazon.com/lambda/latest/dg/microvms-launching.html)を参照してください。
+ただし、最大8時間で、停止中はGatewayのイベントを受け取れません（[公式ドキュメント](https://docs.aws.amazon.com/lambda/latest/dg/microvms-launching.html)）。
 
-ただし、Botが停止している間は、そのBot自身がDiscord Gatewayからイベントを受け取ることはできません。Discordから起動指示を受けたい場合は、別の常時稼働プロセスやInteraction用のエンドポイントなど、起動のための入口を別に用意する必要があります。
-
-「いつでもBotが反応してほしい」という用途では、その起動導線をどう作るかが設計ポイントになります。
+常時反応するBotには不向きで、起動用の別経路も必要です。
 
 ## EC2
 
-EC2にBotを置いて常時起動する方法もあります。インスタンスを選ぶ自由度は高いですが、OSの更新、Dockerの実行環境、デプロイの仕組みなどを自分で管理します。
+自由度が高く、Botを常時稼働できます。
 
-Lightsailと同じく、SSHでインスタンスへ入って更新する運用にもできますし、CI/CDを組んでデプロイを自動化することもできます。今回は「コンテナのデプロイは自動化したい。でもBotのために大きな構成は持ちたくない」という観点から、ECSを見ていきます。
+その分、OS・実行環境・デプロイは自分で管理します。
+
+Lightsailより費用が上がりやすいため、今回は候補から外します。
 
 ## ECS Fargate Spot
 
-今回採用したのが、ECS Fargate SpotでBotを常時稼働させる構成です。
+コンテナのデプロイを自動化しつつ、Botを常時稼働できます。
 
-ここでのポイントは、BotがDiscord Gatewayへ接続しに行くだけで、外部からBotへHTTPリクエストを受け付けないことです。受信トラフィックを振り分ける必要がないので、ALBを置かずに済みます。
+受信HTTPがないのでALBは不要。Public SubnetからPublic IPでGatewayへ接続します（[通信経路](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/networking-outbound.html)）。
 
-タスクをPublic Subnetで起動し、Public IPからインターネットへ出てDiscord Gatewayへ接続します。今回の設定では、Security Groupのインバウンドルールは空で、外向きのTCP 443だけを許可しています。Fargateタスクからインターネットへ出る方法は[公式ドキュメント](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/networking-outbound.html)にも説明があります。
-
-ALBは不要ですし、Private Subnetから外に出るためだけのNAT Gatewayも置きません。常時接続Botの通信経路を単純にして、周辺の固定費を避ける構成です。
+NAT Gatewayも置かず、Security Groupはインバウンドなし・外向きTCP 443のみです。
 
 ### GravitonとFargate Spotを使う
 
