@@ -1,9 +1,9 @@
 ---
 date: '2026-10-03T01:42:32+09:00'
-draft: true
+draft: false
 tags: ['tech', 'aws', 'cdk', 'cdkd', 'ecs']
 description: '前回作ったSpring BootのTodoアプリを、AWS CDKのL3 Constructで構成し、cdkdからFargateへデプロイしてみました。'
-title: 'cdkdを触ってみました'
+title: 'L3 Constructをcdkdでデプロイしてみる'
 ---
 
 よ〜んです。
@@ -20,13 +20,7 @@ cdkdはCDK Directの略で、AWS CDKのアプリケーションを、CloudFormat
 
 CDKのコードからCloudFormationテンプレートを生成し、それをもとにcdkdがリソースを作成・更新します。インフラを書くのはCDK、デプロイを担当するのはcdkd、という分担ですね。
 
-同じCDKコードから生成したテンプレートを、どちらがデプロイするのかが変わります。流れを図にすると、こんな感じです。
-
-以下は、cdkdの公式READMEに掲載されているデプロイ比較のデモです。
-
-![](https://raw.githubusercontent.com/go-to-k/cdkd/main/assets/cdk-vs-cdkd.gif)
-
-出典：[cdkd公式README](https://github.com/go-to-k/cdkd/blob/v0.294.0/README.md)
+[cdkd - README](https://github.com/go-to-k/cdkd/blob/v0.294.0/README.md)
 
 ## 前回のアプリをAWSへ
 
@@ -34,9 +28,7 @@ CDKのコードからCloudFormationテンプレートを生成し、それをも
 
 コードは[examplesリポジトリ](https://github.com/mu7889yoon/examples/tree/main/getting-started-with-spring-boot-and-cdkd)に置いてあります。
 
-## L3 Construct
-
-ALB付きFargateには、`ApplicationLoadBalancedFargateService`を使いました。
+## ApplicationLoadBalancedFargateService(L3 Construct)について
 
 L3 Constructは、複数のリソースをよく使う構成としてまとめたものです。今回なら、ECSサービスやALBなどを一つのConstructから定義できます。
 
@@ -64,12 +56,12 @@ const service = new ecsPatterns.ApplicationLoadBalancedFargateService(this, 'Api
 
 参考：[Wait Modes](https://github.com/go-to-k/cdkd/blob/v0.294.0/docs/wait-modes.md)
 
-デプロイ後にアクセスすると、前回作ったTodo画面が表示されました。画面、ヘルスチェック、Todo APIでHTTP 200を確認できています。
+デプロイ後にアクセスすると、前回作ったTodo画面が確認できました。
 
-## 感想
+## まとめ(？)
 
-普段のCDKの書き方で構成を作り、L3 Constructで定義したALB付きFargateをcdkdからデプロイできました。
+今回試したかったのは、L3 Constructも普通に使えるのかというところです。
 
-今回試したかったのは、まずこの流れです。速度比較まではしていませんが、CDKのConstructを使いながら、デプロイの仕組みを変えて試せるのは面白いですね。
+速度比較はしていませんが、L3を使いながら、デプロイの仕組みを変えて素早くデプロイできた体験は素晴らしかったです。
 
 ではでは〜
