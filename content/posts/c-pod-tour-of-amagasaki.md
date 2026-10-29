@@ -1,7 +1,7 @@
 ---
 date: '2026-10-04T23:59:00+09:00'
 draft: false
-tags: ['travel','yoons-summer-vacation-2026']
+tags: ['travel','yoons-vacation-2026']
 description: '尼崎市の公用車カーシェアでC+podを借り、尼崎の博物館や西宮の坂道を巡ってきました。'
 title: 'C+podで巡る尼崎'
 ---
