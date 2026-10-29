@@ -31,7 +31,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 ウーブンシティの中はかなり広く、まずはサッと見るつもりでしたが、結構大変でした。
 
-![](/images/01a186d6-e628-7e07-b397-3fd69cb24ea4.jpg)
+![](/images/01a186d8-12f0-7416-91a9-6e0f4c50378d.jpg)
 
 訪問者は[「One Day Weavers」](https://www.woven-city.global/jpn/people/weavers/visitors/)として、街で開発されているプロダクトやサービスを体験し、フィードバックを返します。
 
@@ -63,13 +63,13 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 ウーブンシティを出たあとは、[炭焼きレストランさわやか](https://www.genkotsu-hb.com/)へ。
 
-![](/images/01a186d6-edf8-73b0-b91f-84ddd8a7ae51.jpg)
+![](/images/01a186d8-1ac0-77d6-b1ed-988ccf5ab617.jpg)
 
 そのまま[静岡醸造 人宿タップルーム](https://maps.app.goo.gl/BmCBm2KK5KrfWgji8?g_st=ic)へ向かいます。
 
 ![](/images/01a185e5-b410-71a2-aaf1-430687e2ab55.jpeg)
 
-![](/images/01a186d6-da70-7049-8214-cba963cb14c8.jpg)
+![](/images/01a186d8-0738-7bb6-9c65-eb558fb11da8.jpg)
 
 さらに[PERFECT BEER KITCHEN 静岡](https://maps.app.goo.gl/zAPxsm94Zx67vWK49?g_st=ic)へ。
 
@@ -91,7 +91,7 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 とかしていたら、お昼時なので、[三笑亭本店](https://www.sanshouteihonten.com/)へ
 
-![](/images/01a186d6-d2a0-7e70-856c-7a7d3fa138cc.jpg)
+![](/images/01a186d7-ff68-735d-a7e2-8bfd8c20857b.jpg)
 
 友人が仕事をしている間、もう1人の友人と『どこ君』を見たり、駿河屋本店を見て回ったりしました。
 
