@@ -16,11 +16,11 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 今回は鈍行旅ということもあり、流石に腰の限界が来たのと、お腹が空いたので浜松で降りて昼飯を食べます。
 
-浜松駅の改札を出てすぐの丸浜でうなぎを食べました、かなり贅沢な寄り道です。
+浜松駅の改札を出てすぐの[浜名湖うなぎ 丸浜](https://www.unagi-maruhama.jp/)でうなぎを食べました、かなり贅沢な寄り道です。
 
 ![](/images/01a186d8-2290-7c6b-8ce8-e913db0b9adc.jpg)
 
-ここから島田を経由し静岡まで鈍行で移動し、本日は終了です。
+ここから静岡まで鈍行で移動し、本日は終了です。
 
 適当な宿で寝ました
 
@@ -34,7 +34,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 訪問者は[「One Day Weavers」](https://www.woven-city.global/jpn/people/weavers/visitors/)として、街で開発されているプロダクトやサービスを体験し、フィードバックを返します。
 
-Kakezan Invention Hubでは、開発中のプロダクトを見ることができました。
+[Kakezan Invention Hub](https://www.woven-city.global/jpn/news/article/20250222/)では、開発中のプロダクトを見ることができました。
 
 自分のラボを持ちたいな〜なんて思いましたね
 
@@ -52,7 +52,7 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 もちろん、短時間訪問しただけの感想です。ウーブンシティは今後も開発が続く実証の街なので、今後使い続けることで印象も変わると思います。
 
-朝昼兼用でウーブンランチも食します。ちらし寿司みたいなランチでした。
+朝昼兼用で、Woven Cityの[レストラン -en](https://www.woven-city.global/jpn/people/weavers/visitors/)でウーブンランチも食します。ちらし寿司みたいなランチでした。
 
 ![](/images/01a185e5-b410-7e34-b2aa-6f6ecbae5c41.jpeg)
 
@@ -60,27 +60,27 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 ## 静岡の夜
 
-ウーブンシティを出たあとは、さわやかへ。
+ウーブンシティを出たあとは、[炭焼きレストランさわやか](https://www.genkotsu-hb.com/)へ。
 
 ![](/images/01a186d6-edf8-73b0-b91f-84ddd8a7ae51.jpg)
 
-そのまま静岡醸造へ向かいます。
+そのまま[静岡醸造 人宿タップルーム](https://maps.app.goo.gl/BmCBm2KK5KrfWgji8?g_st=ic)へ向かいます。
 
 ![](/images/01a185e5-b410-71a2-aaf1-430687e2ab55.jpeg)
 
 ![](/images/01a186d6-da70-7049-8214-cba963cb14c8.jpg)
 
-さらにPERFECT BEERへ。
+さらに[PERFECT BEER KITCHEN 静岡](https://maps.app.goo.gl/zAPxsm94Zx67vWK49?g_st=ic)へ。
 
 ![](/images/01a186d8-2a60-751c-bf83-1ca9422e6cf7.jpg)
 
-締めは[ラーメン](https://maps.app.goo.gl/h4dASZyPKVfbm3Cq7?g_st=ic)。
+締めは[繁ちゃんラーメン＆なごみ](https://maps.app.goo.gl/h4dASZyPKVfbm3Cq7?g_st=ic)。
 
 ![](/images/01a185e5-b410-7c63-bed2-44a9d596a983.jpeg)
 
 さわやかから静岡醸造、PERFECT BEER、そしてラーメン。明らかに食べすぎですが、旅なのでよしとします。
 
-この日はKOKO Hotel Shizuokaへ。12時チェックアウト、大浴場、ビリヤード、卓球あり。逃げ若も読めて、めっちゃ良かったです。
+この日は[KOKO HOTEL 静岡](https://www.hotelwing.co.jp/shizuoka/)へ。12時チェックアウト、大浴場、ビリヤード、卓球あり。逃げ若も読めて、めっちゃ良かったです。
 
 ## 静岡をぶらぶら
 
@@ -88,7 +88,7 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 [AWS麻雀 役検索機能](https://mu7889yoon.github.io/aws-mahjong/v2.0.1/search/)
 
-とかしていたら、お昼時なので、三笑亭へ
+とかしていたら、お昼時なので、[三笑亭本店](https://www.sanshouteihonten.com/)へ
 
 ![](/images/01a186d6-d2a0-7e70-856c-7a7d3fa138cc.jpg)
 
@@ -96,7 +96,7 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 久しぶりにアニメガタリできて良かったです
 
-そのあとはWCBへ。飲みたいやつを全部飲みます。
+そのあとはWCB直営の[12 - twelve BEER RESTAURANT](https://www.westcoastbrewing.jp/location/12-twelve/)へ。飲みたいやつを全部飲みます。
 
 ![](/images/01a185e5-b410-7b10-8360-22fde563087b.jpeg)
 
