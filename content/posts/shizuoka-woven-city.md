@@ -17,7 +17,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 今回は鈍行旅ということもあり、流石に腰の限界が来たのと、お腹が空いたので浜松で降りて昼飯を食べます。
 
-浜松駅の改札を出てすぐの[浜名湖うなぎ 丸浜](https://www.unagi-maruhama.jp/)でうなぎを食べました、かなり贅沢な寄り道です。
+浜松駅の改札を出てすぐの[浜名湖うなぎ丸浜](https://www.unagi-maruhama.jp/)でうなぎを食べました、かなり贅沢な寄り道です。
 
 ![](/images/01a186d8-2290-7c6b-8ce8-e913db0b9adc.jpg)
 
@@ -75,7 +75,7 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 ![](/images/01a186d8-2a60-751c-bf83-1ca9422e6cf7.jpg)
 
-締めは[繁ちゃんラーメン＆なごみ](https://maps.app.goo.gl/h4dASZyPKVfbm3Cq7?g_st=ic)。
+締めは[繁ちゃんラーメン&なごみ](https://maps.app.goo.gl/h4dASZyPKVfbm3Cq7?g_st=ic)。
 
 ![](/images/01a185e5-b410-7c63-bed2-44a9d596a983.jpeg)
 
