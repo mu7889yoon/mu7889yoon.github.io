@@ -14,7 +14,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 ## 静岡へ
 
-浜松駅近くの[丸浜](https://maps.app.goo.gl/BmCBm2KK5KrfWgji8?g_st=ic)でうなぎを食べました。駅の近くでうなぎ、贅沢な寄り道です。
+浜松駅近くの丸浜でうなぎを食べました。駅の近くでうなぎ、贅沢な寄り道です。
 
 ## ウーブンシティ
 
@@ -60,13 +60,13 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 ![](/images/01a185e5-b410-71fa-a2c7-a019bc543775.jpeg)
 
-そのまま[静岡醸造](https://maps.app.goo.gl/zAPxsm94Zx67vWK49?g_st=ic)へ向かいます。
+そのまま静岡醸造へ向かいます。
 
 ![](/images/01a185e5-b410-71a2-aaf1-430687e2ab55.jpeg)
 
 ![](/images/01a185e5-b410-7c81-84a8-5bb45b6809e4.jpeg)
 
-さらに[PERFECT BEER](https://maps.app.goo.gl/BmCBm2KK5KrfWgji8?g_st=ic)へ。
+さらにPERFECT BEERへ。
 
 ![](/images/01a185e5-b410-7309-a480-a128e04381a7.jpeg)
 
@@ -102,7 +102,7 @@ Hazyはやっぱりめっちゃ酔う。
 
 ## 帰路
 
-翌日の昼は[三笑亭](https://maps.app.goo.gl/zAPxsm94Zx67vWK49?g_st=ic)へ。
+翌日の昼は三笑亭へ。
 
 ![](/images/01a185e5-b410-7c5a-9eb1-1da1a489ccf9.jpeg)
 
