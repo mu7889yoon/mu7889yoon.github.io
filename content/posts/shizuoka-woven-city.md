@@ -2,6 +2,7 @@
 date: '2026-10-16T13:00:00+09:00'
 draft: false
 tags: ['poem']
+aliases: ['/posts/summer-vacation-shizuoka-woven-city/']
 description: '謎の長期休暇に静岡へ。ウーブンシティを訪れ、街やプロダクトについて感じたことを記録しました。'
 title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 ---
