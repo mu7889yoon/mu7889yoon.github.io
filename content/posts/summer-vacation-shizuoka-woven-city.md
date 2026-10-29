@@ -18,7 +18,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 浜松駅の改札を出てすぐの丸浜でうなぎを食べました、かなり贅沢な寄り道です。
 
-![](/images/01a186b4-7208-7344-8630-c46e1c45f067.jpeg)
+![](/images/shizuoka-maruhama-eel.jpg)
 
 ここから島田を経由し静岡まで鈍行で移動し、本日は終了です。
 
@@ -30,7 +30,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 ウーブンシティの中はかなり広く、まずはサッと見るつもりでしたが、結構大変でした。
 
-![](/images/01a185e5-b410-7cbd-b44f-71e9fdb3b1c0.jpeg)
+![](/images/shizuoka-woven-city.jpg)
 
 訪問者は[「One Day Weavers」](https://www.woven-city.global/jpn/people/weavers/visitors/)として、街で開発されているプロダクトやサービスを体験し、フィードバックを返します。
 
@@ -62,17 +62,17 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 ウーブンシティを出たあとは、さわやかへ。
 
-![](/images/01a185e5-b410-71fa-a2c7-a019bc543775.jpeg)
+![](/images/sawayaka-hamburg.jpg)
 
 そのまま静岡醸造へ向かいます。
 
 ![](/images/01a185e5-b410-71a2-aaf1-430687e2ab55.jpeg)
 
-![](/images/01a185e5-b410-7c81-84a8-5bb45b6809e4.jpeg)
+![](/images/shizuoka-beer-flight.jpg)
 
 さらにPERFECT BEERへ。
 
-![](/images/01a185e5-b410-7309-a480-a128e04381a7.jpeg)
+![](/images/shizuoka-perfect-beer.jpg)
 
 締めは[ラーメン](https://maps.app.goo.gl/h4dASZyPKVfbm3Cq7?g_st=ic)。
 
@@ -90,7 +90,7 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 とかしていたら、お昼時なので、三笑亭へ
 
-![](/images/01a186bb-217e-7528-8a29-c28bbfba1e0a.jpeg)
+![](/images/shosho-tei-lunch.jpg)
 
 友人が仕事をしている間、もう1人の友人と映画を見たり、駿河屋本店を見て回ったりしました。
 
