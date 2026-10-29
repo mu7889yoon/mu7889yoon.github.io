@@ -18,7 +18,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 浜松駅の改札を出てすぐの丸浜でうなぎを食べました、かなり贅沢な寄り道です。
 
-![](/images/shizuoka-maruhama-eel.jpg)
+![](/images/01a186d8-2290-7c6b-8ce8-e913db0b9adc.jpg)
 
 ここから島田を経由し静岡まで鈍行で移動し、本日は終了です。
 
@@ -30,7 +30,7 @@ title: 'よ〜んの夏休み 静岡・ウーブンシティ編'
 
 ウーブンシティの中はかなり広く、まずはサッと見るつもりでしたが、結構大変でした。
 
-![](/images/shizuoka-woven-city.jpg)
+![](/images/01a186d6-e628-7e07-b397-3fd69cb24ea4.jpg)
 
 訪問者は[「One Day Weavers」](https://www.woven-city.global/jpn/people/weavers/visitors/)として、街で開発されているプロダクトやサービスを体験し、フィードバックを返します。
 
@@ -62,17 +62,17 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 ウーブンシティを出たあとは、さわやかへ。
 
-![](/images/sawayaka-hamburg.jpg)
+![](/images/01a186d6-edf8-73b0-b91f-84ddd8a7ae51.jpg)
 
 そのまま静岡醸造へ向かいます。
 
 ![](/images/01a185e5-b410-71a2-aaf1-430687e2ab55.jpeg)
 
-![](/images/shizuoka-beer-flight.jpg)
+![](/images/01a186d6-da70-7049-8214-cba963cb14c8.jpg)
 
 さらにPERFECT BEERへ。
 
-![](/images/shizuoka-perfect-beer.jpg)
+![](/images/01a186d8-2a60-751c-bf83-1ca9422e6cf7.jpg)
 
 締めは[ラーメン](https://maps.app.goo.gl/h4dASZyPKVfbm3Cq7?g_st=ic)。
 
@@ -86,17 +86,15 @@ Guide Mobiなど、開発されているプロダクトはいいと思います�
 
 翌朝はJevがマルチモーダルになったので、朝から検証していました。AWS麻雀の手牌を画像から入力する仕組みに早速使ってみました。
 
-[https://mu7889yoon.github.io/aws-mahjong/v2.0.1/search/](https://mu7889yoon.github.io/aws-mahjong/v2.0.1/search/)
+[AWS麻雀 役検索機能](https://mu7889yoon.github.io/aws-mahjong/v2.0.1/search/)
 
 とかしていたら、お昼時なので、三笑亭へ
 
-![](/images/shosho-tei-lunch.jpg)
+![](/images/01a186d6-d2a0-7e70-856c-7a7d3fa138cc.jpg)
 
-友人が仕事をしている間、もう1人の友人と映画を見たり、駿河屋本店を見て回ったりしました。
+友人が仕事をしている間、もう1人の友人と『どこ君』を見たり、駿河屋本店を見て回ったりしました。
 
-どこ君ってちゃんと書いて、久しぶりにアニメガタリできて良かったです
-
-![](/images/01a185e5-b410-76d2-a636-ff3d5d15b9a4.jpeg)
+久しぶりにアニメガタリできて良かったです
 
 そのあとはWCBへ。飲みたいやつを全部飲みます。
 
@@ -108,6 +106,8 @@ Hazyはやっぱりめっちゃ酔う、静岡駅の記憶があんまりあり�
 
 ## 帰路
 
-静岡でウーブンシティを訪れ、街から感じた冷たさと、開発されているプロダクトへの期待が残りました。
+静岡でウーブンシティを訪れ、開発されているプロダクトへの期待が残りました。
 
 効率や便利さを追求しながら、人が暮らしたくなる温度をどう残すのか。ウーブンシティがこれからどう変わっていくのか、また見に行きたいと思います。
+
+ではでは
