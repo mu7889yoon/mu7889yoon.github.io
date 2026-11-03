@@ -92,7 +92,7 @@ title: '東京・福岡・札幌を巡ってきたよ'
 
 ### YONA YONA TOKYO BREWERY
 
-JAWS-UGのあとは、JAWS-UGの方々と品川の[YONA YONA TOKYO BREWERY](https://yonayonatokyobrewery.com/)へ。品川駅直結のブルワリーレストランです。<!-- TODO: 公開してよいか確認（同行者の名前は省略しています） -->めちゃ可愛いステッカーももらいました。
+JAWS-UGのあとは、アキキーさん、モブエンジニアさんと品川の[YONA YONA TOKYO BREWERY](https://yonayonatokyobrewery.com/)へ。品川駅直結のブルワリーレストランです。エレベーターの中でてつてつさんが「結婚おめでとう」と言ってくれたおかげで、なんだかお祝いムード（？）に。めちゃ可愛いステッカーももらいました。
 
 <!-- TODO: YONA YONA TOKYO BREWERYのビールの写真を配置 -->
 
