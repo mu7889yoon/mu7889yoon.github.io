@@ -1,6 +1,6 @@
 ---
 date: '2026-10-26T23:59:00+09:00'
-draft: true
+draft: false
 tags: ['travel','yoons-summer-vacation-2026']
 description: '東京でJAWS-UGとNTT技術史料館、夜行バスで関空へ抜けて福岡でAWS Community Builders Meetup Kyushu 2026を主催し、最後は札幌でジンギスカンと観覧車とエスコンフィールドまで回った一週間の記録です。'
 title: '東京・福岡・札幌を巡ってきたよ'
