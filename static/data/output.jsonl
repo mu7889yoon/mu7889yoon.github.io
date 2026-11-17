@@ -76,6 +76,9 @@
 {"date":"2026-10-09","type":"lt", "note":"社内登壇"}
 {"date":"2026-10-23","type":"lt", "url":"https://kyushu-cbs.connpass.com/event/404203/", "note":""}
 {"date":"2026-10-23","type":"organizer", "url":"https://kyushu-cbs.connpass.com/event/404203/", "note":"【福岡開催】AWS Community Builders Meetup Kyushu 2026"}
+{"date":"2026-11-07","type":"organizer","url": "https://jawsdays2026.jaws-ug.jp/", "note": "JAWS FESTA 2026 in AKITA 実行委員"}
+{"date":"2026-11-07","type":"other","url": "https://jawsdays2026.jaws-ug.jp/", "note": "JAWS FESTA 2026 in AKITA AWS麻雀リーグ"}
 {"date":"2026-11-11","type":"lt", "url":"https://awsbuilder.connpass.com/event/407275/", "note":"AWS re:Invent 2026 関西組 事前勉強会"}
+{"date":"2026-11-14","type":"lt", "url":"https://awsbuilder.connpass.com/event/407275/", "note":"AWS re:Invent 2026 関西組 事前勉強会"}
 {"date":"2026-11-17","type":"organizer", "note":"中之島会 第7回"}
 
